@@ -131,10 +131,11 @@
     <ClCompile Include="GameSystems.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Entity.h" />
-    <ClInclude Include="ObjectPool.h" />
-    <ClInclude Include="Resource.h" />
-    <ClInclude Include="ResourcePool.h" />
+    <ClInclude Include="EntityManagement\Entity.h" />
+    <ClInclude Include="EntityManagement\EntityManager.h" />
+    <ClInclude Include="General\ObjectPool.h" />
+    <ClInclude Include="ResourceManagement\Resource.h" />
+    <ClInclude Include="ResourceManagement\ResourcePool.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
