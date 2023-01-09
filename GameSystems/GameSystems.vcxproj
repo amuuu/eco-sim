@@ -131,6 +131,8 @@
     <ClCompile Include="GameSystems.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="ResourcePool.h" />
   </ItemGroup>
