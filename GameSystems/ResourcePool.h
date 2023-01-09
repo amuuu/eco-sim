@@ -3,8 +3,7 @@
 #include "Resource.h"
 
 #include <memory>
-#include <cassert>
-#include <iostream>
+#include <iostream> // todo: remove
 #include <map>
 
 typedef int ResourceId;
@@ -31,8 +30,6 @@ namespace ResourceManagement
 		{
 			for (const auto& r : resources)
 			{
-				(r.second)->GetAmount();
-
 				std::cout << r.second->Name << ": " << r.second->GetAmount() << " (" << r.first << ")\n";
 			}
 		}

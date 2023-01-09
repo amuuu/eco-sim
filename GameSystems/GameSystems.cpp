@@ -12,7 +12,7 @@ void WorkWithResources(time_t delay, ResourcePool& resourcePool, ResourceId coin
 	while (true)
 	{
 		std::this_thread::sleep_for(std::chrono::milliseconds(delay));
-		std::cout << "\n\nthread: " << std::this_thread::get_id() << "\n";
+		std::cout << "\nthread: " << std::this_thread::get_id() << "\n";
 		
 		resourcePool.GetResourceBasedOnID(coinId)->ChangeAmount(50);
 		resourcePool.GetResourceBasedOnID(woodId)->ChangeAmount(50);
