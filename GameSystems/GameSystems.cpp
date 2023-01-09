@@ -1,20 +1,36 @@
-// GameSystems.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+#include "ResourcePool.h"
+using namespace ResourceManagement;
 
 #include <iostream>
+#include <thread>
+#include <chrono>
+
+ResourcePool p;
+
+void WorkWithResources(time_t delay, ResourcePool& resourcePool, ResourceId coinId, ResourceId woodId)
+{
+	while (true)
+	{
+		std::this_thread::sleep_for(std::chrono::milliseconds(delay));
+		std::cout << "\n\nthread: " << std::this_thread::get_id() << "\n";
+		
+		resourcePool.GetResourceBasedOnID(coinId)->ChangeAmount(50);
+		resourcePool.GetResourceBasedOnID(woodId)->ChangeAmount(50);
+		resourcePool.PrintAllResources();
+	}
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	
+	ResourceId coinId = p.AddNewResource(new Resource{ "Coin", 200 });
+	ResourceId woodId = p.AddNewResource(new Resource{ "Wood", 1000 });
+	
+	p.PrintAllResources();
+	
+	std::thread worker1{ WorkWithResources, 500, std::ref(p), coinId, woodId };
+	std::thread worker2{ WorkWithResources, 200, std::ref(p), coinId, woodId };
+
+	worker1.join();
+	worker2.join();
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
