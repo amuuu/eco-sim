@@ -14,25 +14,11 @@ namespace ResourceManagement
 	{
 	public:
 
-		ResourceId AddNewResource(Resource* r)
-		{
-			resources[nextResourceID] = r;
+		ResourceId AddNewResource(Resource* r);
 
-			return nextResourceID++;
-		}
+		Resource* GetResourceBasedOnID(const ResourceId& id);
 
-		Resource* GetResourceBasedOnID(const ResourceId& id)
-		{
-			return resources[id];
-		}
-
-		void PrintAllResources()
-		{
-			for (const auto& r : resources)
-			{
-				std::cout << r.second->Name << ": " << r.second->GetAmount() << " (" << r.first << ")\n";
-			}
-		}
+		void PrintAllResources();
 
 	private:
 

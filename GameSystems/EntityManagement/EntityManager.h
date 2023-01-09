@@ -13,17 +13,9 @@ namespace EntityManagement
 	class EntityManager
 	{
 	public:
-		EntityId AddNewEntity(Entity* r)
-		{
-			entities[nextId] = r;
-
-			return nextId++;
-		}
-
-		Entity* GetEntityBasedOnID(const EntityId& id)
-		{
-			return entities[id];
-		}
+		
+		EntityId AddNewEntity(Entity* r);
+		Entity* GetEntityBasedOnID(const EntityId& id);
 
 	private:
 		std::map<const EntityId, Entity*> entities{};

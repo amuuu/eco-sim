@@ -128,7 +128,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EntityManagement\EntityManager.cpp" />
     <ClCompile Include="GameSystems.cpp" />
+    <ClCompile Include="ResourceManagement\ResourcePool.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EntityManagement\Entity.h" />
