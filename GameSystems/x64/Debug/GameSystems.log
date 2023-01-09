@@ -1,7 +1,23 @@
 ﻿  EntityManager.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\memory(3433,35): error C2280: 'std::thread::thread(const std::thread &)': attempting to reference a deleted function
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\thread(110,5): message : see declaration of 'std::thread::thread'
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\thread(110,5): message : 'std::thread::thread(const std::thread &)': function was explicitly deleted
-D:\Software Projects\GameSystems\GameSystems\GameSystems\EntityManagement\EntityManager.cpp(53,13): message : see reference to function template instantiation 'std::unique_ptr<std::thread,std::default_delete<std::thread>> std::make_unique<std::thread,std::thread&,0>(std::thread &)' being compiled
-  GameSystems.cpp
-  Generating Code...
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\thread(55,14): error C2672: 'invoke': no matching overloaded function found
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\type_traits(1566,19): message : could be 'unknown-type std::invoke(_Callable &&,_Ty1 &&,_Types2 &&...) noexcept(<expr>)'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\thread(55,14): message : Failed to specialize function template 'unknown-type std::invoke(_Callable &&,_Ty1 &&,_Types2 &&...) noexcept(<expr>)'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\thread(55,14): message : With the following template arguments:
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\thread(55,14): message : '_Callable=void (__cdecl EntityManagement::EntityManager::* )(EntityManagement::EntityManager &)'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\thread(55,14): message : '_Ty1=EntityManagement::EntityManager *'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\thread(55,14): message : '_Types2={}'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\type_traits(1560,19): message : or       'unknown-type std::invoke(_Callable &&) noexcept(<expr>)'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\thread(55,14): message : 'unknown-type std::invoke(_Callable &&) noexcept(<expr>)': expects 1 arguments - 2 provided
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\thread(61,5): message : see reference to function template instantiation 'unsigned int std::thread::_Invoke<_Tuple,0,1>(void *) noexcept' being compiled
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\thread(66,13): message : see reference to function template instantiation 'unsigned int (__cdecl *std::thread::_Get_invoke<_Tuple,0,1>(std::integer_sequence<size_t,0,1>) noexcept)(void *)' being compiled
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\thread(89,5): message : see reference to function template instantiation 'void std::thread::_Start<_Ty,EntityManagement::EntityManager*>(_Fn &&,EntityManagement::EntityManager *&&)' being compiled
+          with
+          [
+              _Ty=void (__cdecl EntityManagement::EntityManager::* )(EntityManagement::EntityManager &),
+              _Fn=void (__cdecl EntityManagement::EntityManager::* )(EntityManagement::EntityManager &)
+          ]
+D:\Software Projects\GameSystems\GameSystems\GameSystems\EntityManagement\EntityManager.cpp(52,104): message : see reference to function template instantiation 'std::thread::thread<void(__cdecl EntityManagement::EntityManager::* )(EntityManagement::EntityManager &),EntityManagement::EntityManager*,0>(_Fn &&,EntityManagement::EntityManager *&&)' being compiled
+          with
+          [
+              _Fn=void (__cdecl EntityManagement::EntityManager::* )(EntityManagement::EntityManager &)
+          ]

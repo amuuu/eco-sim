@@ -34,7 +34,8 @@ namespace EntityManagement
 
 		EntityId nextId{ 0 };
 		
-		std::unique_ptr<std::thread> mainLoopThread{};
+		std::unique_ptr<std::thread> mainLoopThread;
+
 		std::atomic <Tick> currentTick{ 0 };
 		std::atomic_bool isLoopAwake{ true };
 	};
