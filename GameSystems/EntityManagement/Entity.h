@@ -1,11 +1,14 @@
 #pragma once
+#include "EntityGlobals.h"
 
-typedef long long Tick;
-
-class Entity
+namespace EntityManagement
 {
-public:
-	virtual void Init() = 0;
-	virtual void Update(Tick tick) = 0;
+	class Entity
+	{
+	public:
+		virtual void Init() = 0;
+		virtual void Update(Tick tick) = 0;
 
-};
+		EntityId Id;
+	};
+}

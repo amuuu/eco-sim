@@ -134,9 +134,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EntityManagement\Entity.h" />
+    <ClInclude Include="EntityManagement\EntityGlobals.h" />
     <ClInclude Include="EntityManagement\EntityManager.h" />
     <ClInclude Include="General\ObjectPool.h" />
     <ClInclude Include="ResourceManagement\Resource.h" />
+    <ClInclude Include="ResourceManagement\ResourceManagementSample.h" />
     <ClInclude Include="ResourceManagement\ResourcePool.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

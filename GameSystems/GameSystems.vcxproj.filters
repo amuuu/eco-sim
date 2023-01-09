@@ -41,5 +41,11 @@
     <ClInclude Include="ResourceManagement\ResourcePool.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EntityManagement\EntityGlobals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManagement\ResourceManagementSample.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

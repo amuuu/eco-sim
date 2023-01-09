@@ -1,2 +1,7 @@
-﻿  ResourcePool.cpp
-  GameSystems.vcxproj -> D:\Software Projects\GameSystems\GameSystems\x64\Debug\GameSystems.exe
+﻿  EntityManager.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\memory(3433,35): error C2280: 'std::thread::thread(const std::thread &)': attempting to reference a deleted function
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\thread(110,5): message : see declaration of 'std::thread::thread'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\thread(110,5): message : 'std::thread::thread(const std::thread &)': function was explicitly deleted
+D:\Software Projects\GameSystems\GameSystems\GameSystems\EntityManagement\EntityManager.cpp(53,13): message : see reference to function template instantiation 'std::unique_ptr<std::thread,std::default_delete<std::thread>> std::make_unique<std::thread,std::thread&,0>(std::thread &)' being compiled
+  GameSystems.cpp
+  Generating Code...
