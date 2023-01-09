@@ -47,5 +47,11 @@
     <ClInclude Include="ResourceManagement\ResourceManagementSample.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EntityManagement\SimpleDumbEntity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityManagement\EntityManagementSample.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

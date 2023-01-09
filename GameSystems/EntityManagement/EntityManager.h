@@ -23,6 +23,7 @@ namespace EntityManagement
 		
 		void MainEntityLoop();
 		void StartTheLoop();
+		
 		EntityManager(bool mustAutoStartLoopAfterInitialization);
 		~EntityManager();
 

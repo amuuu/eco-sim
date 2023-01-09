@@ -41,7 +41,7 @@ namespace EntityManagement
 				InitializeEntity(entitiesToInitialize.front());
 				entitiesToInitialize.pop();
 			}
-			entitiesMutex.unlock();
+			entitiesQueueMutex.unlock();
 
 			// Update alive entities
 			entitiesMutex.lock();

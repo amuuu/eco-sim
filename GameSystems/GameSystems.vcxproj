@@ -135,7 +135,9 @@
   <ItemGroup>
     <ClInclude Include="EntityManagement\Entity.h" />
     <ClInclude Include="EntityManagement\EntityGlobals.h" />
+    <ClInclude Include="EntityManagement\EntityManagementSample.h" />
     <ClInclude Include="EntityManagement\EntityManager.h" />
+    <ClInclude Include="EntityManagement\SimpleDumbEntity.h" />
     <ClInclude Include="General\ObjectPool.h" />
     <ClInclude Include="ResourceManagement\Resource.h" />
     <ClInclude Include="ResourceManagement\ResourceManagementSample.h" />
