@@ -21,14 +21,15 @@ namespace EntityManagement
 		void InitializeEntity(Entity* r);
 		Entity* GetEntityBasedOnID(const EntityId& id);
 		
-		void MainEntityLoop(EntityManager& thisObject);
+		void MainEntityLoop();
 		void StartTheLoop();
 		EntityManager(bool mustAutoStartLoopAfterInitialization);
+		~EntityManager();
 
 	private:
 		std::map<const EntityId, Entity*> entities{};
 		std::queue<Entity*> entitiesToInitialize{};
-		std::mutex entitiesMutex, entitiesQueueMutex;
+		std::mutex entitiesMutex{}, entitiesQueueMutex{};
 
 		bool mustAutoStartLoopAfterInitialization{ true };
 

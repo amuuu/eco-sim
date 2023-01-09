@@ -7,14 +7,19 @@ namespace EntityManagement
 	{
 		r->Id = nextId;
 
+		entitiesQueueMutex.lock();
 		entitiesToInitialize.push(r);
+		entitiesQueueMutex.unlock();
 
 		return nextId++;
 	}
 
 	void EntityManager::InitializeEntity(Entity* r)
 	{
+		entitiesMutex.lock();
 		entities[r->Id] = std::move(r);
+		entitiesMutex.unlock();
+
 		r->Init();
 	}
 
@@ -23,33 +28,33 @@ namespace EntityManagement
 		return entities[id];
 	}
 	
-	void EntityManager::MainEntityLoop(EntityManager& thisObject)
+	void EntityManager::MainEntityLoop()
 	{
-		while (thisObject.isLoopAwake)
+		while (isLoopAwake)
 		{
-			thisObject.currentTick++;
+			currentTick++;
 			
 			// Initialize entities in queue
-			thisObject.entitiesQueueMutex.lock();
-			while (!thisObject.entitiesToInitialize.empty())
+			entitiesQueueMutex.lock();
+			while (!entitiesToInitialize.empty())
 			{
-				thisObject.InitializeEntity(thisObject.entitiesToInitialize.front());
-				thisObject.entitiesToInitialize.pop();
+				InitializeEntity(entitiesToInitialize.front());
+				entitiesToInitialize.pop();
 			}
-			thisObject.entitiesQueueMutex.unlock();
+			entitiesMutex.unlock();
 
 			// Update alive entities
-			thisObject.entitiesMutex.lock();
-			for (const auto& e : thisObject.entities)
-				e.second->Update(thisObject.currentTick);
-			thisObject.entitiesMutex.unlock();
+			entitiesMutex.lock();
+			for (const auto& e : entities)
+				e.second->Update(currentTick);
+			entitiesMutex.unlock();
 
 		}
 	}
 
 	void EntityManager::StartTheLoop()
 	{
-		mainLoopThread = std::make_unique<std::thread>(new std::thread{ &EntityManager::MainEntityLoop, this });
+		mainLoopThread = std::make_unique<std::thread>(std::thread{ &EntityManager::MainEntityLoop, this });
 	}
 
 	EntityManager::EntityManager(bool mustAutoStartLoopAfterInitialization) : mustAutoStartLoopAfterInitialization(mustAutoStartLoopAfterInitialization)
@@ -58,5 +63,10 @@ namespace EntityManagement
 
 		if (mustAutoStartLoopAfterInitialization)
 			StartTheLoop();
+	}
+	
+	EntityManager::~EntityManager()
+	{
+		mainLoopThread->join();
 	}
 }
