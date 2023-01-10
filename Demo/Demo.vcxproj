@@ -176,7 +176,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\ExternalTools\imgui-1.89.1\misc\debuggers\imgui.natvis" />
-    <None Include="..\README.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

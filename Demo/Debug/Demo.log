@@ -1,10 +1,2 @@
-﻿  imgui.cpp
-  imgui_demo.cpp
-  imgui_draw.cpp
-  imgui_tables.cpp
-  imgui_widgets.cpp
-  imgui_impl_glfw.cpp
-  imgui_impl_opengl2.cpp
-  main.cpp
-  Generating Code...
+﻿  main.cpp
   Demo.vcxproj -> D:\Software Projects\GameSystems\GameSystems\Demo\Debug\Demo.exe
