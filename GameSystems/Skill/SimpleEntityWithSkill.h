@@ -16,7 +16,7 @@ namespace Skills
 		{
 			std::cout << "Simple entity init " << Id << "\n";
 
-			skills.AddNewResource(new Resource{ "Crafting", 100 });
+			skills.AddNewResource(new Resource{ "Crafting", 0, 100, 0 });
 
 			skills.PrintAllResources();
 		}

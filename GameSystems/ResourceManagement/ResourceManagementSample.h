@@ -28,8 +28,8 @@ namespace Samples
 
 		void Main()
 		{
-			ResourceId coinId = p.AddNewResource(new Resource{ "Coin", 200 });
-			ResourceId woodId = p.AddNewResource(new Resource{ "Wood", 1000 });
+			ResourceId coinId = p.AddNewResource(new Resource{ "Coin", 200, 10000, 0 });
+			ResourceId woodId = p.AddNewResource(new Resource{ "Wood", 1000, 10000, 0 });
 
 			p.PrintAllResources();
 
