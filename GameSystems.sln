@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameSystems", "GameSystems\GameSystems.vcxproj", "{61775FEC-5E21-4858-BF07-77F0D4BE981E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Demo", "Demo\Demo.vcxproj", "{9CDA7840-B7A5-496D-A527-E95571496D18}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DemoWithGui", "DemoWithGui\DemoWithGui.vcxproj", "{9CDA7840-B7A5-496D-A527-E95571496D18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
