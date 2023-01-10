@@ -53,5 +53,14 @@
     <ClInclude Include="EntityManagement\EntityManagementSample.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Skill\SkillHolder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill\SimpleEntityWithSkill.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill\SkillSample.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

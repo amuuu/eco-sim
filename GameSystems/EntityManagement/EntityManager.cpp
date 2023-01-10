@@ -57,6 +57,11 @@ namespace EntityManagement
 		mainLoopThread = std::make_unique<std::thread>(std::thread{ &EntityManager::MainEntityLoop, this });
 	}
 
+	void EntityManager::StopTheLoop()
+	{
+		isLoopAwake = false;
+	}
+
 	EntityManager::EntityManager(bool mustAutoStartLoopAfterInitialization) : mustAutoStartLoopAfterInitialization(mustAutoStartLoopAfterInitialization)
 	{
 		// Proly other stuff too
