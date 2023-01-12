@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{61775fec-5e21-4858-bf07-77f0d4be981e}</ProjectGuid>
-    <RootNamespace>GameSystems</RootNamespace>
+    <ProjectGuid>{e6209ab4-a5b2-4389-9903-c6259461746f}</ProjectGuid>
+    <RootNamespace>DemoWithConsole</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -105,7 +105,9 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
-      <AdditionalUsingDirectories>$(SolutionDir)</AdditionalUsingDirectories>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -120,9 +122,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
-      <AdditionalUsingDirectories>$(SolutionDir)</AdditionalUsingDirectories>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,23 +135,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="EntityManagement\EntityManager.cpp" />
-    <ClCompile Include="GameSystems.cpp" />
-    <ClCompile Include="ResourceManagement\ResourcePool.cpp" />
+    <ClCompile Include="DemoWithConsole.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EntityManagement\Entity.h" />
-    <ClInclude Include="EntityManagement\EntityGlobals.h" />
-    <ClInclude Include="EntityManagement\EntityManagementSample.h" />
-    <ClInclude Include="EntityManagement\EntityManager.h" />
-    <ClInclude Include="EntityManagement\SimpleDumbEntity.h" />
-    <ClInclude Include="General\ObjectPool.h" />
-    <ClInclude Include="ResourceManagement\Resource.h" />
-    <ClInclude Include="ResourceManagement\ResourceManagementSample.h" />
-    <ClInclude Include="ResourceManagement\ResourcePool.h" />
-    <ClInclude Include="Skill\SimpleEntityWithSkill.h" />
-    <ClInclude Include="Skill\SkillHolder.h" />
-    <ClInclude Include="Skill\SkillSample.h" />
+    <ProjectReference Include="..\GameSystems\GameSystems.vcxproj">
+      <Project>{61775fec-5e21-4858-bf07-77f0d4be981e}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

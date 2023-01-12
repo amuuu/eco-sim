@@ -177,6 +177,11 @@
   <ItemGroup>
     <None Include="..\ExternalTools\imgui-1.89.1\misc\debuggers\imgui.natvis" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameSystems\GameSystems.vcxproj">
+      <Project>{61775fec-5e21-4858-bf07-77f0d4be981e}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

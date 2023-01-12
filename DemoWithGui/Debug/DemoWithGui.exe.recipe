@@ -2,6 +2,9 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
+      <FullPath>D:\Software Projects\GameSystems\GameSystems\x64\Debug\GameSystems.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
       <FullPath>D:\Software Projects\GameSystems\GameSystems\DemoWithGui\Debug\DemoWithGui.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
