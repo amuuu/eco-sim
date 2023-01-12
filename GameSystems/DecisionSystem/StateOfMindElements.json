@@ -1,0 +1,31 @@
+{
+  "Needs": {
+    
+    "Hunger": {
+      "Bounds": {
+        "Max": 100.0,
+        "Min": 0.0
+      },
+      "AutoUpdateByTick": {
+        "IsActive": true,
+        "Amount": 0.005
+      },
+      "AffectedBy": {
+        "Personality": {
+          "Foody": {
+            "AmountPerTick": 0.0005
+          }
+        },
+        "Emotions":{
+          "Morale": { // what if we want it to have conditional effect?
+            "AmountPerTick": 0.005,
+            "If": {
+              "TotalIsLessThan": 50
+            }
+          }
+        }
+
+      }
+    }
+  }
+}

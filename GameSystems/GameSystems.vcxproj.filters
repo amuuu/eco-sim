@@ -63,4 +63,8 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="DecisionSystem\ActionsDB.json" />
+    <None Include="DecisionSystem\StateOfMind.json" />
+  </ItemGroup>
 </Project>
