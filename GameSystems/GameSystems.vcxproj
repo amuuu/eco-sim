@@ -137,6 +137,7 @@
     <ClCompile Include="ResourceManagement\ResourcePool.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DecisionSystem\DecisionSystem.h" />
     <ClInclude Include="EntityManagement\Entity.h" />
     <ClInclude Include="EntityManagement\EntityGlobals.h" />
     <ClInclude Include="EntityManagement\EntityManagementSample.h" />
