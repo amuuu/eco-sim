@@ -117,6 +117,8 @@ namespace DesicionSystem
 				soms.push_back(StateOfMind{ name,category,min,max,isAutoUpdatedInTicks,autoUpdateAmount,affectors });
 			}
 			
+			f.close();
+
 			std::cout << "doode";
 
 			// load actions db
