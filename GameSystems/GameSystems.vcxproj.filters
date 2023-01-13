@@ -24,6 +24,12 @@
     <ClCompile Include="EntityManagement\EntityManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DecisionSystem\TestTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DecisionSystem\GoogleTestTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EntityManagement\Entity.h">
@@ -69,7 +75,7 @@
   <ItemGroup>
     <None Include="DecisionSystem\ActionsDB.json" />
     <None Include="DecisionSystem\StateOfMind.json" />
-    <None Include="DecisionSystem\StateOfMinds.json" />
+    <None Include="DecisionSystem\StateOfMindsPerNPCPersistentData.json" />
     <None Include="DecisionSystem\StateOfMindElements.json" />
   </ItemGroup>
 </Project>

@@ -155,7 +155,7 @@
     <None Include="DecisionSystem\ActionsDB.json" />
     <None Include="DecisionSystem\StateOfMind.json" />
     <None Include="DecisionSystem\StateOfMindElements.json" />
-    <None Include="DecisionSystem\StateOfMinds.json" />
+    <None Include="DecisionSystem\StateOfMindsPerNPCPersistentData.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
