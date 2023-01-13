@@ -72,6 +72,8 @@ namespace DesicionSystem
 	{
 	public:
 
+		std::vector<StateOfMind> soms{};
+
 		void Init()
 		{
 			// load state of mind elements
@@ -83,16 +85,16 @@ namespace DesicionSystem
 			{
 				const auto& name = (*it)["Name"];
 				const auto& category = (*it)["Category"];
-				const auto& min = (*it)["Bounds"]["Min"];
-				const auto& max = (*it)["Bounds"]["Max"];
-				const auto& isAutoUpdatedInTicks = (*it)["AutoUpdateByTick"]["IsActive"];
-				const auto& autoUpdateAmount = (*it)["AutoUpdateByTick"]["Amount"];
+				const auto& min = (*it)["Bounds"]["Min"].get<float>();
+				const auto& max = (*it)["Bounds"]["Max"].get<float>();
+				const auto& isAutoUpdatedInTicks = (*it).contains("AutoUpdateByTickAmount");
+				const auto& autoUpdateAmount = (*it)["AutoUpdateByTickAmount"].get<float>();
 
 				std::vector<StateOfMindAffector> affectors{};
 				for (json::iterator afit = (*it)["AffectedBy"].begin(); afit != (*it)["AffectedBy"].end(); ++afit)
 				{
 					const auto& afName = (*afit)["Name"];
-					const auto& afAmount = (*afit)["AmountPerTick"];
+					const auto& afAmount = (*afit)["AmountPerTick"].get<float>();
 
 					enum ConditionalAffectiveness afActiveConditional = None;
 					float afActiveIfsValue = 0.0f;
@@ -100,21 +102,22 @@ namespace DesicionSystem
 					if ((*afit).contains("IfTotalIsLessThan")) 
 					{
 						afActiveConditional = IfAmountIsLess;
-						afActiveIfsValue = (*afit)["AmountPerTick"];
+						afActiveIfsValue = (*afit)["AmountPerTick"].get<float>();
 					}
 					
 					if((*afit).contains("IfTotalIsMoreThan"))
 					{
 						afActiveConditional = IfAmountIsMore;
-						afActiveIfsValue = (*afit)["AmountPerTick"];
+						afActiveIfsValue = (*afit)["AmountPerTick"].get<float>();
 					}
 
 					affectors.push_back(StateOfMindAffector{ afName,afAmount,afActiveConditional, afActiveIfsValue });
 				}
 
-				StateOfMind som{ name,category,min,max,isAutoUpdatedInTicks,autoUpdateAmount,affectors };
-				std::cout << "doode";
+				soms.push_back(StateOfMind{ name,category,min,max,isAutoUpdatedInTicks,autoUpdateAmount,affectors });
 			}
+			
+			std::cout << "doode";
 
 			// load actions db
 		}

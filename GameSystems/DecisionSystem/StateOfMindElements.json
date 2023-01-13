@@ -8,20 +8,36 @@
       "Min": 0.0
     },
 
-    "AutoUpdateByTick": {
-      "IsActive": true,
-      "Amount": 0.005
-    },
+    "AutoUpdateByTickAmount": 0.005,
 
     "AffectedBy": [
       {
         "Name": "Foody",
-        "AmountPerTick" : 0.0005
+        "AmountPerTick": -0.0005
       },
-      { 
+      {
         "Name": "Morale",
         "AmountPerTick": 0.005,
         "IfTotalIsLessThan": 50
+      }
+    ]
+  },
+
+  {
+    "Name": "Morale",
+    "Category": "Feelings",
+
+    "Bounds": {
+      "Max": 100.0,
+      "Min": 0.0
+    },
+
+    "AutoUpdateByTickAmount": 0.005,
+
+    "AffectedBy": [
+      {
+        "Name": "Smartness",
+        "AmountPerTick": -0.0005
       }
     ]
   }
