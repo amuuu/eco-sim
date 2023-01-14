@@ -1,7 +1,11 @@
-#include "DecisionSystem/DecisionSystem.h"
+#include "EntityManagement/EntityManager.h"
+using namespace EntityManagement;
+#include "DecisionSystem/EntityWithStateOfMind.h"
+using namespace DecisionSystem;
 
 int main()
 {
-	DesicionSystem::CentralDecisionDriver cdd{};
-	cdd.Init();
+	EntityManager entityManager{ false };
+	entityManager.EnqueueNewEntity(new EntityWithStateOfMind{});
+	entityManager.StartTheLoop();
 }

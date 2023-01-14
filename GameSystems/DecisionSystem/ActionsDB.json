@@ -1,60 +1,40 @@
 {
   "MakePasta": {
-
-    "Needs": {
-
-      "Hunger": {
-        "Min": 50.0,
+    "variables": [
+      {
+        "name": "hunger",
+        "min": 50.0,
         "coeff": 1.0
       },
-
-      "SumCoeff":  1.0
-    },
-
-    "Emotions": {
-
-      "Morale": {
-        "Min": 50.0,
+      {
+        "name": "morale",
+        "min": 50.0,
         "coeff": 1.0
       },
-
-      "Energy": {
-        "Min": 50.0,
+      {
+        "name": "energy",
+        "min": 50.0,
         "coeff": 1.0
       },
-
-      "SumCoeff": 1.0
-    },
-
-    "Skills": {
-
-      "Cooking": {
-        "Min": "lvl_2",
+      {
+        "name": "cooking",
+        "min": "lvl_2",
         "coeff": 2.0
       },
-
-      "SumCoeff": 1.0
-    },
-
-    "Personality": {
-
-      "Laziness": {
-        "Max": 35.0,
+      {
+        "name": "laziness",
+        "max": 35.0,
         "coeff": 2.0
       },
-
-      "SumCoeff": 1.0
-    },
-
-    "Others": {
-
-      "Money": {
-        "Min": 20, // in dollars for example
-        "coeff": 5.0,
-        "FormulaID": "{MONEY}" // optional. applicable to all "leaf" fields
+      {
+        "name": "money",
+        "min": 20, // in dollars for example
+        "coeff": 5.0
       }
-    },
+    ],
 
-    "EvaluationFormula": "{MONEY} * (Needs + Emotions + Skills + Personality)" // Needs score = sum of (npc's val * npc's coeff * action's coeff)
+    // if money >= min, money = money amount for entity * coefficient in the formula
+    // else, money = 0
+    "formula": "money * (Needs + Emotions + Skills + Personality)"
   }
 }

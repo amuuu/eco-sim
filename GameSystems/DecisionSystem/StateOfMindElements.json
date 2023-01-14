@@ -1,43 +1,43 @@
 [
   {
-    "Name": "Hunger",
-    "Category": "Needs",
+    "name": "hunger",
+    "category": "needs",
 
-    "Bounds": {
-      "Max": 100.0,
-      "Min": 0.0
+    "bounds": {
+      "max": 100.0,
+      "min": 0.0
     },
 
-    "AutoUpdateByTickAmount": 0.005,
+    "autoUpdateByTickAmount": 0.005,
 
-    "AffectedBy": [
+    "affectedBy": [
       {
-        "Name": "Foody",
-        "AmountPerTick": -0.0005
+        "name": "foody",
+        "amountPerTick": -0.0005
       },
       {
-        "Name": "Morale",
-        "AmountPerTick": 0.005,
-        "IfTotalIsLessThan": 50
+        "name": "morale",
+        "amountPerTick": 0.005,
+        "ifTotalIsLessThan": 50
       }
     ]
   },
 
   {
-    "Name": "Morale",
-    "Category": "Feelings",
+    "name": "morale",
+    "category": "feelings",
 
-    "Bounds": {
-      "Max": 100.0,
-      "Min": 0.0
+    "bounds": {
+      "max": 100.0,
+      "min": 0.0
     },
 
-    "AutoUpdateByTickAmount": 0.005,
+    "autoUpdateByTickAmount": 0.005,
 
-    "AffectedBy": [
+    "affectedBy": [
       {
-        "Name": "Smartness",
-        "AmountPerTick": -0.0005
+        "name": "Smartness",
+        "amountPerTick": -0.0005
       }
     ]
   }

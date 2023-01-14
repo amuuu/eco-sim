@@ -24,12 +24,6 @@
     <ClCompile Include="EntityManagement\EntityManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DecisionSystem\TestTest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DecisionSystem\GoogleTestTest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EntityManagement\Entity.h">
@@ -69,6 +63,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DecisionSystem\DecisionSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DecisionSystem\EntityWithStateOfMind.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,37 +1,56 @@
 #pragma once
 
+#include "../../ExternalTools/nlohmann-json.hpp"
+
 #include <string>
 #include <map>
 #include <vector>
 #include <fstream>
-
-#include "../../ExternalTools/nlohmann-json.hpp"
 #include <iostream>
+#include <atomic>
+#include <utility>
 
-namespace DesicionSystem
+namespace DecisionSystem
 {
 	using json = nlohmann::json;
+	using StateOfMindId = std::string;
+
+#define HUNGER "hunger"
+#define MORALE "morale"
+#define SMARTNESS "smartness"
+#define FOODY "foody"
+	
+	class StateOfMindContainer
+	{
+	public:
+		void SetValueForStateOfMind(const StateOfMindId id, float value) { stateOfMindValues[id] = value; }
+		void ChangeValueForStateOfMind(const StateOfMindId id, float value) { stateOfMindValues[id] += value; }
+		float GetValueForStateOfMind(const StateOfMindId id) { return stateOfMindValues[id]; }
+		
+		void PrintAllStateOfMinds()
+		{
+			for (auto const& [key, val] : stateOfMindValues)
+				std::cout << key << ':' << val << std::endl;
+		}
+	
+	private:
+		std::map<const StateOfMindId, float> stateOfMindValues{};
+	};
 
 	struct StateOfMindAffector;
-	
+
 	enum ConditionalAffectiveness { IfAmountIsMore, IfAmountIsLess, None };
 
-	struct StateOfMind
+	struct StateOfMindElement
 	{
-		const std::string name;
-		const std::string category;
-		const float min, max;
-		
-		const bool isAutoUpdatedInTicks;
-		const float autoUpdateAmount;
-		/*const union AutoUpdate {
-			bool isActive;
-			float amount;
-		} autoUpdate;*/
+		StateOfMindId name;
+		std::string category;
+		float min, max;
+		bool isAutoUpdatedInTicks;
+		float autoUpdateAmount;
+		std::vector<StateOfMindAffector> affectors;
 
-		const std::vector<StateOfMindAffector> affectors;
-
-		StateOfMind(const std::string& name,
+		explicit StateOfMindElement(const StateOfMindId& name,
 			const std::string& category,
 			const float& min,
 			const float& max,
@@ -46,21 +65,25 @@ namespace DesicionSystem
 			affectors(affectors)
 		{ }
 
+		StateOfMindElement() = default;
+		//StateOfMindElement(StateOfMindElement&& some) = delete;
+		//StateOfMindElement(StateOfMindElement& some) = delete;
+
 
 	};
 
 	struct StateOfMindAffector
 	{
-		const std::string affectorStateOfMindName;
+		const StateOfMindId affectorStateOfMindName;
 		const float amountPerTick;
 		const ConditionalAffectiveness activeIfCondition;
 		const float activeIfsValue;
 
 		StateOfMindAffector(
-			const std::string affectorStateOfMindName,
-			const float amountPerTick,
-			const ConditionalAffectiveness activeIfCondition,
-			const float activeIfsValue) :
+			const StateOfMindId& affectorStateOfMindName,
+			const float& amountPerTick,
+			const ConditionalAffectiveness& activeIfCondition,
+			const float& activeIfsValue) :
 			affectorStateOfMindName(affectorStateOfMindName),
 			amountPerTick(amountPerTick),
 			activeIfCondition(activeIfCondition),
@@ -72,7 +95,7 @@ namespace DesicionSystem
 	{
 	public:
 
-		std::vector<StateOfMind> soms{};
+		std::map<StateOfMindId, StateOfMindElement> stateOfMindModels{};
 
 		void Init()
 		{
@@ -83,45 +106,44 @@ namespace DesicionSystem
 			// iterate the array
 			for (json::iterator it = data.begin(); it != data.end(); ++it)
 			{
-				const auto& name = (*it)["Name"];
-				const auto& category = (*it)["Category"];
-				const auto& min = (*it)["Bounds"]["Min"].get<float>();
-				const auto& max = (*it)["Bounds"]["Max"].get<float>();
-				const auto& isAutoUpdatedInTicks = (*it).contains("AutoUpdateByTickAmount");
-				const auto& autoUpdateAmount = (*it)["AutoUpdateByTickAmount"].get<float>();
+				const auto& name = (*it)["name"].get<StateOfMindId>();
+				const auto& category = (*it)["category"].get<std::string>();
+				const auto& min = (*it)["bounds"]["min"].get<float>();
+				const auto& max = (*it)["bounds"]["max"].get<float>();
+				const auto& isAutoUpdatedInTicks = (*it).contains("autoUpdateByTickAmount");
+				const auto& autoUpdateAmount = (*it)["autoUpdateByTickAmount"].get<float>();
 
 				std::vector<StateOfMindAffector> affectors{};
-				for (json::iterator afit = (*it)["AffectedBy"].begin(); afit != (*it)["AffectedBy"].end(); ++afit)
+				for (json::iterator afit = (*it)["affectedBy"].begin(); afit != (*it)["affectedBy"].end(); ++afit)
 				{
-					const auto& afName = (*afit)["Name"];
-					const auto& afAmount = (*afit)["AmountPerTick"].get<float>();
+					const auto& afName = (*afit)["name"].get<StateOfMindId>();
+					const auto& afAmount = (*afit)["amountPerTick"].get<float>();
 
 					enum ConditionalAffectiveness afActiveConditional = None;
 					float afActiveIfsValue = 0.0f;
 
-					if ((*afit).contains("IfTotalIsLessThan")) 
+					if ((*afit).contains("ifTotalIsLessThan")) 
 					{
 						afActiveConditional = IfAmountIsLess;
-						afActiveIfsValue = (*afit)["AmountPerTick"].get<float>();
+						afActiveIfsValue = (*afit)["amountPerTick"].get<float>();
 					}
 					
-					if((*afit).contains("IfTotalIsMoreThan"))
+					if((*afit).contains("ifTotalIsMoreThan"))
 					{
 						afActiveConditional = IfAmountIsMore;
-						afActiveIfsValue = (*afit)["AmountPerTick"].get<float>();
+						afActiveIfsValue = (*afit)["amountPerTick"].get<float>();
 					}
 
 					affectors.push_back(StateOfMindAffector{ afName,afAmount,afActiveConditional, afActiveIfsValue });
 				}
 
-				soms.push_back(StateOfMind{ name,category,min,max,isAutoUpdatedInTicks,autoUpdateAmount,affectors });
+				stateOfMindModels.emplace(name, std::move(StateOfMindElement{ name,category,min,max,isAutoUpdatedInTicks,autoUpdateAmount,affectors }));
 			}
-			
-			f.close();
 
-			std::cout << "doode";
+			f.close();
 
 			// load actions db
 		}
+
 	};
 }
