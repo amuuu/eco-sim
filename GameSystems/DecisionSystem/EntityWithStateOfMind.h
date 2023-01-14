@@ -1,7 +1,8 @@
 #pragma once
 
 #include "../EntityManagement/Entity.h"
-#include "DecisionSystem.h"
+
+#include "StateOfMindModelsContainer.h"
 
 #include <memory>
 

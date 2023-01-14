@@ -68,6 +68,15 @@
     <ClInclude Include="DecisionSystem\EntityWithStateOfMind.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DecisionSystem\DecisionSystemGlobals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DecisionSystem\StateOfMindModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DecisionSystem\StateOfMindModelsContainer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DecisionSystem\ActionsDB.json" />

@@ -1,2 +1,5 @@
-﻿  GameSystems.cpp
+﻿  EntityManager.cpp
+  GameSystems.cpp
+  ResourcePool.cpp
+  Generating Code...
   GameSystems.vcxproj -> D:\Software Projects\GameSystems\GameSystems\x64\Debug\GameSystems.exe

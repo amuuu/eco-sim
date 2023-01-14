@@ -8,7 +8,7 @@
       "min": 0.0
     },
 
-    "autoUpdateByTickAmount": 0.005,
+    "autoUpdateByTickAmount": -0.005,
 
     "affectedBy": [
       {

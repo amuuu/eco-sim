@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)\ExternalTools;</AdditionalIncludeDirectories>
       <AdditionalUsingDirectories>$(SolutionDir)</AdditionalUsingDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -122,7 +122,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)\ExternalTools;</AdditionalIncludeDirectories>
       <AdditionalUsingDirectories>$(SolutionDir)</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
@@ -139,7 +139,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DecisionSystem\DecisionSystem.h" />
+    <ClInclude Include="DecisionSystem\DecisionSystemGlobals.h" />
     <ClInclude Include="DecisionSystem\EntityWithStateOfMind.h" />
+    <ClInclude Include="DecisionSystem\StateOfMindModel.h" />
+    <ClInclude Include="DecisionSystem\StateOfMindModelsContainer.h" />
     <ClInclude Include="EntityManagement\Entity.h" />
     <ClInclude Include="EntityManagement\EntityGlobals.h" />
     <ClInclude Include="EntityManagement\EntityManagementSample.h" />
