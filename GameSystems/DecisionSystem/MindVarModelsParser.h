@@ -63,13 +63,13 @@ namespace DecisionSystem
 					if ((*afit).contains("ifTotalIsLessThan")) 
 					{
 						afActiveConditional = IfAmountIsLess;
-						afActiveIfsValue = (*afit)["amountPerTick"].get<float>();
+						afActiveIfsValue = (*afit)["ifTotalIsLessThan"].get<float>();
 					}
 					
 					if((*afit).contains("ifTotalIsMoreThan"))
 					{
 						afActiveConditional = IfAmountIsMore;
-						afActiveIfsValue = (*afit)["amountPerTick"].get<float>();
+						afActiveIfsValue = (*afit)["ifTotalIsMoreThan"].get<float>();
 					}
 
 					affectors.push_back(MindVarAffector{ afName,afAmount,afActiveConditional, afActiveIfsValue });

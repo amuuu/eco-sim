@@ -11,15 +11,10 @@
 namespace DecisionSystem
 {
 
-	class MindVarContainer
+	class EntityMindVarContainer
 	{
 	public:
-
-		MindVarContainer()
-		{
-
-		}
-
+		
 		void SetValueForMindVar(const MindVarId id, float value) { mindVarValues[id] = value; }
 		void ChangeValueForMindVar(const MindVarId id, float value) { mindVarValues[id] += value; }
 		float GetValueForMindVar(const MindVarId id) { return mindVarValues[id]; }
@@ -32,9 +27,24 @@ namespace DecisionSystem
 
 		void UpdateMindVars()
 		{
-			for (auto const& [key, val] : mindVarValues)
+			for (auto const& [targetVar, targetVarVal] : mindVarValues)
 			{
-				ChangeValueForMindVar(key, MindVarModelsParser::GetInstance()->models[key].autoUpdateAmount);
+				// direct changes
+				ChangeValueForMindVar(targetVar, MindVarModelsParser::GetInstance()->models[targetVar].autoUpdateAmount);
+
+				// affectors
+				for (auto const& affector : MindVarModelsParser::GetInstance()->models[targetVar].affectors)
+				{
+					if (mindVarValues.find(affector.name) != mindVarValues.end())
+					{
+						if ((affector.activeIfCondition != None && (affector.activeIfCondition * (mindVarValues[affector.name] - affector.activeIfsValue) > 0.f))
+							|| 
+							(affector.activeIfCondition == None))
+						{
+							ChangeValueForMindVar(targetVar, affector.amountPerTick);
+						}
+					}
+				}
 			}
 		}
 

@@ -4,21 +4,21 @@
 
 namespace DecisionSystem
 {
-	enum ConditionalAffectiveness { IfAmountIsMore, IfAmountIsLess, None };
+	enum ConditionalAffectiveness { IfAmountIsMore = 1, IfAmountIsLess = -1 , None = 0};
 
 	struct MindVarAffector
 	{
-		const MindVarId affectorMindVarName;
+		const MindVarId name;
 		const float amountPerTick;
 		const ConditionalAffectiveness activeIfCondition;
 		const float activeIfsValue;
 
 		MindVarAffector(
-			const MindVarId& affectorMindVarName,
+			const MindVarId& name,
 			const float& amountPerTick,
 			const ConditionalAffectiveness& activeIfCondition,
 			const float& activeIfsValue) :
-			affectorMindVarName(affectorMindVarName),
+			name(name),
 			amountPerTick(amountPerTick),
 			activeIfCondition(activeIfCondition),
 			activeIfsValue(activeIfsValue)

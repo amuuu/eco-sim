@@ -74,7 +74,7 @@
     <ClInclude Include="DecisionSystem\MindVarModel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DecisionSystem\MindVarModelsContainer.h">
+    <ClInclude Include="DecisionSystem\EntityMindVarContainer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GeneralTools\Singleton.h">

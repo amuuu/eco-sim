@@ -142,7 +142,7 @@
     <ClInclude Include="DecisionSystem\DecisionSystemGlobals.h" />
     <ClInclude Include="DecisionSystem\EntityWithMindVar.h" />
     <ClInclude Include="DecisionSystem\MindVarModel.h" />
-    <ClInclude Include="DecisionSystem\MindVarModelsContainer.h" />
+    <ClInclude Include="DecisionSystem\EntityMindVarContainer.h" />
     <ClInclude Include="EntityManagement\Entity.h" />
     <ClInclude Include="EntityManagement\EntityGlobals.h" />
     <ClInclude Include="EntityManagement\EntityManagementSample.h" />
