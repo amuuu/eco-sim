@@ -157,10 +157,10 @@
     <ClInclude Include="Skill\SkillSample.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DecisionSystem\ActionsDB.json" />
+    <None Include="DecisionSystem\Configs\ActionsDB.json" />
     <None Include="DecisionSystem\StateOfMind.json" />
-    <None Include="DecisionSystem\StateOfMindElements.json" />
-    <None Include="DecisionSystem\StateOfMindsPerNPCPersistentData.json" />
+    <None Include="DecisionSystem\Configs\StateOfMindElements.json" />
+    <None Include="DecisionSystem\Configs\StateOfMindsPerNPCPersistentData.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

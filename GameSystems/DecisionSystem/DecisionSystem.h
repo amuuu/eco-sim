@@ -26,7 +26,7 @@ namespace DecisionSystem
 			using json = nlohmann::json;
 
 			// load state of mind elements
-			std::ifstream f{ "DecisionSystem/StateOfMindElements.json" };
+			std::ifstream f{ "DecisionSystem/Configs/StateOfMindElements.json" };
 			json data = json::parse(f);
 
 			// iterate the array
