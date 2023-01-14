@@ -79,13 +79,6 @@ namespace DecisionSystem
 			}
 
 			f.close();
-
-			
-			// load actions db
-		
-		
-		
-		
 		}
 	
 		void ParseActions()

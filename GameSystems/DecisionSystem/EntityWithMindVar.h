@@ -20,7 +20,7 @@ namespace DecisionSystem
 		
 		virtual void Update(EntityManagement::Tick tick) override
 		{
-			if (tick % 100000 == 0)
+			if (tick % 100000 == 0) // this is ugly ticks are too fast for the frequency by which we want the vars to be update. we neeed a cleaner way
 			{
 				UpdateMindVars();
 				PrintAllMindVars();

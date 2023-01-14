@@ -15,8 +15,8 @@ namespace DecisionSystem
 	{
 	public:
 		
-		void SetValueForMindVar(const MindVarId id, float value) { mindVarValues[id] = value; }
-		void ChangeValueForMindVar(const MindVarId id, float value) { mindVarValues[id] += value; }
+		void SetValueForMindVar(const MindVarId id, float value) { mindVarValues[id] = value; } // TODO: check min max
+		void ChangeValueForMindVar(const MindVarId id, float value) { mindVarValues[id] += value; } // TODO: check min max
 		float GetValueForMindVar(const MindVarId id) { return mindVarValues[id]; }
 
 		void PrintAllMindVars()
