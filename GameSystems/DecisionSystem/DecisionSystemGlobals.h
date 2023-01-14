@@ -3,7 +3,7 @@
 namespace DecisionSystem
 {
 
-using StateOfMindId = std::string;
+using MindVarId = std::string;
 
 #define HUNGER "hunger"
 #define MORALE "morale"

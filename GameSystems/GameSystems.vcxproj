@@ -140,9 +140,9 @@
   <ItemGroup>
     <ClInclude Include="DecisionSystem\DecisionSystem.h" />
     <ClInclude Include="DecisionSystem\DecisionSystemGlobals.h" />
-    <ClInclude Include="DecisionSystem\EntityWithStateOfMind.h" />
-    <ClInclude Include="DecisionSystem\StateOfMindModel.h" />
-    <ClInclude Include="DecisionSystem\StateOfMindModelsContainer.h" />
+    <ClInclude Include="DecisionSystem\EntityWithMindVar.h" />
+    <ClInclude Include="DecisionSystem\MindVarModel.h" />
+    <ClInclude Include="DecisionSystem\MindVarModelsContainer.h" />
     <ClInclude Include="EntityManagement\Entity.h" />
     <ClInclude Include="EntityManagement\EntityGlobals.h" />
     <ClInclude Include="EntityManagement\EntityManagementSample.h" />

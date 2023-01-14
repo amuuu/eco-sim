@@ -65,16 +65,16 @@
     <ClInclude Include="DecisionSystem\DecisionSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DecisionSystem\EntityWithStateOfMind.h">
+    <ClInclude Include="DecisionSystem\EntityWithMindVar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DecisionSystem\DecisionSystemGlobals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DecisionSystem\StateOfMindModel.h">
+    <ClInclude Include="DecisionSystem\MindVarModel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DecisionSystem\StateOfMindModelsContainer.h">
+    <ClInclude Include="DecisionSystem\MindVarModelsContainer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
