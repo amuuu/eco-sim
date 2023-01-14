@@ -2,15 +2,15 @@
   "NPC_ID": [
     {
       "name": "hunger",
-      "current": 63.0, // there's a job that updates this value within the npc's lifetime
+      "current": 63.0
     },
-    { // there's a correlation between this need and the personality and emotion. there must be a job that update's the needs based on the two (or other stuff such as the amount of money)
+    {
       "name": "sleep",
       "current": 70.0
     },
     {
       "name": "morale",
-      "current": 63.0 // there's a job that updates this value within the npc's lifetime
+      "current": 63.0
     },
     {
       "name": "laziness",

@@ -1,6 +1,8 @@
 {
   "MakePasta": {
+
     "variables": [
+
       {
         "name": "hunger",
         "min": 50.0,

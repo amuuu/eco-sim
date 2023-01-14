@@ -32,7 +32,7 @@
     <ClInclude Include="EntityManagement\EntityManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="General\ObjectPool.h">
+    <ClInclude Include="GeneralTools\ObjectPool.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ResourceManagement\Resource.h">
@@ -62,7 +62,7 @@
     <ClInclude Include="Skill\SkillSample.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DecisionSystem\DecisionSystem.h">
+    <ClInclude Include="DecisionSystem\MindVarModelsParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DecisionSystem\EntityWithMindVar.h">
@@ -77,11 +77,14 @@
     <ClInclude Include="DecisionSystem\MindVarModelsContainer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GeneralTools\Singleton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="DecisionSystem\Configs\ActionsDB.json" />
+    <None Include="DecisionSystem\Configs\Actions.json" />
     <None Include="DecisionSystem\StateOfMind.json" />
-    <None Include="DecisionSystem\Configs\StateOfMindsPerNPCPersistentData.json" />
-    <None Include="DecisionSystem\Configs\StateOfMindElements.json" />
+    <None Include="DecisionSystem\Configs\NPCMindVarPersistentData.json" />
+    <None Include="DecisionSystem\Configs\MindVars.json" />
   </ItemGroup>
 </Project>

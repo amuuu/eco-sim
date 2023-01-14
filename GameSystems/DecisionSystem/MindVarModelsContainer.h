@@ -1,11 +1,12 @@
 #pragma once
 
 #include "DecisionSystemGlobals.h"
-#include "DecisionSystem.h"
+#include "MindVarModelsParser.h"
 
 #include <map>
 #include <memory>
 #include <iostream>
+#include "MindVarModelsParser.h"
 
 namespace DecisionSystem
 {
@@ -14,28 +15,32 @@ namespace DecisionSystem
 	{
 	public:
 
-		void SetValueForMindVar(const MindVarId id, float value) { MindVarValues[id] = value; }
-		void ChangeValueForMindVar(const MindVarId id, float value) { MindVarValues[id] += value; }
-		float GetValueForMindVar(const MindVarId id) { return MindVarValues[id]; }
+		MindVarContainer()
+		{
+
+		}
+
+		void SetValueForMindVar(const MindVarId id, float value) { mindVarValues[id] = value; }
+		void ChangeValueForMindVar(const MindVarId id, float value) { mindVarValues[id] += value; }
+		float GetValueForMindVar(const MindVarId id) { return mindVarValues[id]; }
 
 		void PrintAllMindVars()
 		{
-			for (auto const& [key, val] : MindVarValues)
+			for (auto const& [key, val] : mindVarValues)
 				std::cout << key << ':' << val << std::endl;
 		}
 
-		void SetCentralDecisionDriver(std::shared_ptr<CentralDecisionDriver> driver) { centralDecisionDriver = driver; }
-
 		void UpdateMindVars()
 		{
-			for (auto const& [key, val] : MindVarValues)
+			for (auto const& [key, val] : mindVarValues)
 			{
-				ChangeValueForMindVar(key, centralDecisionDriver.get()->MindVarModels[key].autoUpdateAmount);
+				ChangeValueForMindVar(key, MindVarModelsParser::GetInstance()->models[key].autoUpdateAmount);
 			}
 		}
 
 	private:
-		std::map<const MindVarId, float> MindVarValues{};
-		std::shared_ptr<CentralDecisionDriver> centralDecisionDriver;
+
+		std::map<const MindVarId, float> mindVarValues{};
+	
 	};
 }

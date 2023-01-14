@@ -138,7 +138,7 @@
     <ClCompile Include="ResourceManagement\ResourcePool.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DecisionSystem\DecisionSystem.h" />
+    <ClInclude Include="DecisionSystem\MindVarModelsParser.h" />
     <ClInclude Include="DecisionSystem\DecisionSystemGlobals.h" />
     <ClInclude Include="DecisionSystem\EntityWithMindVar.h" />
     <ClInclude Include="DecisionSystem\MindVarModel.h" />
@@ -148,7 +148,8 @@
     <ClInclude Include="EntityManagement\EntityManagementSample.h" />
     <ClInclude Include="EntityManagement\EntityManager.h" />
     <ClInclude Include="EntityManagement\SimpleDumbEntity.h" />
-    <ClInclude Include="General\ObjectPool.h" />
+    <ClInclude Include="GeneralTools\ObjectPool.h" />
+    <ClInclude Include="GeneralTools\Singleton.h" />
     <ClInclude Include="ResourceManagement\Resource.h" />
     <ClInclude Include="ResourceManagement\ResourceManagementSample.h" />
     <ClInclude Include="ResourceManagement\ResourcePool.h" />
@@ -157,10 +158,10 @@
     <ClInclude Include="Skill\SkillSample.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DecisionSystem\Configs\ActionsDB.json" />
+    <None Include="DecisionSystem\Configs\Actions.json" />
     <None Include="DecisionSystem\StateOfMind.json" />
-    <None Include="DecisionSystem\Configs\StateOfMindElements.json" />
-    <None Include="DecisionSystem\Configs\StateOfMindsPerNPCPersistentData.json" />
+    <None Include="DecisionSystem\Configs\MindVars.json" />
+    <None Include="DecisionSystem\Configs\NPCMindVarPersistentData.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

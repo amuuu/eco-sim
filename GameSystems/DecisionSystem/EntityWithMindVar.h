@@ -14,19 +14,16 @@ namespace DecisionSystem
 
 		virtual void Init() override
 		{
-			//SetCentralDecisionDriver(cdd);
-
-
 			SetValueForMindVar(HUNGER, 12.f);
 		}
 		
 		virtual void Update(EntityManagement::Tick tick) override
 		{
-			/*if (tick % 100000 == 0)
+			if (tick % 100000 == 0)
 			{
 				UpdateMindVars();
 				PrintAllMindVars();
-			}*/
+			}
 		}
 	};
 }
