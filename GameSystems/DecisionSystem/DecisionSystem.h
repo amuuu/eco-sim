@@ -63,7 +63,7 @@ namespace DecisionSystem
 					affectors.push_back(StateOfMindAffector{ afName,afAmount,afActiveConditional, afActiveIfsValue });
 				}
 
-				stateOfMindModels.emplace(name, std::move(StateOfMindModel{ name,category,min,max,isAutoUpdatedInTicks,autoUpdateAmount,affectors }));
+				stateOfMindModels.emplace(name, StateOfMindModel{ name,category,min,max,isAutoUpdatedInTicks,autoUpdateAmount,affectors });
 			}
 
 			f.close();
