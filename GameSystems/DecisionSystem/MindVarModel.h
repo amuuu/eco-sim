@@ -4,7 +4,7 @@
 
 namespace DecisionSystem
 {
-	enum ConditionalAffectiveness { IfAmountIsMore = 1, IfAmountIsLess = -1 , None = 0};
+	enum ConditionalAffectiveness { IfAmountIsMore = 1, IfAmountIsLess = -1 , Never = 0};
 
 	struct MindVarAffector
 	{
@@ -34,7 +34,8 @@ namespace DecisionSystem
 		float autoUpdateAmount;
 		std::vector<MindVarAffector> affectors;
 
-		explicit MindVarModel(const MindVarId& name,
+		explicit MindVarModel(
+			const MindVarId& name,
 			const std::string& category,
 			const float& min,
 			const float& max,

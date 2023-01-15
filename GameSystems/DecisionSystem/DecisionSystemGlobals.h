@@ -6,6 +6,7 @@ namespace DecisionSystem
 {
 
 using MindVarId = std::string;
+using ActionId = std::string;
 
 #define HUNGER "hunger"
 #define MORALE "morale"
