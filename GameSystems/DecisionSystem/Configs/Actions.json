@@ -1,8 +1,8 @@
-{
-  "MakePasta": {
+[
+  {
+    "name": "MakePasta",
 
     "formulaVariables": [
-
       {
         "name": "hunger",
         "min": 50.0,
@@ -20,7 +20,7 @@
       },
       {
         "name": "cooking",
-        "min": "lvl_2",
+        "min": 12.0,
         "coeff": 2.0
       },
       {
@@ -37,7 +37,7 @@
 
     // if money >= min, money = money amount for entity * coefficient in the formula
     // else, money = 0
-    "formula": "money * (Needs + Emotions + Skills + Personality)",
+    "formula": "money * (hunger + morale + energy + cooking + laziness)", // OR "DEFAULT" which is the sum of items
 
     "rewards": [
       {
@@ -47,7 +47,11 @@
       {
         "name": "morale",
         "changeAmount": 15.0
+      },
+      {
+        "name": "energy",
+        "changeAmount":  -10.0
       }
     ]
   }
-}
+]
