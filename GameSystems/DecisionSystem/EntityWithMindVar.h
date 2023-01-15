@@ -26,5 +26,10 @@ namespace DecisionSystem
 				PrintAllMindVars();
 			}
 		}
+
+		virtual void FixedUpdate(EntityManagement::Tick fixedTick) override
+		{
+
+		}
 	};
 }

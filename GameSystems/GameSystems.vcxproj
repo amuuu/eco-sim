@@ -138,6 +138,7 @@
     <ClCompile Include="ResourceManagement\ResourcePool.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DecisionSystem\ActionModel.h" />
     <ClInclude Include="DecisionSystem\MindVarModelsParser.h" />
     <ClInclude Include="DecisionSystem\DecisionSystemGlobals.h" />
     <ClInclude Include="DecisionSystem\EntityWithMindVar.h" />

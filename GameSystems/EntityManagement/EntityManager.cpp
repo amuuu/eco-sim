@@ -49,6 +49,17 @@ namespace EntityManagement
 				e.second->Update(currentTick);
 			entitiesMutex.unlock();
 
+			// FixedUpdate alive entities
+			entitiesMutex.lock();
+			if (std::chrono::duration_cast<std::chrono::duration<double>>(std::chrono::high_resolution_clock::now() - lastFixedUpdateTimestamp).count() >= FIXED_UPDATE_PERIOD)
+			{
+				lastFixedUpdateTimestamp = std::chrono::high_resolution_clock::now();
+				currentFixedTick++; // this is not that accurate. It must be unique to each entity
+
+				for (const auto& e : entities)
+					e.second->FixedUpdate(currentFixedTick);
+			}
+			entitiesMutex.unlock();
 		}
 	}
 

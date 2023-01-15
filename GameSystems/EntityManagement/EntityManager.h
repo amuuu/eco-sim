@@ -9,6 +9,12 @@
 #include <thread>
 #include <memory>
 #include <mutex>
+#include <chrono>
+#include <ctime>
+#include <ratio>
+
+#define FIXED_UPDATE_PERIOD 0.005
+
 
 namespace EntityManagement
 {
@@ -40,7 +46,10 @@ namespace EntityManagement
 		std::unique_ptr<std::thread> mainLoopThread;
 
 		std::atomic <Tick> currentTick{ 0 };
+		std::atomic <Tick> currentFixedTick{ 0 };
 		std::atomic_bool isLoopAwake{ true };
+		
+		std::chrono::high_resolution_clock::time_point lastFixedUpdateTimestamp{};
 	};
 
 }

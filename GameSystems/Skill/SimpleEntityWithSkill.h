@@ -25,5 +25,10 @@ namespace Skills
 		{
 			std::cout << "Simple entity update " << Id << "\n";
 		}
+
+		virtual void FixedUpdate(Tick fixedTick) override
+		{
+
+		}
 	};
 }
