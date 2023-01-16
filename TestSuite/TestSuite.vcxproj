@@ -32,6 +32,14 @@
   <ImportGroup Label="Shared" />
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>OUTPUT\$(Platform)\$(Configuration)\MAIN\</OutDir>
+    <IntDir>OUTPUT\$(Platform)\$(Configuration)\INTERMEDIATE\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>OUTPUT\$(Platform)\$(Configuration)\MAIN\</OutDir>
+    <IntDir>OUTPUT\$(Platform)\$(Configuration)\INTERMEDIATE\</IntDir>
+  </PropertyGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
   </ItemGroup>
