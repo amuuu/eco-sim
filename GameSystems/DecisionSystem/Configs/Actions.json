@@ -35,8 +35,6 @@
       }
     ],
 
-    // if money >= min, money = money amount for entity * coefficient in the formula
-    // else, money = 0
     "formula": "{{money}} * ({{hunger}} + {{morale}} + {{energy}} + {{cooking}} + {{laziness}})", // OR "DEFAULT" which is the sum of items
 
     "rewards": [
