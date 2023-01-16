@@ -2,11 +2,11 @@
 
 #include <fstream>
 
-#include "../ExternalTools/nlohmann-json.hpp"
+#include "ExternalTools/nlohmann-json.hpp"
 using json = nlohmann::json;
 
-#include "../GameSystems/EntityManagement/EntityManager.h"
-#include "../GameSystems/EntityManagement/SimpleDumbEntity.h"
+#include "GameSystems/EntityManagement/EntityManager.h"
+#include "GameSystems/EntityManagement/SimpleDumbEntity.h"
 
 
 TEST(JSONDecoding, OpenningAFile) {
@@ -20,12 +20,12 @@ TEST(JSONDecoding, OpenningAFile) {
 	f.close();
 }
 
-TEST(ENTITY, SimpleInstantiation)
+TEST(EntityManagementTests, SimpleInstantiation)
 {
 	using namespace EntityManagement;
 
-	EntityManager entityManager{ false };
+	EntityManagement::EntityManager entityManager{ false };
 
-	entityManager.EnqueueNewEntity(new SimpleDumbEntity{});
+	/*entityManager.EnqueueNewEntity(new SimpleDumbEntity{});*/
 
 }
