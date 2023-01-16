@@ -149,6 +149,8 @@
     <ClInclude Include="EntityManagement\EntityManagementSample.h" />
     <ClInclude Include="EntityManagement\EntityManager.h" />
     <ClInclude Include="EntityManagement\SimpleDumbEntity.h" />
+    <ClInclude Include="EventSystem\EventSystem.h" />
+    <ClInclude Include="EventSystem\SimpleEventListenerClass.h" />
     <ClInclude Include="GeneralTools\ObjectPool.h" />
     <ClInclude Include="GeneralTools\Singleton.h" />
     <ClInclude Include="ResourceManagement\Resource.h" />
@@ -159,6 +161,7 @@
     <ClInclude Include="Skill\SkillSample.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="cpp.hint" />
     <None Include="DecisionSystem\Configs\Actions.json" />
     <None Include="DecisionSystem\StateOfMind.json" />
     <None Include="DecisionSystem\Configs\MindVars.json" />

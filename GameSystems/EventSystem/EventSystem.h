@@ -1,5 +1,7 @@
 #pragma once
 
+#include "GameSystems/GeneralTools/Singleton.h"
+
 #include <vector>
 #include <map>
 #include <string>
@@ -19,13 +21,15 @@ namespace EventSystem
 	class EventListener
 	{
 	public:
-		virtual void OnEvent(EventId id, EventPayload payload) = 0
+		virtual void OnEvent(EventId id, EventPayload payload) = 0;
 	};
 
-	class EventSystem
+	class EventBus
 	{
 	public:
 		
+		GENERATE_SINGLETON_GETTER(EventSystem::EventBus)
+
 		// Single event
 		void RegisterEventListener(EventListener* listener, EventId targetEventId)
 		{
@@ -68,7 +72,12 @@ namespace EventSystem
 				listener->OnEvent(id, payload);
 		}
 
-		EventSystem() = default;
+		void Init()
+		{
+			// Proly sth?
+		}
+
+		EventBus() = default;
 
 	private:
 

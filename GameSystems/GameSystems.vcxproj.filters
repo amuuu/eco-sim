@@ -83,11 +83,18 @@
     <ClInclude Include="DecisionSystem\ActionModel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EventSystem\EventSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSystem\SimpleEventListenerClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DecisionSystem\Configs\Actions.json" />
     <None Include="DecisionSystem\StateOfMind.json" />
     <None Include="DecisionSystem\Configs\NPCMindVarPersistentData.json" />
     <None Include="DecisionSystem\Configs\MindVars.json" />
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>
