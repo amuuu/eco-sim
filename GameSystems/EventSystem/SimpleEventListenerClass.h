@@ -31,5 +31,10 @@ namespace EventSystem
 		
 		int objectId;
 
+		~SimpleEventListenerClass()
+		{
+			EventBus::GetInstance()->UnregisterEventListener(this);
+		}
+
 	};
 }
