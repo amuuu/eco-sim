@@ -14,14 +14,18 @@ namespace EventSystem
 {
 	using EventId = unsigned short;
 
-	struct EventPayload { 
-		//virtual ~EventPayload() = 0;
+	struct Event { 
+		
+		virtual ~Event() {};
+		
+		EventId id;
+		Event(EventId id) : id(id) {}
 	};
 
 	class EventListener
 	{
 	public:
-		virtual void OnEvent(EventId id, EventPayload payload) = 0;
+		virtual void OnEvent(Event& eventData) = 0;
 	};
 
 	class EventBus
@@ -86,10 +90,10 @@ namespace EventSystem
 			}
 		}
 
-		void PropagateEvent(EventId id, EventPayload payload)
+		void PropagateEvent(Event& eventData)
 		{
-			for (auto* listener : eventBus[id])
-				listener->OnEvent(id, payload);
+			for (auto* listener : eventBus[eventData.id])
+				listener->OnEvent(eventData);
 		}
 
 		void Init()

@@ -3,38 +3,55 @@
 #include "EventSystem.h"
 
 #include <iostream>
+#include <typeinfo>
 
 namespace EventSystem
 {
+	struct CustomEvent : public Event
+	{
+		std::string content;
+
+		CustomEvent(EventId id, const std::string& content) : content(content), Event(id) { }
+		CustomEvent(EventId id) = delete;
+	};
+
 	class SimpleEventListenerClass : public EventListener
 	{
 	public:
 
-		void SendEvent(int id)
+		void SendEvent(EventId id, std::string content)
 		{
 			std::cout << objectId << " firing " << id << "\n";
 
-			EventBus::GetInstance()->PropagateEvent(id, EventPayload{});
+			CustomEvent e{ id, content };
+			EventBus::GetInstance()->PropagateEvent(e);
 		}
 
-		SimpleEventListenerClass(int id, std::vector<EventId>eventsToListenTo) : objectId(id)
+		SimpleEventListenerClass(int id, std::vector<EventId> eventsToListenTo) : objectId(id)
 		{
 			EventBus::GetInstance()->RegisterEventListener(this, eventsToListenTo);
 		}
-
-	private:
-		
-		virtual void OnEvent(EventId id, EventPayload payload) override
-		{
-			std::cout << " - " << objectId << " received " << id << "\n";
-		}
-		
-		int objectId;
 
 		~SimpleEventListenerClass()
 		{
 			EventBus::GetInstance()->UnregisterEventListener(this);
 		}
 
+	private:
+		
+		virtual void OnEvent(Event& eventData) override
+		{
+			std::cout << " - " << objectId << " received " << eventData.id ;
+			
+			if (typeid(eventData) == typeid(CustomEvent))
+			{
+				auto& customPayload = dynamic_cast<CustomEvent&>(eventData);
+				std::cout << " ~ custom: " << customPayload.content;
+			}
+
+			std::cout << std::endl;
+		}
+		
+		int objectId;
 	};
 }
