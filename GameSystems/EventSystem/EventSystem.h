@@ -16,7 +16,7 @@ namespace EventSystem
 
 	struct Event { 
 		
-		virtual ~Event() {};
+		virtual ~Event() {}; // In order for the dynamic_cast to work for classes that use childs of the event class
 		
 		EventId id;
 		Event(EventId id) : id(id) {}
@@ -66,9 +66,7 @@ namespace EventSystem
 			{
 				using Iterator = std::vector<EventListener*>::iterator;
 
-				//Iterator targetIt = (*eventIt).second.end()+1;
 				Iterator targetIt{};
-
 				bool listenerExistsForThisEvent{ false };
 
 				for (Iterator eventListenersIt = (*eventIt).second.begin(); eventListenersIt != (*eventIt).second.end(); ++eventListenersIt)
@@ -82,8 +80,6 @@ namespace EventSystem
 				}
 
 				if (listenerExistsForThisEvent)
-				//if (*targetIt != nullptr)
-				//if (targetIt != (*eventIt).second.end()+1)
 					(*eventIt).second.erase(targetIt);
 
 				++eventIt;
@@ -98,7 +94,6 @@ namespace EventSystem
 
 		void Init()
 		{
-			// Proly sth?
 		}
 
 		EventBus() = default;
