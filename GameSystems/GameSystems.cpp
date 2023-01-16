@@ -4,8 +4,12 @@
 //using namespace DecisionSystem;
 //#include "EntityManagement/SimpleDumbEntity.h"
 #include "EventSystem/SimpleEventListenerClass.h"
-#include <vector>
 using namespace EventSystem;
+
+
+#include <iostream>
+#include <vector>
+
 
 int main()
 {
@@ -22,5 +26,9 @@ int main()
 	selc1.SendEvent(3);
 	selc2.SendEvent(1);
 	selc3.SendEvent(2);
-	
+
+	EventBus::GetInstance()->UnregisterEventListener(&selc1);
+	std::cout << "\nUNREGISTERED 1\n\n";
+	selc2.SendEvent(1);
+	selc3.SendEvent(2);
 }

@@ -12,6 +12,8 @@ namespace EventSystem
 
 		void SendEvent(int id)
 		{
+			std::cout << objectId << " firing " << id << "\n";
+
 			EventBus::GetInstance()->PropagateEvent(id, EventPayload{});
 		}
 
@@ -24,7 +26,7 @@ namespace EventSystem
 		
 		virtual void OnEvent(EventId id, EventPayload payload) override
 		{
-			std::cout << objectId << " received " << id << "\n";
+			std::cout << " - " << objectId << " received " << id << "\n";
 		}
 		
 		int objectId;

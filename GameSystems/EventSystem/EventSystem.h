@@ -15,7 +15,7 @@ namespace EventSystem
 	using EventId = unsigned short;
 
 	struct EventPayload { 
-		/*virtual EventPayload() = 0;*/
+		//virtual ~EventPayload() = 0;
 	};
 
 	class EventListener
@@ -55,14 +55,34 @@ namespace EventSystem
 		}
 
 
-		void UnregisterEventListener()
+		void UnregisterEventListener(EventListener* listener)
 		{
-			auto it = eventBus.begin();
-			while (it != eventBus.end())
+			auto eventIt = eventBus.begin();
+			while (eventIt != eventBus.end())
 			{
-				//
+				using Iterator = std::vector<EventListener*>::iterator;
 
-				++it;
+				//Iterator targetIt = (*eventIt).second.end()+1;
+				Iterator targetIt{};
+
+				bool listenerExistsForThisEvent{ false };
+
+				for (Iterator eventListenersIt = (*eventIt).second.begin(); eventListenersIt != (*eventIt).second.end(); ++eventListenersIt)
+				{
+					if ((*eventListenersIt) == listener)
+					{
+						targetIt = eventListenersIt;
+						listenerExistsForThisEvent = true;
+						break;
+					}
+				}
+
+				if (listenerExistsForThisEvent)
+				//if (*targetIt != nullptr)
+				//if (targetIt != (*eventIt).second.end()+1)
+					(*eventIt).second.erase(targetIt);
+
+				++eventIt;
 			}
 		}
 
