@@ -28,7 +28,7 @@ namespace EntityManagement
 		return entities[id];
 	}
 
-	void EntityManager::DestroyEntity(EntityId& id, bool extraCheckNotNeeded)
+	void EntityManager::DestroyEntity(EntityId id, bool extraCheckNotNeeded)
 	{
 		entitiesMutex.lock();
 		

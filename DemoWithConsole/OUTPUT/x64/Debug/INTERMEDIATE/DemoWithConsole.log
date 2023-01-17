@@ -1,1 +1,8 @@
-﻿  DemoWithConsole.vcxproj -> D:\Software Projects\GameSystems\GameSystems\DemoWithConsole\OUTPUT\x64\Debug\MAIN\DemoWithConsole.exe
+﻿  DemoWithConsole.cpp
+D:\Software Projects\GameSystems\GameSystems\DemoWithConsole\DemoWithConsole.cpp(7,32): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Software Projects\GameSystems\GameSystems\DemoWithConsole\DemoWithConsole.cpp(11,37): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Software Projects\GameSystems\GameSystems\DemoWithConsole\DemoWithConsole.cpp(15,39): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Software Projects\GameSystems\GameSystems\DemoWithConsole\DemoWithConsole.cpp(23,32): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Software Projects\GameSystems\GameSystems\DemoWithConsole\DemoWithConsole.cpp(27,37): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Software Projects\GameSystems\GameSystems\DemoWithConsole\DemoWithConsole.cpp(31,39): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  DemoWithConsole.vcxproj -> D:\Software Projects\GameSystems\GameSystems\DemoWithConsole\OUTPUT\x64\Debug\MAIN\DemoWithConsole.exe

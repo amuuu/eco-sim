@@ -19,7 +19,8 @@ namespace ENTITY_MANAGEMENT_SAMPLE
 		
 		virtual void Update(Tick tick) override 
 		{
-			//std::cout << "Simple entity update " << Id << "\n";
+			if (tick % 200000 == 0)
+				std::cout << "Simple entity update " << Id << "\n";
 		}
 
 		virtual void FixedUpdate(EntityManagement::Tick fixedTick) override

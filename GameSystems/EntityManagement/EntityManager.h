@@ -29,7 +29,7 @@ namespace EntityManagement
 		EntityId EnqueueNewEntity(Entity* r);
 		Entity* GetEntityBasedOnID(const EntityId& id);
 		
-		void DestroyEntity(EntityId& id, bool extraCheckNotNeeded = true);
+		void DestroyEntity(EntityId id, bool extraCheckNotNeeded = true);
 		void DestroyEntity(Entity* entity);
 
 		void StartTheLoop();
