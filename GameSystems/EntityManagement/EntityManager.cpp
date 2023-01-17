@@ -27,6 +27,27 @@ namespace EntityManagement
 	{
 		return entities[id];
 	}
+
+	void EntityManager::DestroyEntity(EntityId& id, bool extraCheckNotNeeded)
+	{
+		entitiesMutex.lock();
+		
+		if (extraCheckNotNeeded || (entities.find(id) != entities.end()))
+		{
+			entities[id]->OnDestroy();
+			entities.erase(id);
+		}
+		
+		entitiesMutex.unlock();
+	}
+
+	void EntityManager::DestroyEntity(Entity* entity)
+	{
+		if (auto eId = GetEntityIdBasedOnEntity(entity); eId != -1)
+		{
+			DestroyEntity(eId, true);
+		}
+	}
 	
 	void EntityManager::MainEntityLoop()
 	{
@@ -64,6 +85,27 @@ namespace EntityManagement
 			}
 			entitiesMutex.unlock();
 		}
+	}
+
+	EntityId EntityManager::GetEntityIdBasedOnEntity(Entity* e)
+	{
+		std::map<const EntityId, Entity*>::iterator targetIt{};
+		bool entityExists{ false };
+		auto it = entities.begin();
+		while (it != entities.end())
+		{
+			if ((*it).second == e)
+			{
+				targetIt = it;
+				entityExists = true;
+				break;
+			}
+		}
+
+		if (entityExists)
+			return (*it).first;
+		else
+			return -1;
 	}
 
 	void EntityManager::StartTheLoop()

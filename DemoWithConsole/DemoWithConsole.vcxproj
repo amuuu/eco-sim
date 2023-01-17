@@ -152,6 +152,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DecisionSystemSample\EntityWithMindVar.h" />
     <ClInclude Include="EntityManagementSample\EntityManagementSample.cpp" />
     <ClInclude Include="EntityManagementSample\SimpleDumbEntity.h" />
     <ClInclude Include="EventSystemSample\SimpleEventListenerClass.h" />

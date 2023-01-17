@@ -29,6 +29,9 @@ namespace EntityManagement
 		EntityId EnqueueNewEntity(Entity* r);
 		Entity* GetEntityBasedOnID(const EntityId& id);
 		
+		void DestroyEntity(EntityId& id, bool extraCheckNotNeeded = true);
+		void DestroyEntity(Entity* entity);
+
 		void StartTheLoop();
 		void StopTheLoop();
 		
@@ -39,6 +42,8 @@ namespace EntityManagement
 		
 		void InitializeEntity(Entity* r);
 		void MainEntityLoop();
+
+		EntityId GetEntityIdBasedOnEntity(Entity* e);
 
 		std::map<const EntityId, Entity*> entities{}; // TODO: check if unordered_map is better for this case
 		std::queue<Entity*> entitiesToInitialize{};

@@ -31,5 +31,9 @@ namespace DecisionSystem
 		{
 
 		}
+
+		virtual void OnDestroy() override
+		{
+		}
 	};
 }

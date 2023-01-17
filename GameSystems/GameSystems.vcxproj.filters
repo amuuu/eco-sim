@@ -44,9 +44,6 @@
     <ClInclude Include="DecisionSystem\MindVarModelsParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DecisionSystem\EntityWithMindVar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="DecisionSystem\DecisionSystemGlobals.h">
       <Filter>Header Files</Filter>
     </ClInclude>

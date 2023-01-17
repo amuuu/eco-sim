@@ -9,6 +9,7 @@ namespace EntityManagement
 		virtual void Init() = 0;
 		virtual void Update(Tick tick) = 0;
 		virtual void FixedUpdate(Tick fixedTick) = 0;
+		virtual void OnDestroy() = 0;
 
 		void SetFixedUpdateActiveState(bool isActive) { isFixedUpdateActive = isActive; }
 		bool IsFixedUpdateActive() { return isFixedUpdateActive; }

@@ -15,7 +15,6 @@ namespace ENTITY_MANAGEMENT_SAMPLE
 			SetFixedUpdateActiveState(false);
 
 			std::cout << "Simple entity init " << Id << "\n";
-			
 		}
 		
 		virtual void Update(Tick tick) override 
@@ -26,6 +25,10 @@ namespace ENTITY_MANAGEMENT_SAMPLE
 		virtual void FixedUpdate(EntityManagement::Tick fixedTick) override
 		{
 			std::cout << Id << " ~ fixed: " << std::chrono::high_resolution_clock::now().time_since_epoch().count() << "\n";
+		}
+
+		virtual void OnDestroy() override
+		{
 		}
 	};
 }
