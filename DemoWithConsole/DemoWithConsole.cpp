@@ -32,12 +32,4 @@ int main()
 		RESOURCE_MANAGEMENT_SAMPLE::EXECUTE();
 #endif
 
-
-
-
-
-
-
-
-
 }

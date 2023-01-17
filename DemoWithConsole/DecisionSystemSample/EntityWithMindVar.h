@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../EntityManagement/Entity.h"
-
-#include "EntityMindVarContainer.h"
+#include "GameSystems/EntityManagement/Entity.h"
+#include "GameSystems/DecisionSystem/EntityMindVarContainer.h"
+using namespace DecisionSystem;
 
 #include <memory>
 

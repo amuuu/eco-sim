@@ -40,7 +40,7 @@ namespace EntityManagement
 		void InitializeEntity(Entity* r);
 		void MainEntityLoop();
 
-		std::map<const EntityId, Entity*> entities{};
+		std::map<const EntityId, Entity*> entities{}; // TODO: check if unordered_map is better for this case
 		std::queue<Entity*> entitiesToInitialize{};
 		std::mutex entitiesMutex{}, entitiesQueueMutex{};
 
