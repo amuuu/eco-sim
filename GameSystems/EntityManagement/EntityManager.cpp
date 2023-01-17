@@ -57,7 +57,10 @@ namespace EntityManagement
 				currentFixedTick++; // this is not that accurate. It must be unique to each entity
 
 				for (const auto& e : entities)
-					e.second->FixedUpdate(currentFixedTick);
+				{
+					if (e.second->IsFixedUpdateActive())
+						e.second->FixedUpdate(currentFixedTick);
+				}
 			}
 			entitiesMutex.unlock();
 		}

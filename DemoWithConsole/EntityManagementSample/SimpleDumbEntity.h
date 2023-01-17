@@ -12,7 +12,10 @@ namespace ENTITY_MANAGEMENT_SAMPLE
 	{
 		virtual void Init() override 
 		{
+			SetFixedUpdateActiveState(false);
+
 			std::cout << "Simple entity init " << Id << "\n";
+			
 		}
 		
 		virtual void Update(Tick tick) override 
