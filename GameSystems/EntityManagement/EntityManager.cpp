@@ -5,13 +5,13 @@ namespace EntityManagement
 
 	EntityId EntityManager::EnqueueNewEntity(Entity* r)
 	{
-		r->Id = nextId;
+		r->Id = nextEntityId;
 
 		entitiesQueueMutex.lock();
 		entitiesToInitialize.push(r);
 		entitiesQueueMutex.unlock();
 
-		return nextId++;
+		return nextEntityId++;
 	}
 
 	void EntityManager::InitializeEntity(Entity* r)
@@ -76,7 +76,7 @@ namespace EntityManagement
 		isLoopAwake = false;
 	}
 
-	EntityManager::EntityManager(bool mustAutoStartLoopAfterInitialization) : mustAutoStartLoopAfterInitialization(mustAutoStartLoopAfterInitialization)
+	EntityManager::EntityManager(bool mustAutoStartLoopAfterInitialization) : autoStartLoop(mustAutoStartLoopAfterInitialization)
 	{
 		// Proly other stuff too
 
