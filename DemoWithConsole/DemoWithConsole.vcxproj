@@ -144,11 +144,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DemoWithConsole.cpp" />
+    <ClCompile Include="EventSystemSample\EventSystemSample.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameSystems\GameSystems.vcxproj">
       <Project>{61775fec-5e21-4858-bf07-77f0d4be981e}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EntityManagementSample\EntityManagementSample.cpp" />
+    <ClInclude Include="EntityManagementSample\SimpleDumbEntity.h" />
+    <ClInclude Include="EventSystemSample\SimpleEventListenerClass.h" />
+    <ClInclude Include="ResourceManagementSample\ResourceManagementSample.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

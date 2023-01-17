@@ -153,19 +153,12 @@
     <ClInclude Include="DecisionSystem\EntityMindVarContainer.h" />
     <ClInclude Include="EntityManagement\Entity.h" />
     <ClInclude Include="EntityManagement\EntityGlobals.h" />
-    <ClInclude Include="EntityManagement\EntityManagementSample.h" />
     <ClInclude Include="EntityManagement\EntityManager.h" />
-    <ClInclude Include="EntityManagement\SimpleDumbEntity.h" />
     <ClInclude Include="EventSystem\EventSystem.h" />
-    <ClInclude Include="EventSystem\SimpleEventListenerClass.h" />
     <ClInclude Include="GeneralTools\ObjectPool.h" />
     <ClInclude Include="GeneralTools\Singleton.h" />
     <ClInclude Include="ResourceManagement\Resource.h" />
-    <ClInclude Include="ResourceManagement\ResourceManagementSample.h" />
     <ClInclude Include="ResourceManagement\ResourcePool.h" />
-    <ClInclude Include="Skill\SimpleEntityWithSkill.h" />
-    <ClInclude Include="Skill\SkillHolder.h" />
-    <ClInclude Include="Skill\SkillSample.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

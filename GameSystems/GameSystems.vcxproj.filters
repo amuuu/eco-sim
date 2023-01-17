@@ -41,24 +41,6 @@
     <ClInclude Include="EntityManagement\EntityGlobals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ResourceManagement\ResourceManagementSample.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EntityManagement\SimpleDumbEntity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EntityManagement\EntityManagementSample.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Skill\SkillHolder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Skill\SimpleEntityWithSkill.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Skill\SkillSample.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="DecisionSystem\MindVarModelsParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -81,9 +63,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EventSystem\EventSystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EventSystem\SimpleEventListenerClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

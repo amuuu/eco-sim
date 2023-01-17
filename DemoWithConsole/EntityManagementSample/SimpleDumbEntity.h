@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Entity.h"
+#include "../GameSystems/GameSystems/EntityManagement/Entity.h"
+using namespace EntityManagement;
 
 #include <iostream>
-
 #include <chrono> // only for printing in fixed update
 
-namespace EntityManagement
+namespace ENTITY_MANAGEMENT_SAMPLE
 {
 	class SimpleDumbEntity : public Entity
 	{

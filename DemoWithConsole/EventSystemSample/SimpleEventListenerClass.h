@@ -1,12 +1,14 @@
 #pragma once
 
-#include "EventSystem.h"
+#include "../GameSystems/GameSystems/EventSystem/EventSystem.h"
+using namespace EventSystem;
 
 #include <iostream>
 #include <typeinfo>
 
-namespace EventSystem
+namespace EVENT_SYSTEM_SAMPLE
 {
+
 	struct CustomEvent : public Event
 	{
 		std::string content;
