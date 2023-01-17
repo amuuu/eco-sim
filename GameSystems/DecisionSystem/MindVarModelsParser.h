@@ -5,7 +5,7 @@
 #include "ActionModel.h"
 
 #include "GameSystems/GeneralTools/Singleton.h"
-#include "nlohmann-json.hpp"
+#include "ExternalTools/nlohmann-json.hpp"
 
 
 #include <string>
@@ -21,14 +21,21 @@ namespace DecisionSystem
 {	
 	class MindVarModelsParser
 	{
+	private:
+		std::string actionConfigsPath{};
+		std::string mindVarsConfigsPath{};
+
 	public:
 
 		std::map<MindVarId, MindVarModel> models;
 
 		GENERATE_SINGLETON_GETTER(DecisionSystem::MindVarModelsParser)
 
-		void Init()
+		void Init(const std::string& mindVarsConfigsPath, const std::string& actionConfigsPath)
 		{
+			this->mindVarsConfigsPath = std::move(mindVarsConfigsPath);
+			this->actionConfigsPath = std::move(actionConfigsPath);
+
 			ParseConfigs();
 		}
 
@@ -42,7 +49,7 @@ namespace DecisionSystem
 		{
 			using json = nlohmann::json;
 
-			std::ifstream f{ "DecisionSystem/Configs/MindVars.json" };
+			std::ifstream f{ mindVarsConfigsPath };
 			json data = json::parse(f);
 
 			for (json::iterator it = data.begin(); it != data.end(); ++it)
@@ -93,7 +100,7 @@ namespace DecisionSystem
 		{
 			using json = nlohmann::json;
 
-			std::ifstream f{ "DecisionSystem/Configs/Actions.json" };
+			std::ifstream f{ actionConfigsPath };
 			json data = json::parse(f);
 
 			for (json::iterator it = data.begin(); it != data.end(); ++it)

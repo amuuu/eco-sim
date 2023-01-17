@@ -2,6 +2,8 @@
 
 #include "DecisionSystemGlobals.h"
 
+#include <vector>
+
 namespace DecisionSystem
 {
 	enum ConditionalAffectiveness { IfAmountIsMore = 1, IfAmountIsLess = -1 , Never = 0};

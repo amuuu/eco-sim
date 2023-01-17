@@ -161,10 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
-    <None Include="DecisionSystem\Configs\Actions.json" />
     <None Include="DecisionSystem\StateOfMind.json" />
-    <None Include="DecisionSystem\Configs\MindVars.json" />
-    <None Include="DecisionSystem\Configs\NPCMindVarPersistentData.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

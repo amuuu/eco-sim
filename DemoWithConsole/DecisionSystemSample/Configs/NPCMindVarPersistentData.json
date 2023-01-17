@@ -1,0 +1,28 @@
+{
+  "NPC_ID": [
+    {
+      "name": "hunger",
+      "current": 63.0
+    },
+    {
+      "name": "sleep",
+      "current": 70.0
+    },
+    {
+      "name": "morale",
+      "current": 63.0
+    },
+    {
+      "name": "laziness",
+      "current": 30.0
+    },
+    {
+      "name": "creativity",
+      "current": 40.0
+    },
+    {
+      "name": "money",
+      "current": 1500.0
+    }
+  ]
+}

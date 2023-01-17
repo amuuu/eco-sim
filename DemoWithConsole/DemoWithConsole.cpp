@@ -1,6 +1,8 @@
 #define EVENT_SYSTEM_SAMPLE_ACTIVE 0
-#define ENTITY_MANAGEMENT_SAMPLE_ACTIVE 1
+#define ENTITY_MANAGEMENT_SAMPLE_ACTIVE 0
 #define RESOURCE_MANAGEMENT_SAMPLE_ACTIVE 0
+#define DECISION_SYSTEM_SAMPLE_ACTIVE 1
+
 
 /////////////////////////////////////////////////////////
 
@@ -14,6 +16,10 @@
 
 #if RESOURCE_MANAGEMENT_SAMPLE_ACTIVE 1
 #include "ResourceManagementSample/ResourceManagementSample.cpp"
+#endif
+
+#if DECISION_SYSTEM_SAMPLE_ACTIVE 1
+#include "DecisionSystemSample/DecisionSystemSample.cpp"
 #endif
 
 
@@ -32,4 +38,7 @@ int main()
 		RESOURCE_MANAGEMENT_SAMPLE::EXECUTE();
 #endif
 
+#if DECISION_SYSTEM_SAMPLE_ACTIVE 1
+		DECISION_SYSTEM_SAMPLE::EXECUTE();
+#endif
 }

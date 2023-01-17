@@ -1,0 +1,46 @@
+[
+  {
+    "name": "hunger",
+    "category": "needs",
+    "bounds": {
+      "max": 100.0,
+      "min": 0.0
+    },
+    "autoUpdateByTickAmount": -0.005,
+    "affectedBy": [
+      {
+        "name": "morale",
+        "amountPerTick": -0.005,
+        "ifTotalIsLessThan": 50
+      }
+    ]
+  },
+  
+  
+  {
+    "name": "energy",
+    "category": "general",
+    "bounds": {
+      "max": 100.0,
+      "min": 0.0
+    }
+  },
+  
+  
+  {
+    "name": "morale",
+    "category": "feelings",
+    "bounds": {
+      "max": 100.0,
+      "min": 0.0
+    },
+    "autoUpdateByTickAmount": -0.001,
+    "affectedBy": [
+      {
+        "name": "energy",
+        "amountPerTick": -0.0005,
+        "ifTotalIsLessThan": 30.0
+      }
+    ]
+  }
+]

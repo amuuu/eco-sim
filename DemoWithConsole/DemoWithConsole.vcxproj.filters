@@ -21,6 +21,9 @@
     <ClCompile Include="EventSystemSample\EventSystemSample.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DecisionSystemSample\DecisionSystemSample.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EventSystemSample\SimpleEventListenerClass.h">
@@ -38,5 +41,10 @@
     <ClInclude Include="DecisionSystemSample\EntityWithMindVar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DecisionSystemSample\Configs\Actions.json" />
+    <None Include="DecisionSystemSample\Configs\MindVars.json" />
+    <None Include="DecisionSystemSample\Configs\NPCMindVarPersistentData.json" />
   </ItemGroup>
 </Project>

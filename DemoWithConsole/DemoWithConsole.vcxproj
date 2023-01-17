@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DecisionSystemSample\DecisionSystemSample.cpp" />
     <ClCompile Include="DemoWithConsole.cpp" />
     <ClCompile Include="EventSystemSample\EventSystemSample.cpp" />
   </ItemGroup>
@@ -157,6 +158,11 @@
     <ClInclude Include="EntityManagementSample\SimpleDumbEntity.h" />
     <ClInclude Include="EventSystemSample\SimpleEventListenerClass.h" />
     <ClInclude Include="ResourceManagementSample\ResourceManagementSample.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DecisionSystemSample\Configs\Actions.json" />
+    <None Include="DecisionSystemSample\Configs\MindVars.json" />
+    <None Include="DecisionSystemSample\Configs\NPCMindVarPersistentData.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

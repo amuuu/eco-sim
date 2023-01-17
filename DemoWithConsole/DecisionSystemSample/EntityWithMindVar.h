@@ -6,7 +6,7 @@ using namespace DecisionSystem;
 
 #include <memory>
 
-namespace DecisionSystem
+namespace DECISION_SYSTEM_SAMPLE
 {
 	
 	class EntityWithMindVar : public EntityManagement::Entity, public EntityMindVarContainer

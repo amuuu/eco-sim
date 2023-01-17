@@ -64,10 +64,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="DecisionSystem\Configs\Actions.json" />
     <None Include="DecisionSystem\StateOfMind.json" />
-    <None Include="DecisionSystem\Configs\NPCMindVarPersistentData.json" />
-    <None Include="DecisionSystem\Configs\MindVars.json" />
     <None Include="cpp.hint" />
   </ItemGroup>
 </Project>
