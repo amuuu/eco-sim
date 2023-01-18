@@ -154,6 +154,7 @@
     <ClInclude Include="EntityManagement\EntityGlobals.h" />
     <ClInclude Include="EntityManagement\EntityManager.h" />
     <ClInclude Include="EventSystem\EventSystem.h" />
+    <ClInclude Include="GeneralTools\DoubleSidedMap.h" />
     <ClInclude Include="GeneralTools\ObjectPool.h" />
     <ClInclude Include="GeneralTools\Singleton.h" />
     <ClInclude Include="ResourceManagement\Resource.h" />

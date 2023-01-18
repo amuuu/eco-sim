@@ -11,6 +11,20 @@
 #pragma comment(lib, "legacy_stdio_definitions")
 #endif
 
+
+
+
+
+#include "../GameSystems/EntityManagement/EntityManager.h"
+#include "SimpleDumbEntity.h"
+using namespace EntityManagement;
+
+
+
+
+
+
+
 static void glfw_error_callback(int error, const char* description)
 {
     fprintf(stderr, "Glfw Error %d: %s\n", error, description);
@@ -41,6 +55,8 @@ int main(int, char**)
     bool show_demo_window = true;
     bool show_another_window = false;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+
+    EntityManager entityManager{ false };
 
     while (!glfwWindowShouldClose(window))
     {

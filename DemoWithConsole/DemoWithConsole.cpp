@@ -1,7 +1,7 @@
 #define EVENT_SYSTEM_SAMPLE_ACTIVE 0
 #define ENTITY_MANAGEMENT_SAMPLE_ACTIVE 0
 #define RESOURCE_MANAGEMENT_SAMPLE_ACTIVE 0
-#define DECISION_SYSTEM_SAMPLE_ACTIVE 1
+#define DECISION_SYSTEM_SAMPLE_ACTIVE 0
 
 
 /////////////////////////////////////////////////////////
@@ -23,6 +23,11 @@
 #endif
 
 
+#include "GameSystems/GeneralTools/DoubleSidedMap.h"
+using namespace General;
+#include <string>
+
+
 int main()
 {
 
@@ -41,4 +46,15 @@ int main()
 #if DECISION_SYSTEM_SAMPLE_ACTIVE 1
 		DECISION_SYSTEM_SAMPLE::EXECUTE();
 #endif
+
+		DoubleSidedMap<int, std::string> m;
+
+		m.Add(1, "Hello");
+		m.Add(2, "Wassup");
+		m.Add(3, "Lesgoo");
+
+		m.Remove(2);
+		m.Remove("Hello");
+
+
 }
