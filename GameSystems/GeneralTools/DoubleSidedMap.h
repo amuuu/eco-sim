@@ -12,81 +12,54 @@ namespace General
 	{
 	
 	private:
-		std::map<Id, Pointer> M1{};
-		std::map<Pointer, Id> M2{};
+		using ITERATOR = std::map<Id, Pointer>::template iterator;
+		
+		std::map<Id, Pointer> _map{};
+		std::map<Pointer&, ITERATOR> _mapRev{};
 		size_t size{ 0 };
 
 	public:
 		 void Add(const Id& K1, const Pointer& K2)
 		 {
-			 M1[K1] = K2;
-			 M2[K2] = K1;
-			 size++;
+			 std::pair<ITERATOR, bool> res = _map.insert_or_assign(K1);
+			 
+			 if (res.second)
+			 {
+				 _mapRev[K2] = res.second;
+				 
+				 size++;
+			 }
 		 }
 
 		 const Pointer& Get(const Id& K1)
 		 {
-			 return M1[K1];
+			 return _map[K1];
 		 }
 
 		 const Id& Get(const Pointer& K2)
 		 {
-			 return M2[K2];
+			 return *(_map.find(_mapRev[K2]));
 		 }
 
 		 void Remove(Id&& k)
 		 {
-			 _Remove(M1, M2, k);
+			 m2.erase(m1[k]); // remove ref iterator
+			 m1.erase(k); // remove key
 			 
 			 size--;
 		 }
 
 		 void Remove(Pointer&& k)
 		 {
-			 _Remove(M2, M1, k);
+			 m1.erase(m2[k]);
+			 m2.erase(k);
+
 			 size--;
-		 }
-
-		 std::map<Id, Pointer> GetAll_First()
-		 {
-			 return M1;
-		 }
-
-		 std::map<Pointer, Id> GetAll_Second()
-		 {
-			 return M2;
 		 }
 
 		 const size_t& GetSize() const
 		 {
 			 return size;
 		 }
-
-
-	private:
-
-		template<typename X1, typename X2>
-		void _Remove(std::map<X1, X2>& m1, std::map<X2, X1>& m2, X1& x1)
-		{
-			using IT = std::map<X2, X1>::template iterator;
-
-			m1.erase(x1);
-
-			{
-				IT targetIt{};
-
-				auto it = m2.begin();
-				while (it != m2.end())
-				{
-					if ((*it).second == x1)
-					{
-						m2.erase((*it).first);
-						break;
-					}
-
-					++it;
-				}
-			}
-		}
 	};
 }
