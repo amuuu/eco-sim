@@ -7,52 +7,59 @@
 
 namespace General
 {
+
 	template <typename Id, typename Pointer>
 	struct DoubleSidedMap
 	{
 	
 	private:
-		using ITERATOR = std::map<Id, Pointer>::template iterator;
-		
+		using ITERATOR = typename std::map<Id, Pointer>::iterator;
+
 		std::map<Id, Pointer> _map{};
-		std::map<Pointer&, ITERATOR> _mapRev{};
+		std::map<Pointer&, ITERATOR&> _mapRev{};
 		size_t size{ 0 };
 
 	public:
-		 void Add(const Id& K1, const Pointer& K2)
+
+		 void Add(Id& K1, Pointer& K2)
 		 {
-			 std::pair<ITERATOR, bool> res = _map.insert_or_assign(K1);
+			 std::pair<ITERATOR, bool> res = _map.insert_or_assign(K1, K2);
 			 
 			 if (res.second)
 			 {
-				 _mapRev[K2] = res.second;
+				 _mapRev[K2] = res.first;
 				 
 				 size++;
 			 }
 		 }
 
-		 const Pointer& Get(const Id& K1)
+		 void Add(Id K1, Pointer K2)
 		 {
-			 return _map[K1];
+			 Add(K1, K2);
 		 }
 
-		 const Id& Get(const Pointer& K2)
+		 Pointer& Get(const Id& K)
 		 {
-			 return *(_map.find(_mapRev[K2]));
+			 return _map[K];
+		 }
+
+		 Id& Get(const Pointer& K)
+		 {
+			 return const_cast<Id&>((*(_mapRev[K])).first);
 		 }
 
 		 void Remove(Id&& k)
 		 {
-			 m2.erase(m1[k]); // remove ref iterator
-			 m1.erase(k); // remove key
+			 _mapRev.erase(_map[k]); // remove ref iterator
+			 _map.erase(k); // remove key
 			 
 			 size--;
 		 }
 
 		 void Remove(Pointer&& k)
 		 {
-			 m1.erase(m2[k]);
-			 m2.erase(k);
+			 _map.erase(_mapRev[k]);
+			 _mapRev.erase(k);
 
 			 size--;
 		 }

@@ -1,66 +1,66 @@
 ﻿  DoubleSidedMapTests.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(246,26): error C2535: 'std::pair<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>>>>>,bool> std::map<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>,std::less<Pointer &>,std::allocator<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>>>>::try_emplace(std::basic_string<char,std::char_traits<char>,std::allocator<char>> &,_Mappedty &&...)': member function already defined or declared
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(246,26): error C2535: 'std::pair<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &>>>>,bool> std::map<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &,std::less<Pointer &>,std::allocator<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &>>>::try_emplace(std::basic_string<char,std::char_traits<char>,std::allocator<char>> &,_Mappedty &&...)': member function already defined or declared
           with
           [
               Pointer=std::string,
               Id=int
           ]
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(234,26): message : see declaration of 'std::map<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>,std::less<Pointer &>,std::allocator<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>>>>::try_emplace'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(234,26): message : see declaration of 'std::map<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &,std::less<Pointer &>,std::allocator<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &>>>::try_emplace'
           with
           [
               Pointer=std::string,
               Id=int
           ]
-D:\Software Projects\GameSystems\GameSystems\GameSystems\GeneralTools\DoubleSidedMap.h(18,22): message : see reference to class template instantiation 'std::map<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>,std::less<Pointer &>,std::allocator<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>>>>' being compiled
+D:\Software Projects\GameSystems\GameSystems\GameSystems\GeneralTools\DoubleSidedMap.h(19,22): message : see reference to class template instantiation 'std::map<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &,std::less<Pointer &>,std::allocator<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &>>>' being compiled
           with
           [
               Pointer=std::string,
               Id=int
           ]
 D:\Software Projects\GameSystems\GameSystems\TestSuite\DoubleSidedMapTests.cpp(9,1): message : see reference to class template instantiation 'General::DoubleSidedMap<int,std::string>' being compiled
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(252,14): error C2535: 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>>>>> std::map<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>,std::less<Pointer &>,std::allocator<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>>>>::try_emplace(const std::_Tree_const_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>>>>>,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &,_Mappedty &&...)': member function already defined or declared
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(252,14): error C2535: 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &>>>> std::map<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &,std::less<Pointer &>,std::allocator<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &>>>::try_emplace(const std::_Tree_const_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &>>>>,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &,_Mappedty &&...)': member function already defined or declared
           with
           [
               Pointer=std::string,
               Id=int
           ]
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(240,14): message : see declaration of 'std::map<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>,std::less<Pointer &>,std::allocator<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>>>>::try_emplace'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(240,14): message : see declaration of 'std::map<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &,std::less<Pointer &>,std::allocator<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &>>>::try_emplace'
           with
           [
               Pointer=std::string,
               Id=int
           ]
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(310,26): error C2535: 'std::pair<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>>>>>,bool> std::map<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>,std::less<Pointer &>,std::allocator<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>>>>::insert_or_assign(std::basic_string<char,std::char_traits<char>,std::allocator<char>> &,_Mappedty &&)': member function already defined or declared
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(310,26): error C2535: 'std::pair<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &>>>>,bool> std::map<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &,std::less<Pointer &>,std::allocator<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &>>>::insert_or_assign(std::basic_string<char,std::char_traits<char>,std::allocator<char>> &,_Mappedty &&)': member function already defined or declared
           with
           [
               Pointer=std::string,
               Id=int
           ]
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(298,26): message : see declaration of 'std::map<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>,std::less<Pointer &>,std::allocator<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>>>>::insert_or_assign'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(298,26): message : see declaration of 'std::map<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &,std::less<Pointer &>,std::allocator<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &>>>::insert_or_assign'
           with
           [
               Pointer=std::string,
               Id=int
           ]
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(316,14): error C2535: 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>>>>> std::map<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>,std::less<Pointer &>,std::allocator<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>>>>::insert_or_assign(const std::_Tree_const_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>>>>>,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &,_Mappedty &&)': member function already defined or declared
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(316,14): error C2535: 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &>>>> std::map<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &,std::less<Pointer &>,std::allocator<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &>>>::insert_or_assign(const std::_Tree_const_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &>>>>,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &,_Mappedty &&)': member function already defined or declared
           with
           [
               Pointer=std::string,
               Id=int
           ]
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(304,14): message : see declaration of 'std::map<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>,std::less<Pointer &>,std::allocator<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>>>>::insert_or_assign'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(304,14): message : see declaration of 'std::map<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &,std::less<Pointer &>,std::allocator<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &>>>::insert_or_assign'
           with
           [
               Pointer=std::string,
               Id=int
           ]
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(344,18): error C2535: 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &std::map<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>,std::less<Pointer &>,std::allocator<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>>>>::operator [](std::basic_string<char,std::char_traits<char>,std::allocator<char>> &)': member function already defined or declared
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(344,18): error C2535: 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &std::map<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &,std::less<Pointer &>,std::allocator<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &>>>::operator [](std::basic_string<char,std::char_traits<char>,std::allocator<char>> &)': member function already defined or declared
           with
           [
               Id=int,
               Pointer=std::string
           ]
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(173,18): message : see declaration of 'std::map<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>,std::less<Pointer &>,std::allocator<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>>>>>::operator []'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(173,18): message : see declaration of 'std::map<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &,std::less<Pointer &>,std::allocator<std::pair<Pointer &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const Id,Pointer>>>> &>>>::operator []'
           with
           [
               Pointer=std::string,

@@ -19,6 +19,7 @@ static DoubleSidedMap<int, std::string> Populate()
 TEST(DoubleSidedMap, Create) 
 {
 	DoubleSidedMap<int, std::string> m = Populate();
+	m.Get("wassup");
 
 	EXPECT_EQ(m.Get("Wassup"), 2);
 	EXPECT_EQ(m.Get(3), "Lesgoo");
