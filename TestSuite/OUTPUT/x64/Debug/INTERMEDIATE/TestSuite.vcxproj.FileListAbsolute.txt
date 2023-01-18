@@ -1,3 +1,0 @@
-D:\Software Projects\GameSystems\GameSystems\TestSuite\OUTPUT\x64\Debug\MAIN\gtest.pdb
-D:\Software Projects\GameSystems\GameSystems\TestSuite\OUTPUT\x64\Debug\MAIN\gtest_main.pdb
-D:\Software Projects\GameSystems\GameSystems\TestSuite\OUTPUT\x64\Debug\INTERMEDIATE\TestSuite.vcxproj.CopyComplete
