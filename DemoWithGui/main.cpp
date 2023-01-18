@@ -15,9 +15,9 @@
 
 
 
-#include "../GameSystems/EntityManagement/EntityManager.h"
-#include "SimpleDumbEntity.h"
-using namespace EntityManagement;
+//#include "../GameSystems/EntityManagement/EntityManager.h"
+//#include "SimpleDumbEntity.h"
+//using namespace EntityManagement;
 
 
 

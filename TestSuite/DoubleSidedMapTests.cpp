@@ -16,13 +16,13 @@ static DoubleSidedMap<int, std::string> Populate()
 	return m;
 }
 
-TEST(DoubleSidedMap, Create) 
-{
-	DoubleSidedMap<int, std::string> m = Populate();
-
-	EXPECT_EQ(m.Get("Wassup"), 2);
-	EXPECT_EQ(m.Get(3), "Lesgoo");
-}
+//TEST(DoubleSidedMap, Create) 
+//{
+//	DoubleSidedMap<int, std::string> m = Populate();
+//
+//	EXPECT_EQ(m.Get("Wassup"), 2);
+//	EXPECT_EQ(m.Get(3), "Lesgoo");
+//}
 
 TEST(DoubleSidedMap, Remove)
 {

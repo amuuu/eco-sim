@@ -2,7 +2,6 @@
 
 #include <map>
 #include <utility>
-#include <list>
 
 namespace General
 {
@@ -14,25 +13,21 @@ namespace General
 	public:
 
 		 void Add(_K1& K1, _K2& K2)
-
 		 {
-			 /*std::pair<IT, bool> res = _map.insert_or_assign(K1, K2);
-			 
-			 if (res.second)
-			 {
-				 _mapRev[K2] = res.first;
-				 
-				 size++;
-			 }*/
+			 // not sure about this add yet...
 
-			 _map[K1] = K2;
-			 _mapRev[K2] = _map.find(K1);
-			 size++;
+			 
+			 Add(std::move(K1), std::move(K2));
 		 }
 
-		 void Add(_K1 K1, _K2 K2)
+		 void Add(_K1&& K1, _K2&& K2)
 		 {
-			 Add(K1, K2);
+			 std::pair<IT, bool> res = _map.insert_or_assign(K1, K2);
+			 if (res.second)
+			 {
+				 _mapRev[K2] = &(res.first);
+				 size++;
+			 }
 		 }
 
 		 _K2& Get(const _K1& K)
@@ -42,22 +37,21 @@ namespace General
 
 		 _K1& Get(const _K2& K)
 		 {
-			 return const_cast<_K1&>((*(_mapRev[K])).first);
+			 return const_cast<_K1&>((*(*(_mapRev[K]))).first);
 		 }
 
 		 void Remove(_K1&& k)
 		 {
-			 _mapRev.erase(_map[k]); // remove ref iterator
-			 _map.erase(k); // remove key
-			 
+			 _mapRev.erase(_map[k]);
+			 _map.erase(k);
 			 size--;
 		 }
 
-		 void Remove(_K2&& k)
+		 void Remove(_K2 k)
 		 {
-			 _map.erase(_mapRev[k]);
-			 _mapRev.erase(k);
-
+			 auto iter = *(_mapRev[k]); ////////////
+			 _mapRev.erase(*(_map.begin() + iter)); // !!!!!!!!!!!!!!!
+			 _map.erase(iter);
 			 size--;
 		 }
 
@@ -70,9 +64,11 @@ namespace General
 	private:
 		using IT = typename std::map<_K1, _K2>::iterator;
 
-		typename std::map<_K1, _K2> _map{};
-		typename std::map<_K2&, IT&> _mapRev{};
+		std::map<_K1, _K2> _map{};
+		std::map<_K2, IT*> _mapRev{};
 		size_t size{ 0 };
+
+
 
 	};
 }

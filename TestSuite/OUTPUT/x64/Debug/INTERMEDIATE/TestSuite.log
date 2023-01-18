@@ -1,68 +1,159 @@
 ﻿  DoubleSidedMapTests.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(246,26): error C2535: 'std::pair<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &>>>>,bool> std::map<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &,std::less<_K2 &>,std::allocator<std::pair<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &>>>::try_emplace(std::basic_string<char,std::char_traits<char>,std::allocator<char>> &,_Mappedty &&...)': member function already defined or declared
-          with
-          [
-              _K2=std::string,
-              _K1=int
-          ]
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(234,26): message : see declaration of 'std::map<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &,std::less<_K2 &>,std::allocator<std::pair<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &>>>::try_emplace'
-          with
-          [
-              _K2=std::string,
-              _K1=int
-          ]
-D:\Software Projects\GameSystems\GameSystems\GameSystems\GeneralTools\DoubleSidedMap.h(74,27): message : see reference to class template instantiation 'std::map<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &,std::less<_K2 &>,std::allocator<std::pair<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &>>>' being compiled
-          with
-          [
-              _K2=std::string,
-              _K1=int
-          ]
-D:\Software Projects\GameSystems\GameSystems\TestSuite\DoubleSidedMapTests.cpp(9,1): message : see reference to class template instantiation 'General::DoubleSidedMap<int,std::string>' being compiled
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(252,14): error C2535: 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &>>>> std::map<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &,std::less<_K2 &>,std::allocator<std::pair<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &>>>::try_emplace(const std::_Tree_const_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &>>>>,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &,_Mappedty &&...)': member function already defined or declared
-          with
-          [
-              _K2=std::string,
-              _K1=int
-          ]
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(240,14): message : see declaration of 'std::map<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &,std::less<_K2 &>,std::allocator<std::pair<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &>>>::try_emplace'
-          with
-          [
-              _K2=std::string,
-              _K1=int
-          ]
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(310,26): error C2535: 'std::pair<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &>>>>,bool> std::map<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &,std::less<_K2 &>,std::allocator<std::pair<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &>>>::insert_or_assign(std::basic_string<char,std::char_traits<char>,std::allocator<char>> &,_Mappedty &&)': member function already defined or declared
-          with
-          [
-              _K2=std::string,
-              _K1=int
-          ]
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(298,26): message : see declaration of 'std::map<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &,std::less<_K2 &>,std::allocator<std::pair<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &>>>::insert_or_assign'
-          with
-          [
-              _K2=std::string,
-              _K1=int
-          ]
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(316,14): error C2535: 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &>>>> std::map<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &,std::less<_K2 &>,std::allocator<std::pair<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &>>>::insert_or_assign(const std::_Tree_const_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &>>>>,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &,_Mappedty &&)': member function already defined or declared
-          with
-          [
-              _K2=std::string,
-              _K1=int
-          ]
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(304,14): message : see declaration of 'std::map<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &,std::less<_K2 &>,std::allocator<std::pair<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &>>>::insert_or_assign'
-          with
-          [
-              _K2=std::string,
-              _K1=int
-          ]
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(344,18): error C2535: 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &std::map<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &,std::less<_K2 &>,std::allocator<std::pair<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &>>>::operator [](std::basic_string<char,std::char_traits<char>,std::allocator<char>> &)': member function already defined or declared
+D:\Software Projects\GameSystems\GameSystems\GameSystems\GeneralTools\DoubleSidedMap.h(54,31): error C2678: binary '+': no operator found which takes a left-hand operand of type 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>>' (or there is no acceptable conversion)
           with
           [
               _K1=int,
               _K2=std::string
           ]
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\map(173,18): message : see declaration of 'std::map<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &,std::less<_K2 &>,std::allocator<std::pair<_K2 &,std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>> &>>>::operator []'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(2012,59): message : could be 'std::_String_const_iterator<std::_String_val<std::_Simple_types<_Elem>>> std::_String_const_iterator<std::_String_val<std::_Simple_types<_Elem>>>::operator +(const __int64,std::_String_const_iterator<std::_String_val<std::_Simple_types<_Elem>>>) noexcept' [found using argument-dependent lookup]
           with
           [
-              _K2=std::string,
-              _K1=int
+              _Elem=char
           ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(2189,53): message : or       'std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>> std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>::operator +(const __int64,std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>) noexcept' [found using argument-dependent lookup]
+          with
+          [
+              _Elem=char
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\vector(129,59): message : or       'std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>::operator +(const __int64,std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>) noexcept' [found using argument-dependent lookup]
+          with
+          [
+              _Ty=testing::internal::ParameterizedTestCaseInfoBase *
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\vector(308,53): message : or       'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>::operator +(const __int64,std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>) noexcept' [found using argument-dependent lookup]
+          with
+          [
+              _Ty=testing::internal::ParameterizedTestCaseInfoBase *
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(2012,59): message : or       'std::_String_const_iterator<std::_String_val<std::_Simple_types<_Elem>>> std::_String_const_iterator<std::_String_val<std::_Simple_types<_Elem>>>::operator +(const __int64,std::_String_const_iterator<std::_String_val<std::_Simple_types<_Elem>>>) noexcept' [found using argument-dependent lookup]
+          with
+          [
+              _Elem=wchar_t
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(2189,53): message : or       'std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>> std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>::operator +(const __int64,std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>) noexcept' [found using argument-dependent lookup]
+          with
+          [
+              _Elem=wchar_t
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\vector(2632,55): message : or       'std::_Vb_const_iterator<std::_Wrap_alloc<std::allocator<std::_Vbase>>> std::_Vb_const_iterator<std::_Wrap_alloc<std::allocator<std::_Vbase>>>::operator +(const __int64,std::_Vb_const_iterator<std::_Wrap_alloc<std::allocator<std::_Vbase>>>) noexcept' [found using argument-dependent lookup]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\vector(2806,49): message : or       'std::_Vb_iterator<std::_Wrap_alloc<std::allocator<std::_Vbase>>> std::_Vb_iterator<std::_Wrap_alloc<std::allocator<std::_Vbase>>>::operator +(const __int64,std::_Vb_iterator<std::_Wrap_alloc<std::allocator<std::_Vbase>>>) noexcept' [found using argument-dependent lookup]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\vector(129,59): message : or       'std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>::operator +(const __int64,std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>) noexcept' [found using argument-dependent lookup]
+          with
+          [
+              _Ty=std::_Vbase
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(1490,50): message : or       'std::reverse_iterator<_BidIt> std::operator +(reverse_iterator<_BidIt>::difference_type,const std::reverse_iterator<_BidIt> &) noexcept(<expr>)'
+D:\Software Projects\GameSystems\GameSystems\GameSystems\GeneralTools\DoubleSidedMap.h(54,31): message : 'std::reverse_iterator<_BidIt> std::operator +(reverse_iterator<_BidIt>::difference_type,const std::reverse_iterator<_BidIt> &) noexcept(<expr>)': could not deduce template argument for 'const std::reverse_iterator<_BidIt> &' from 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>>'
+          with
+          [
+              _K1=int,
+              _K2=std::string
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(3657,5): message : or       'std::move_iterator<_Iter> std::operator +(move_iterator<_Iter>::difference_type,const std::move_iterator<_Iter> &) noexcept(<expr>)'
+D:\Software Projects\GameSystems\GameSystems\GameSystems\GeneralTools\DoubleSidedMap.h(54,31): message : 'std::move_iterator<_Iter> std::operator +(move_iterator<_Iter>::difference_type,const std::move_iterator<_Iter> &) noexcept(<expr>)': could not deduce template argument for 'const std::move_iterator<_Iter> &' from 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>>'
+          with
+          [
+              _K1=int,
+              _K2=std::string
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5074,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,const std::basic_string<_Elem,_Traits,_Alloc> &)'
+D:\Software Projects\GameSystems\GameSystems\GameSystems\GeneralTools\DoubleSidedMap.h(54,31): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,const std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'const std::basic_string<_Elem,_Traits,_Alloc> &' from 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>>'
+          with
+          [
+              _K1=int,
+              _K2=std::string
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5086,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem *const ,const std::basic_string<_Elem,_Traits,_Alloc> &)'
+D:\Software Projects\GameSystems\GameSystems\GameSystems\GeneralTools\DoubleSidedMap.h(54,31): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem *const ,const std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'const _Elem *const ' from 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>>'
+          with
+          [
+              _K1=int,
+              _K2=std::string
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5099,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem,const std::basic_string<_Elem,_Traits,_Alloc> &)'
+D:\Software Projects\GameSystems\GameSystems\GameSystems\GeneralTools\DoubleSidedMap.h(54,31): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem,const std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'const std::basic_string<_Elem,_Traits,_Alloc> &' from 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>>'
+          with
+          [
+              _K1=int,
+              _K2=std::string
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5110,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem *const )'
+D:\Software Projects\GameSystems\GameSystems\GameSystems\GeneralTools\DoubleSidedMap.h(54,31): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem *const )': could not deduce template argument for 'const std::basic_string<_Elem,_Traits,_Alloc> &' from 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>>'
+          with
+          [
+              _K1=int,
+              _K2=std::string
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5123,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)'
+D:\Software Projects\GameSystems\GameSystems\GameSystems\GeneralTools\DoubleSidedMap.h(54,31): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': could not deduce template argument for 'const std::basic_string<_Elem,_Traits,_Alloc> &' from 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>>'
+          with
+          [
+              _K1=int,
+              _K2=std::string
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5134,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,std::basic_string<_Elem,_Traits,_Alloc> &&)'
+D:\Software Projects\GameSystems\GameSystems\GameSystems\GeneralTools\DoubleSidedMap.h(54,31): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,std::basic_string<_Elem,_Traits,_Alloc> &&)': could not deduce template argument for 'const std::basic_string<_Elem,_Traits,_Alloc> &' from 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>>'
+          with
+          [
+              _K1=int,
+              _K2=std::string
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5140,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,const std::basic_string<_Elem,_Traits,_Alloc> &)'
+D:\Software Projects\GameSystems\GameSystems\GameSystems\GeneralTools\DoubleSidedMap.h(54,31): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,const std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'std::basic_string<_Elem,_Traits,_Alloc> &&' from 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>>'
+          with
+          [
+              _K1=int,
+              _K2=std::string
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5146,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,std::basic_string<_Elem,_Traits,_Alloc> &&)'
+D:\Software Projects\GameSystems\GameSystems\GameSystems\GeneralTools\DoubleSidedMap.h(54,31): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,std::basic_string<_Elem,_Traits,_Alloc> &&)': could not deduce template argument for 'std::basic_string<_Elem,_Traits,_Alloc> &&' from 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>>'
+          with
+          [
+              _K1=int,
+              _K2=std::string
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5159,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem *const ,std::basic_string<_Elem,_Traits,_Alloc> &&)'
+D:\Software Projects\GameSystems\GameSystems\GameSystems\GeneralTools\DoubleSidedMap.h(54,31): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem *const ,std::basic_string<_Elem,_Traits,_Alloc> &&)': could not deduce template argument for 'const _Elem *const ' from 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>>'
+          with
+          [
+              _K1=int,
+              _K2=std::string
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5165,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem,std::basic_string<_Elem,_Traits,_Alloc> &&)'
+D:\Software Projects\GameSystems\GameSystems\GameSystems\GeneralTools\DoubleSidedMap.h(54,31): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem,std::basic_string<_Elem,_Traits,_Alloc> &&)': could not deduce template argument for 'std::basic_string<_Elem,_Traits,_Alloc> &&' from 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>>'
+          with
+          [
+              _K1=int,
+              _K2=std::string
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5171,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,const _Elem *const )'
+D:\Software Projects\GameSystems\GameSystems\GameSystems\GeneralTools\DoubleSidedMap.h(54,31): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,const _Elem *const )': could not deduce template argument for 'std::basic_string<_Elem,_Traits,_Alloc> &&' from 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>>'
+          with
+          [
+              _K1=int,
+              _K2=std::string
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xstring(5177,62): message : or       'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,const _Elem)'
+D:\Software Projects\GameSystems\GameSystems\GameSystems\GeneralTools\DoubleSidedMap.h(54,31): message : 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,const _Elem)': could not deduce template argument for 'std::basic_string<_Elem,_Traits,_Alloc> &&' from 'std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>>'
+          with
+          [
+              _K1=int,
+              _K2=std::string
+          ]
+D:\Software Projects\GameSystems\GameSystems\GameSystems\GeneralTools\DoubleSidedMap.h(54,31): message : while trying to match the argument list '(std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>>, std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _K1,_K2>>>>)'
+          with
+          [
+              _K1=int,
+              _K2=std::string
+          ]
+D:\Software Projects\GameSystems\GameSystems\GameSystems\GeneralTools\DoubleSidedMap.h(51,1): message : while compiling class template member function 'void General::DoubleSidedMap<int,std::string>::Remove(_K2)'
+          with
+          [
+              _K2=std::string
+          ]
+D:\Software Projects\GameSystems\GameSystems\TestSuite\DoubleSidedMapTests.cpp(32,10): message : see reference to function template instantiation 'void General::DoubleSidedMap<int,std::string>::Remove(_K2)' being compiled
+          with
+          [
+              _K2=std::string
+          ]
+D:\Software Projects\GameSystems\GameSystems\TestSuite\DoubleSidedMapTests.cpp(9,1): message : see reference to class template instantiation 'General::DoubleSidedMap<int,std::string>' being compiled
