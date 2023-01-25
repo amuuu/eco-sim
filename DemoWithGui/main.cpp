@@ -115,8 +115,9 @@ int main(int, char**)
             
             ImGui::Text("Tick: %d\nFixed Tick: %d", entityManager.GetCurrentTick(), entityManager.GetCurrentFixedTick());
 
-
-            if (ImGui::Button("Instantiate entity"))
+            ImGui::NewLine();
+            const ImVec2 buttSize = ImVec2(250, 20);
+            if (ImGui::Button("Instantiate Entity", buttSize))
             {
                 entityManager.EnqueueNewEntity(new SimpleDumbEntity{});
             }
@@ -144,7 +145,8 @@ int main(int, char**)
                 const auto* entityContent = entityManager.GetEntityBasedOnID(entityDisplayData.first);
                 auto name = std::string{ "Entity " + std::to_string(entityContent->Id) };
                 
-                ImGuiWindowFlags flags = ImGuiWindowFlags_NoFocusOnAppearing;
+                ImGuiWindowFlags flags = ImGuiWindowFlags_NoFocusOnAppearing | ImGuiWindowFlags_NoCollapse;
+                ImGui::SetNextWindowSize(ImVec2(150, 60));
                 ImGui::Begin(name.c_str(), &entityDisplayData.second, flags);
                 
                 //ImGui::Text(name.c_str());
