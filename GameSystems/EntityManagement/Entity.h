@@ -12,11 +12,16 @@ namespace EntityManagement
 		virtual void OnDestroy() = 0;
 
 		void SetFixedUpdateActiveState(bool isActive) { isFixedUpdateActive = isActive; }
-		bool IsFixedUpdateActive() { return isFixedUpdateActive; }
+		bool IsFixedUpdateActive() const { return isFixedUpdateActive; }
 		
 		EntityId Id;
-		
+
+		void SetCreationTickStamp(Tick tick) { creationTickStamp = tick; }
+		Tick GetCreationTickStamp() const { return creationTickStamp; }
+
 	private:
+		
 		bool isFixedUpdateActive{ false };
+		Tick creationTickStamp{ -1 };
 	};
 }

@@ -51,6 +51,7 @@
     <ClInclude Include="..\ExternalTools\imgui-1.89.1\backends\imgui_impl_opengl2.h">
       <Filter>sources</Filter>
     </ClInclude>
+    <ClInclude Include="ImGuiLayerPort.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\ExternalTools\imgui-1.89.1\misc\debuggers\imgui.natvis">

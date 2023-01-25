@@ -19,6 +19,7 @@ void EntityManager::InitializeEntity(Entity* r)
 	entities[r->Id] = std::move(r);
 	entitiesMutex.unlock();
 
+	r->SetCreationTickStamp(currentTick);
 	r->Init();
 }
 

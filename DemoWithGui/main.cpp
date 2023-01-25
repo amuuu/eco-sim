@@ -12,44 +12,7 @@
 #endif
 
 
-#include <string> 
-#include "../GameSystems/EntityManagement/EntityManager.h"
-using namespace EntityManagement;
-
-
-class SimpleDumbEntity : public Entity
-{
-    virtual void Init() override
-    {
-        SetFixedUpdateActiveState(false);
-    }
-
-    virtual void Update(Tick tick) override
-    {
-    }
-
-    virtual void FixedUpdate(EntityManagement::Tick fixedTick) override
-    {
-    }
-
-    virtual void OnDestroy() override
-    {
-    }
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#include "ImGuiLayerPort.h"
 
 
 static void glfw_error_callback(int error, const char* description)
@@ -59,6 +22,9 @@ static void glfw_error_callback(int error, const char* description)
 
 int main(int, char**)
 {
+    LayerPort::ImGuiLayerPort port{};
+    port.Setup();
+
     glfwSetErrorCallback(glfw_error_callback);
     if (!glfwInit())
         return 1;
@@ -71,23 +37,16 @@ int main(int, char**)
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
-    ImGui::StyleColorsLight();
+    ImGui::StyleColorsDark();
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL2_Init();
     ////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////
 
-    // Our state
     bool show_demo_window = false;
-    bool show_another_window = false;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-
-    EntityManager entityManager{ true };
-
-    bool showEntity = false;
-    std::map<EntityId, bool> entityDisplayState{};
-
+    int entityListItemIndex = 0;
 
     while (!glfwWindowShouldClose(window))
     {
@@ -103,32 +62,32 @@ int main(int, char**)
             ImGui::ShowDemoWindow(&show_demo_window);
 
         {
-            static float f = 0.0f;
-            static int counter = 0;
 
+            ImGui::SetNextWindowSize(ImVec2(350, 400));
+            ImGui::SetNextWindowPos(ImVec2(50, 50));
             ImGui::Begin("Ecosystem");
 
             ImGui::Checkbox("Demo Window", &show_demo_window);
 
-
             ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
             
-            ImGui::Text("Tick: %d\nFixed Tick: %d", entityManager.GetCurrentTick(), entityManager.GetCurrentFixedTick());
+            ImGui::Text("Tick: %d", port.GetCurrentTick());
 
             ImGui::NewLine();
             const ImVec2 buttSize = ImVec2(250, 20);
             if (ImGui::Button("Instantiate Entity", buttSize))
             {
-                entityManager.EnqueueNewEntity(new SimpleDumbEntity{});
+                port.CreateNewEntity();
             }
 
+            ImGui::SetNextItemOpen(true, ImGuiCond_Once);
             if (ImGui::TreeNode("Entity List"))
             {
-                for (const auto& entityData : *(entityManager.GetAllEntities()))
+                for (const auto& entityData : *(port.GetAllEntities()))
                 {
                     if (ImGui::Button(std::string{ "ID: " + std::to_string(entityData.first) }.c_str()))
                     {
-                        entityDisplayState[entityData.first] = !entityDisplayState[entityData.first];
+                        port.ToggleDisplayForEntity(entityData.first);
                     }
                 }
                 
@@ -138,27 +97,31 @@ int main(int, char**)
             ImGui::End();
         }
 
-        for (auto& entityDisplayData : entityDisplayState)
         {
-            if (entityDisplayData.second == true)
+            for (auto& entityDisplayData : *(port.GetEntitiesDisplayState()))
             {
-                const auto* entityContent = entityManager.GetEntityBasedOnID(entityDisplayData.first);
-                auto name = std::string{ "Entity " + std::to_string(entityContent->Id) };
-                
-                ImGuiWindowFlags flags = ImGuiWindowFlags_NoFocusOnAppearing | ImGuiWindowFlags_NoCollapse;
-                ImGui::SetNextWindowSize(ImVec2(150, 60));
-                ImGui::Begin(name.c_str(), &entityDisplayData.second, flags);
-                
-                //ImGui::Text(name.c_str());
-
-                if (ImGui::Button("Kill"))
+                if (entityDisplayData.second == true)
                 {
-                    entityManager.DestroyEntity(entityContent->Id);
-                    entityDisplayData.second = false;
-                }
+                    const auto* entityContent = port.GetEntityBasedOnID(entityDisplayData.first);
+                    auto name = std::string{ "Entity " + std::to_string(entityContent->Id) };
 
-                ImGui::End();
+                    ImGuiWindowFlags flags = ImGuiWindowFlags_NoFocusOnAppearing | ImGuiWindowFlags_NoCollapse;
+                    ImGui::SetNextWindowSize(ImVec2(180, 80));
+                    ImGui::SetNextWindowPos(ImVec2(350 + 100, 50 + 80 * entityListItemIndex++));
+                    ImGui::Begin(name.c_str(), &entityDisplayData.second, flags);
+
+                    ImGui::Text("Creation tick: %d", entityContent->GetCreationTickStamp());
+
+                    if (ImGui::Button("Kill"))
+                    {
+                        port.DestroyEntity(entityContent->Id);
+                        entityDisplayData.second = false;
+                    }
+
+                    ImGui::End();
+                }
             }
+            entityListItemIndex = 0;
         }
 
 

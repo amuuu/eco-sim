@@ -173,6 +173,7 @@
     <ClInclude Include="..\ExternalTools\imgui-1.89.1\imgui_internal.h" />
     <ClInclude Include="..\ExternalTools\imgui-1.89.1\backends\imgui_impl_glfw.h" />
     <ClInclude Include="..\ExternalTools\imgui-1.89.1\backends\imgui_impl_opengl2.h" />
+    <ClInclude Include="ImGuiLayerPort.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\ExternalTools\imgui-1.89.1\misc\debuggers\imgui.natvis" />
