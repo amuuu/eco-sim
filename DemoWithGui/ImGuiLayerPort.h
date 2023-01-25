@@ -32,57 +32,27 @@ namespace LayerPort
 	{
 	public:
 		
-		void Setup()
-		{
-			entityManager.StartTheLoop();
-		}
+		void Setup();
 
-		void Shutdown()
-		{
-		}
+		void Shutdown();
 
-		void CreateNewEntity()
-		{
-			entityManager.EnqueueNewEntity(new SimpleDumbEntity{});
-		}
+		void CreateNewEntity();
 
-		void ToggleDisplayForEntity(EntityId& id, bool isOn)
-		{
+		void CreateEntitiesBulk(int amount);
 
-		}
+		void ToggleDisplayForEntity(EntityId& id, bool isOn);
 
-		void ToggleDisplayForEntity(EntityId id)
-		{
-			entityDisplayState[id] = !entityDisplayState[id];
-		}
+		void ToggleDisplayForEntity(EntityId id);
 
-		std::map<const EntityId, Entity*>* GetAllEntities()
-		{
-			return entityManager.GetAllEntities();
-		}
+		std::map<const EntityId, Entity*>* GetAllEntities();
 
-		std::map<const EntityId, bool>* GetEntitiesDisplayState()
-		{
-			return &entityDisplayState;
-		}
+		std::map<const EntityId, bool>* GetEntitiesDisplayState();
 
-		Entity* GetEntityBasedOnID(EntityId id)
-		{
-			return entityManager.GetEntityBasedOnID(id);
-		}
+		Entity* GetEntityBasedOnID(EntityId id);
 
-		void DestroyEntity(EntityId id)
-		{
-			entityManager.DestroyEntity(id);
-		}
+		void DestroyEntity(EntityId id);
 
-		Tick GetCurrentTick() { return entityManager.GetCurrentTick(); }
-
-		void CreateEntitiesBulk(int amount)
-		{
-			for (int e = 0; e < amount; e++)
-				CreateNewEntity();
-		}
+		Tick GetCurrentTick();
 
 	private:
 
