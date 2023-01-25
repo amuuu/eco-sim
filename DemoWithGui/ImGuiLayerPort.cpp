@@ -23,7 +23,7 @@ void ImGuiLayerPort::CreateEntitiesBulk(int amount)
 
 void ImGuiLayerPort::ToggleDisplayForEntity(EntityId& id, bool isOn)
 {
-
+	entityDisplayState[id] = isOn;
 }
 
 void ImGuiLayerPort::ToggleDisplayForEntity(EntityId id)
