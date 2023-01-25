@@ -12,12 +12,39 @@
 #endif
 
 
+#include <string> 
+#include "../GameSystems/EntityManagement/EntityManager.h"
+using namespace EntityManagement;
+
+
+class SimpleDumbEntity : public Entity
+{
+    virtual void Init() override
+    {
+        SetFixedUpdateActiveState(false);
+    }
+
+    virtual void Update(Tick tick) override
+    {
+    }
+
+    virtual void FixedUpdate(EntityManagement::Tick fixedTick) override
+    {
+    }
+
+    virtual void OnDestroy() override
+    {
+    }
+};
 
 
 
-//#include "../GameSystems/EntityManagement/EntityManager.h"
-//#include "SimpleDumbEntity.h"
-//using namespace EntityManagement;
+
+
+
+
+
+
 
 
 
@@ -52,11 +79,15 @@ int main(int, char**)
     ////////////////////////////////////////////////////////////////////////////////
 
     // Our state
-    bool show_demo_window = true;
+    bool show_demo_window = false;
     bool show_another_window = false;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
-    EntityManager entityManager{ false };
+    EntityManager entityManager{ true };
+
+    bool showEntity = false;
+    std::map<EntityId, bool> entityDisplayState{};
+
 
     while (!glfwWindowShouldClose(window))
     {
@@ -68,8 +99,8 @@ int main(int, char**)
         ////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////
 
-        /*if (show_demo_window)
-            ImGui::ShowDemoWindow(&show_demo_window);*/
+        if (show_demo_window)
+            ImGui::ShowDemoWindow(&show_demo_window);
 
         {
             static float f = 0.0f;
@@ -90,8 +121,62 @@ int main(int, char**)
             ImGui::Text("counter = %d", counter);
 
             ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+            
+
+
+
+
+
+
+            if (ImGui::Button("Instantiate entity"))
+            {
+                entityManager.EnqueueNewEntity(new SimpleDumbEntity{});
+            }
+
+            if (ImGui::TreeNode("Entity List"))
+            {
+                for (const auto& entityData : *(entityManager.GetAllEntities()))
+                {
+                    if (ImGui::Button(std::string{ "ID: " + std::to_string(entityData.first) }.c_str()))
+                    {
+                        entityDisplayState[entityData.first] = !entityDisplayState[entityData.first];
+                    }
+                }
+                
+                ImGui::TreePop();
+            }
+            
             ImGui::End();
         }
+
+        for (auto& entityDisplayData : entityDisplayState)
+        {
+            if (entityDisplayData.second == true)
+            {
+                const auto* entityContent = entityManager.GetEntityBasedOnID(entityDisplayData.first);
+                auto name = std::string{ "Entity " + std::to_string(entityContent->Id) };
+                
+                ImGuiWindowFlags flags = ImGuiWindowFlags_NoFocusOnAppearing;
+                ImGui::Begin(name.c_str(), &entityDisplayData.second, flags);
+                
+                //ImGui::Text(name.c_str());
+
+                if (ImGui::Button("Kill"))
+                {
+                    entityManager.DestroyEntity(entityContent->Id);
+                    entityDisplayData.second = false;
+                }
+
+                ImGui::End();
+            }
+        }
+
+
+
+
+
+
+
 
         if (show_another_window)
         {
@@ -101,6 +186,7 @@ int main(int, char**)
                 show_another_window = false;
             ImGui::End();
         }
+
         
         ////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////

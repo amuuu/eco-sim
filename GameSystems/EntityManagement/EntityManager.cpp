@@ -5,7 +5,7 @@ using namespace EntityManagement;
 EntityId EntityManager::EnqueueNewEntity(Entity* r)
 {
 	r->Id = nextEntityId;
-
+	
 	entitiesQueueMutex.lock();
 	entitiesToInitialize.push(r);
 	entitiesQueueMutex.unlock();

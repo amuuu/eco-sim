@@ -15,7 +15,7 @@ namespace EntityManagement
 		bool IsFixedUpdateActive() { return isFixedUpdateActive; }
 		
 		EntityId Id;
-	
+		
 	private:
 		bool isFixedUpdateActive{ false };
 	};

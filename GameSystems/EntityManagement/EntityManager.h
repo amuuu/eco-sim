@@ -38,6 +38,9 @@ namespace EntityManagement
 		EntityManager(bool mustAutoStartLoopAfterInitialization = true);
 		~EntityManager();
 
+		// tmp
+		std::map<const EntityId, Entity*>* GetAllEntities() { return &entities; }
+
 	private:
 		
 		void InitializeEntity(Entity* r);
