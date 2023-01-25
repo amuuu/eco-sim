@@ -34,8 +34,6 @@ namespace LayerPort
 		
 		void Setup()
 		{
-			//...
-
 			entityManager.StartTheLoop();
 		}
 
@@ -80,11 +78,15 @@ namespace LayerPort
 
 		Tick GetCurrentTick() { return entityManager.GetCurrentTick(); }
 
+		void CreateEntitiesBulk(int amount)
+		{
+			for (int e = 0; e < amount; e++)
+				CreateNewEntity();
+		}
 
 	private:
 
 		EntityManager entityManager{ false };
 		std::map<const EntityId, bool> entityDisplayState{};
-		bool isDisplayStatesSetup{ false };
 	};
 }

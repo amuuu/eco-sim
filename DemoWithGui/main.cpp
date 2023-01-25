@@ -47,6 +47,7 @@ int main(int, char**)
     bool show_demo_window = false;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
     int entityListItemIndex = 0;
+    int bulkInstantiateAmount = 0;
 
     while (!glfwWindowShouldClose(window))
     {
@@ -65,7 +66,8 @@ int main(int, char**)
 
             ImGui::SetNextWindowSize(ImVec2(350, 400));
             ImGui::SetNextWindowPos(ImVec2(50, 50));
-            ImGui::Begin("Ecosystem");
+            ImGuiWindowFlags mainFlags = ImGuiWindowFlags_NoCollapse;
+            ImGui::Begin("Ecosystem", 0, mainFlags);
 
             ImGui::Checkbox("Demo Window", &show_demo_window);
 
@@ -74,11 +76,16 @@ int main(int, char**)
             ImGui::Text("Tick: %d", port.GetCurrentTick());
 
             ImGui::NewLine();
+
             const ImVec2 buttSize = ImVec2(250, 20);
             if (ImGui::Button("Instantiate Entity", buttSize))
-            {
                 port.CreateNewEntity();
-            }
+
+            ImGui::SetNextItemWidth(100);
+            ImGui::InputInt("Bulk Instantiate Amount", &bulkInstantiateAmount, 10, 50);
+            if (ImGui::Button("Bulk Instantiate Entities", buttSize))
+                port.CreateEntitiesBulk(bulkInstantiateAmount);
+
 
             ImGui::SetNextItemOpen(true, ImGuiCond_Once);
             if (ImGui::TreeNode("Entity List"))
