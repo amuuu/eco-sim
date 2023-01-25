@@ -82,7 +82,7 @@ int main(int, char**)
                 port.CreateNewEntity();
 
             ImGui::SetNextItemWidth(100);
-            ImGui::InputInt("Bulk Instantiate Amount", &bulkInstantiateAmount, 10, 50);
+            ImGui::InputInt("Bulk Amount", &bulkInstantiateAmount, 10, 50);
             if (ImGui::Button("Bulk Instantiate Entities", buttSize))
                 port.CreateEntitiesBulk(bulkInstantiateAmount);
 

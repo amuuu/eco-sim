@@ -33,8 +33,8 @@ namespace DecisionSystem
 
 		void Init(const std::string& mindVarsConfigsPath, const std::string& actionConfigsPath)
 		{
-			this->mindVarsConfigsPath = std::move(mindVarsConfigsPath);
-			this->actionConfigsPath = std::move(actionConfigsPath);
+			this->mindVarsConfigsPath = mindVarsConfigsPath;
+			this->actionConfigsPath = actionConfigsPath;
 
 			ParseConfigs();
 		}

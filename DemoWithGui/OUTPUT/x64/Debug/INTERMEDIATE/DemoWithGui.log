@@ -1,8 +1,6 @@
 ﻿  ImGuiLayerPort.cpp
 D:\Software Projects\GameSystems\GameSystems\DemoWithGui\ImGuiLayerPort.h(18,28): warning C4100: 'tick': unreferenced formal parameter
 D:\Software Projects\GameSystems\GameSystems\DemoWithGui\ImGuiLayerPort.h(22,51): warning C4100: 'fixedTick': unreferenced formal parameter
-D:\Software Projects\GameSystems\GameSystems\DemoWithGui\ImGuiLayerPort.cpp(24,64): warning C4100: 'isOn': unreferenced formal parameter
-D:\Software Projects\GameSystems\GameSystems\DemoWithGui\ImGuiLayerPort.cpp(24,55): warning C4100: 'id': unreferenced formal parameter
   main.cpp
 D:\Software Projects\GameSystems\GameSystems\DemoWithGui\ImGuiLayerPort.h(18,28): warning C4100: 'tick': unreferenced formal parameter
 D:\Software Projects\GameSystems\GameSystems\DemoWithGui\ImGuiLayerPort.h(22,51): warning C4100: 'fixedTick': unreferenced formal parameter
