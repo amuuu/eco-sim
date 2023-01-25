@@ -38,8 +38,11 @@ namespace EntityManagement
 		EntityManager(bool mustAutoStartLoopAfterInitialization = true);
 		~EntityManager();
 
-		// tmp
+		////////// tmp
 		std::map<const EntityId, Entity*>* GetAllEntities() { return &entities; }
+		Tick GetCurrentTick() { return currentTick.load(); }
+		Tick GetCurrentFixedTick() { return currentTick.load(); }
+		//////////////
 
 	private:
 		

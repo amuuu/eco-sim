@@ -2,4 +2,5 @@
 D:\Software Projects\GameSystems\GameSystems\DemoWithGui\main.cpp(27,30): warning C4100: 'tick': unreferenced formal parameter
 D:\Software Projects\GameSystems\GameSystems\DemoWithGui\main.cpp(31,53): warning C4100: 'fixedTick': unreferenced formal parameter
 D:\Software Projects\GameSystems\GameSystems\DemoWithGui\main.cpp(88,10): warning C4189: 'showEntity': local variable is initialized but not referenced
+D:\Software Projects\GameSystems\GameSystems\DemoWithGui\main.cpp(83,10): warning C4189: 'show_another_window': local variable is initialized but not referenced
   DemoWithGui.vcxproj -> D:\Software Projects\GameSystems\GameSystems\DemoWithGui\OUTPUT\x64\Debug\MAIN\DemoWithGui.exe
