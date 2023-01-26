@@ -156,6 +156,7 @@
     <ClInclude Include="EventSystem\EventSystem.h" />
     <ClInclude Include="GeneralTools\DoubleSidedMap.h" />
     <ClInclude Include="GeneralTools\ObjectPool.h" />
+    <ClInclude Include="GeneralTools\PathHelper.h" />
     <ClInclude Include="GeneralTools\Singleton.h" />
     <ClInclude Include="ResourceManagement\Resource.h" />
     <ClInclude Include="ResourceManagement\ResourcePool.h" />

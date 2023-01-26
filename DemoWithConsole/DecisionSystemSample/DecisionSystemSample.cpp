@@ -5,17 +5,15 @@ using namespace DecisionSystem;
 #include "../GameSystems/GameSystems/EntityManagement/EntityManager.h"
 using namespace EntityManagement;
 
-#include <filesystem>
-#include <algorithm>
+#include <GameSystems/GeneralTools/PathHelper.h>
 
 namespace DECISION_SYSTEM_SAMPLE
 {
 
 	static void EXECUTE()
 	{
-
-		auto mindVarsPath = std::string{ std::filesystem::current_path().string() + "\\DecisionSystemSample\\Configs\\MindVars.json" };
-		auto actionsPath = std::string{ std::filesystem::current_path().string() + "\\DecisionSystemSample\\Configs\\Actions.json"};
+		const auto mindVarsPath = GET_ABSOLUTE_PATH_STRING("\\DecisionSystemSample\\Configs\\MindVars.json");
+		const auto actionsPath = GET_ABSOLUTE_PATH_STRING("\\DecisionSystemSample\\Configs\\Actions.json");
 
 		MindVarModelsParser::GetInstance()->Init(mindVarsPath, actionsPath);
 
@@ -23,4 +21,4 @@ namespace DECISION_SYSTEM_SAMPLE
 		entityManager.EnqueueNewEntity(new EntityWithMindVar{});
 		entityManager.StartTheLoop();
 	}
-}
+}	
