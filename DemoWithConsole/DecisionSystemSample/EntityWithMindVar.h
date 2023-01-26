@@ -14,34 +14,47 @@ namespace DECISION_SYSTEM_SAMPLE
 
 		virtual void Init() override
 		{
-			std::cout << "ENTITY INIT\n";
-
-			SetValueForMindVar(HUNGER, 12.f);
+			SetValueForMindVar(HUNGER, 70.f);
 			SetValueForMindVar(MORALE, 2.f);
-			SetValueForMindVar(COOKING, 2.f);
+			SetValueForMindVar(COOKING, 70.f);
 			SetValueForMindVar(ENERGY, 8.f);
 		}
 		
 		virtual void Update(EntityManagement::Tick tick) override
 		{
-			//if (tick % 100000 == 0) // this is ugly ticks are too fast for the frequency by which we want the vars to be update. we neeed a cleaner way
+			//if (tick % 1000 == 0) // this is ugly ticks are too fast for the frequency by which we want the vars to be update. we neeed a cleaner way
 			//{
 			//	UpdateMindVars();
 			//	PrintAllMindVars();
 			//}
-
-			if (tick == 500000000)
+			static bool canMakePasta = false;
+			if (tick == 500000)
 			{
 				std::cout << "WILL CHECK\n";
 
 				if (CanDoAction("MakePasta"))
 				{
 					std::cout << "Can Make Pasta\n";
+
+					PrintAllMindVars();
+
+					canMakePasta = true;
 				}
 				else
 				{
 					std::cout << "Can't Make Pasta\n";
+
+					canMakePasta = false;
 				}
+			}
+
+			if (canMakePasta && tick == 1500000)
+			{
+				std::cout << "Making pasta if it's allowed...\n";
+				
+				StartDoingAction("MakePasta");
+
+				PrintAllMindVars();
 			}
 		}
 

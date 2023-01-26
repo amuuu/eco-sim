@@ -1,5 +1,7 @@
 #include "EntityBrain.h"
 
+#include <iostream>
+
 using namespace DecisionSystem;
 
 void EntityBrain::SetValueForMindVar(const MindVarId id, float value) { mindVarValues[id] = value; }
@@ -70,6 +72,8 @@ bool EntityBrain::CanDoAction(const std::string& actionName)
 		} // else you don't calculate score for that variable
 	}
 
+	std::cout << "score: " << score << " ~ min: " << targetModel.minScore << std::endl;
+	
 	return (score >= targetModel.minScore);
 }
 
@@ -79,6 +83,9 @@ void EntityBrain::StartDoingAction(const std::string& actionName, bool doesntNee
 		return;
 
 	onGoingActions.push_back(actionName);
+
+	//tmp
+	OnActionDoneSuccessfully(actionName);
 }
 
 void EntityBrain::OnActionDoneSuccessfully(const std::string& actionName)

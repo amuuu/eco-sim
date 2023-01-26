@@ -32,7 +32,7 @@ namespace DecisionSystem
 
 		GENERATE_SINGLETON_GETTER(DecisionSystem::MindVarModelsParser)
 
-			void Init(const std::string& mindVarsConfigsPath, const std::string& actionConfigsPath);
+		void Init(const std::string& mindVarsConfigsPath, const std::string& actionConfigsPath);
 
 		void ParseConfigs();
 
