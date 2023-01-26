@@ -35,7 +35,7 @@
       }
     ],
 
-    "formula": "{{money}} * ({{hunger}} + {{morale}} + {{energy}} + {{cooking}} + {{laziness}})", // OR "DEFAULT" which is the sum of items
+    "formula": "{{money}} * ({{hunger}} + {{morale}} + {{energy}} + {{cooking}} + {{laziness}})",
 
     "rewards": [
       {

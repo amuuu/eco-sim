@@ -61,7 +61,9 @@ namespace DecisionSystem
 				const auto& min = (*it)["bounds"]["min"].get<float>();
 				const auto& max = (*it)["bounds"]["max"].get<float>();
 				const auto& isAutoUpdatedInTicks = (*it).contains("autoUpdateByTickAmount");
-				const auto& autoUpdateAmount = (*it)["autoUpdateByTickAmount"].get<float>();
+				float autoUpdateAmount = 0;
+				if (isAutoUpdatedInTicks)
+					autoUpdateAmount = (*it)["autoUpdateByTickAmount"].get<float>();
 
 				
 				///////////////////// AFFECTORS ///////////////////////////
