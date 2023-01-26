@@ -7,6 +7,7 @@
 #include <memory>
 #include <iostream>
 #include <list>
+#include <mutex>
 
 namespace DecisionSystem
 {
@@ -37,6 +38,7 @@ namespace DecisionSystem
 
 		std::map<const MindVarId, float> mindVarValues{};
 		std::list<std::string> onGoingActions{};
+		std::mutex valueUpdateMutex{};
 	
 	};
 }

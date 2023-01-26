@@ -58,6 +58,7 @@ bool EntityBrain::CanDoAction(const std::string& actionName)
 
 	float score = 0.f;
 
+	valueUpdateMutex.lock();
 	for (const auto& cv : targetModel.conditionVariables)
 	{
 		if (mindVarValues.find(cv.name) != mindVarValues.end())
@@ -71,6 +72,7 @@ bool EntityBrain::CanDoAction(const std::string& actionName)
 
 		} // else you don't calculate score for that variable
 	}
+	valueUpdateMutex.unlock();
 
 	std::cout << "score: " << score << " ~ min: " << targetModel.minScore << std::endl;
 	
@@ -82,7 +84,9 @@ void EntityBrain::StartDoingAction(const std::string& actionName, bool doesntNee
 	if (doesntNeedChecking || !CanDoAction(actionName))
 		return;
 
+	valueUpdateMutex.lock();
 	onGoingActions.push_back(actionName);
+	valueUpdateMutex.unlock();
 
 	//tmp
 	OnActionDoneSuccessfully(actionName);
@@ -99,14 +103,18 @@ void EntityBrain::OnActionDoneSuccessfully(const std::string& actionName)
 
 	const auto& targetModel = actions[actionName];
 
+	
+	valueUpdateMutex.lock();
 	for (const auto& r : targetModel.rewards)
 	{
 		if (mindVarValues.find(r.name) != mindVarValues.end())
 		{
+
 			if (r.effectType == Absolute)
 				mindVarValues[r.name] = r.amount;
 			else if (r.effectType == Diff)
 				mindVarValues[r.name] += r.amount;
 		}
 	}
+	valueUpdateMutex.unlock();
 }

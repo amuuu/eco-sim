@@ -9,7 +9,7 @@ using namespace DecisionSystem;
 namespace DECISION_SYSTEM_SAMPLE
 {
 	
-	class EntityWithMindVar : public EntityManagement::Entity, public EntityBrain
+	class EntityWithMindVar : public EntityManagement::Entity, public DecisionSystem::EntityBrain
 	{
 
 		virtual void Init() override
