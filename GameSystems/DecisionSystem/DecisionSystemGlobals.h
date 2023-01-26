@@ -10,7 +10,7 @@ using ActionId = std::string;
 
 #define HUNGER "hunger"
 #define MORALE "morale"
-#define SMARTNESS "smartness"
-#define FOODY "foody"
+#define ENERGY "energy"
+#define COOKING "cooking"
 
 }

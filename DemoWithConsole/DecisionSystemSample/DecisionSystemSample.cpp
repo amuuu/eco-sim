@@ -2,7 +2,7 @@
 #include "GameSystems/DecisionSystem/MindVarModelsParser.h"
 #include "EntityWithMindVar.h"
 using namespace DecisionSystem;
-#include "../GameSystems/GameSystems/EntityManagement/EntityManager.h"
+#include "GameSystems/EntityManagement/EntityManager.h"
 using namespace EntityManagement;
 
 #include <GameSystems/GeneralTools/PathHelper.h>
@@ -17,8 +17,11 @@ namespace DECISION_SYSTEM_SAMPLE
 
 		MindVarModelsParser::GetInstance()->Init(mindVarsPath, actionsPath);
 
+
 		EntityManager entityManager{ false };
+
 		entityManager.EnqueueNewEntity(new EntityWithMindVar{});
+		
 		entityManager.StartTheLoop();
 	}
 }	

@@ -24,16 +24,13 @@
         "coeff": 2.0
       },
       {
-        "name": "laziness",
-        "max": 35.0,
-        "coeff": 2.0
-      },
-      {
         "name": "money",
         "min": 20,
         "coeff": 5.0
       }
     ],
+
+    "minScore": 20.0,
 
     "formula": "{{money}} * ({{hunger}} + {{morale}} + {{energy}} + {{cooking}} + {{laziness}})",
 

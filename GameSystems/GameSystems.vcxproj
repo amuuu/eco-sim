@@ -141,6 +141,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DecisionSystem\EntityBrain.cpp" />
+    <ClCompile Include="DecisionSystem\MindVarModelsParser.cpp" />
     <ClCompile Include="EntityManagement\EntityManager.cpp" />
     <ClCompile Include="ResourceManagement\ResourcePool.cpp" />
   </ItemGroup>
@@ -149,7 +151,7 @@
     <ClInclude Include="DecisionSystem\MindVarModelsParser.h" />
     <ClInclude Include="DecisionSystem\DecisionSystemGlobals.h" />
     <ClInclude Include="DecisionSystem\MindVarModel.h" />
-    <ClInclude Include="DecisionSystem\EntityMindVarContainer.h" />
+    <ClInclude Include="DecisionSystem\EntityBrain.h" />
     <ClInclude Include="EntityManagement\Entity.h" />
     <ClInclude Include="EntityManagement\EntityGlobals.h" />
     <ClInclude Include="EntityManagement\EntityManager.h" />

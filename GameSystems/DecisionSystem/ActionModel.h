@@ -3,7 +3,7 @@
 
 namespace DecisionSystem
 {
-	enum BoundType { Min, Max, None };
+	enum BoundType { Min = -1, Max = 1, None = 0};
 	
 	struct ActionFormulaVariable
 	{
@@ -44,6 +44,10 @@ namespace DecisionSystem
 
 	class ActionModel
 	{
-
+	public:
+		std::vector<ActionReward> rewards{};
+		std::vector<ActionFormulaVariable> conditionVariables{};
+		float minScore;
+		std::string name;
 	};
 }
