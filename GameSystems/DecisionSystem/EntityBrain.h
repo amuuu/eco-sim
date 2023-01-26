@@ -8,6 +8,7 @@
 #include <iostream>
 #include <list>
 #include <mutex>
+#include <utility>
 
 namespace DecisionSystem
 {
@@ -16,15 +17,17 @@ namespace DecisionSystem
 	{
 	public:
 		
-		void SetValueForMindVar(const MindVarId id, float value); // TODO: check min max
+		void SetValueForVariable(const MindVarId id, float value); // TODO: check min max
 		
-		void ChangeValueForMindVar(const MindVarId id, float value); // TODO: check min max
+		void BulkSetVariables(std::initializer_list<std::pair< const MindVarId, float>> vars);
+
+		void ChangeValueForVariable(const MindVarId id, float value); // TODO: check min max
 		
-		float GetValueForMindVar(const MindVarId id);
+		float GetValueForVariable(const MindVarId id);
 
-		void PrintAllMindVars();
+		void PrintAllVariables();
 
-		void UpdateMindVars();
+		void UpdateVariables();
 
 		void DoActionIfPossible(const std::string& actionName);
 

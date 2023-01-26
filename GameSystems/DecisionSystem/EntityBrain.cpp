@@ -4,24 +4,38 @@
 
 using namespace DecisionSystem;
 
-void EntityBrain::SetValueForMindVar(const MindVarId id, float value) { mindVarValues[id] = value; }
+void EntityBrain::SetValueForVariable(const MindVarId id, float value) { mindVarValues[id] = value; }
 
-void EntityBrain::ChangeValueForMindVar(const MindVarId id, float value) { mindVarValues[id] += value; }
+void EntityBrain::BulkSetVariables(std::initializer_list<std::pair<const MindVarId, float>> vars)
+{
+	for (const auto& var : vars)
+	{
+		SetValueForVariable(var.first, var.second);
+	}
+}
 
-float EntityBrain::GetValueForMindVar(const MindVarId id) { return mindVarValues[id]; }
+void EntityBrain::ChangeValueForVariable(const MindVarId id, float value)
+{ 
+	mindVarValues[id] += value; 
+}
 
-void EntityBrain::PrintAllMindVars()
+float EntityBrain::GetValueForVariable(const MindVarId id) 
+{ 
+	return mindVarValues[id]; 
+}
+
+void EntityBrain::PrintAllVariables()
 {
 	for (auto const& [key, val] : mindVarValues)
 		std::cout << key << ':' << val << std::endl;
 }
 
-void EntityBrain::UpdateMindVars()
+void EntityBrain::UpdateVariables()
 {
 	for (auto const& [targetVar, targetVarVal] : mindVarValues)
 	{
 		// direct changes
-		ChangeValueForMindVar(targetVar, MindVarModelsParser::GetInstance()->models[targetVar].autoUpdateAmount);
+		ChangeValueForVariable(targetVar, MindVarModelsParser::GetInstance()->models[targetVar].autoUpdateAmount);
 
 		// affectors
 		for (auto const& affector : MindVarModelsParser::GetInstance()->models[targetVar].affectors)
@@ -32,7 +46,7 @@ void EntityBrain::UpdateMindVars()
 					||
 					(affector.activeIfCondition == None))
 				{
-					ChangeValueForMindVar(targetVar, affector.amountPerTick);
+					ChangeValueForVariable(targetVar, affector.amountPerTick);
 				}
 			}
 		}

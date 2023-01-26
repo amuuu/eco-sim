@@ -14,18 +14,20 @@ namespace DECISION_SYSTEM_SAMPLE
 
 		virtual void Init() override
 		{
-			SetValueForMindVar(HUNGER, 70.f);
-			SetValueForMindVar(MORALE, 2.f);
-			SetValueForMindVar(COOKING, 70.f);
-			SetValueForMindVar(ENERGY, 8.f);
+			BulkSetVariables({
+				{ HUNGER, 70.f },
+				{ MORALE, 2.f },
+				{ COOKING, 70.f },
+				{ ENERGY, 8.f }
+			});
 		}
 		
 		virtual void Update(EntityManagement::Tick tick) override
 		{
 			//if (tick % 1000 == 0) // this is ugly ticks are too fast for the frequency by which we want the vars to be update. we neeed a cleaner way
 			//{
-			//	UpdateMindVars();
-			//	PrintAllMindVars();
+			//	UpdateVariables();
+			//	PrintAllVariables();
 			//}
 			static bool canMakePasta = false;
 			if (tick == 500000)
@@ -36,7 +38,7 @@ namespace DECISION_SYSTEM_SAMPLE
 				{
 					std::cout << "Can Make Pasta\n";
 
-					PrintAllMindVars();
+					PrintAllVariables();
 
 					canMakePasta = true;
 				}
@@ -54,7 +56,7 @@ namespace DECISION_SYSTEM_SAMPLE
 				
 				StartDoingAction("MakePasta");
 
-				PrintAllMindVars();
+				PrintAllVariables();
 			}
 		}
 
