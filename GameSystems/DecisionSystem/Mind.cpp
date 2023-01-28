@@ -4,9 +4,9 @@
 
 using namespace DecisionSystem;
 
-void EntityBrain::SetValueForVariable(const MindVarId id, float value) { mindVarValues[id] = value; }
+void Mind::SetValueForVariable(const MindVarId id, float value) { mindVarValues[id] = value; }
 
-void EntityBrain::BulkSetVariables(std::initializer_list<std::pair<const MindVarId, float>> vars)
+void Mind::BulkSetVariables(std::initializer_list<std::pair<const MindVarId, float>> vars)
 {
 	for (const auto& var : vars)
 	{
@@ -14,23 +14,23 @@ void EntityBrain::BulkSetVariables(std::initializer_list<std::pair<const MindVar
 	}
 }
 
-void EntityBrain::ChangeValueForVariable(const MindVarId id, float value)
+void Mind::ChangeValueForVariable(const MindVarId id, float value)
 { 
 	mindVarValues[id] += value; 
 }
 
-float EntityBrain::GetValueForVariable(const MindVarId id) 
+float Mind::GetValueForVariable(const MindVarId id) 
 { 
 	return mindVarValues[id]; 
 }
 
-void EntityBrain::PrintAllVariables()
+void Mind::PrintAllVariables()
 {
 	for (auto const& [key, val] : mindVarValues)
 		LOG_INFO(key << ':' << val);
 }
 
-void EntityBrain::UpdateVariables()
+void Mind::UpdateVariables()
 {
 	for (auto const& [targetVar, targetVarVal] : mindVarValues)
 	{
@@ -53,7 +53,7 @@ void EntityBrain::UpdateVariables()
 	}
 }
 
-void EntityBrain::DoActionIfPossible(const std::string& actionName)
+void Mind::DoActionIfPossible(const std::string& actionName)
 {
 	if (CanDoAction(actionName))
 	{
@@ -61,7 +61,7 @@ void EntityBrain::DoActionIfPossible(const std::string& actionName)
 	}
 }
 
-bool EntityBrain::CanDoAction(const std::string& actionName)
+bool Mind::CanDoAction(const std::string& actionName)
 {
 	auto& actions = MindVarModelsParser::GetInstance()->actionModels;
 
@@ -93,7 +93,7 @@ bool EntityBrain::CanDoAction(const std::string& actionName)
 	return (score >= targetModel.minScore);
 }
 
-void EntityBrain::StartDoingAction(const std::string& actionName, bool doesntNeedChecking)
+void Mind::StartDoingAction(const std::string& actionName, bool doesntNeedChecking)
 {
 	if (!doesntNeedChecking || !CanDoAction(actionName))
 		return;
@@ -106,7 +106,7 @@ void EntityBrain::StartDoingAction(const std::string& actionName, bool doesntNee
 	OnActionDoneSuccessfully(actionName);
 }
 
-void EntityBrain::OnActionDoneSuccessfully(const std::string& actionName)
+void Mind::OnActionDoneSuccessfully(const std::string& actionName)
 {
 	auto& actions = MindVarModelsParser::GetInstance()->actionModels;
 

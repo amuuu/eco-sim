@@ -1,7 +1,7 @@
 #pragma once
 
 #include "GameSystems/EntityManagement/Entity.h"
-#include "GameSystems/DecisionSystem/EntityBrain.h"
+#include "GameSystems/DecisionSystem/Mind.h"
 using namespace DecisionSystem;
 
 #include <memory>
@@ -10,42 +10,13 @@ using namespace DecisionSystem;
 namespace DECISION_SYSTEM_SAMPLE
 {
 	
-	class EntityWithMindVar : public EntityManagement::Entity, public DecisionSystem::EntityBrain
+	class EntityWithMindVar : public EntityManagement::Entity
 	{
 
-		virtual void Init() override
+		virtual void OnConstruct() override
 		{
-			BulkSetVariables({
-				{ HUNGER, 70.f },
-				{ MORALE, 2.f },
-				{ COOKING, 70.f },
-				{ ENERGY, 8.f }
-			});
+			this->AddComponent(new Mind{});
 		}
 		
-		virtual void Update() override
-		{
-			static bool hasDone = false;
-			if (!hasDone)
-			{
-				PrintAllVariables();
-
-				DoActionIfPossible("MakePasta");
-
-				PrintAllVariables();
-				
-				hasDone = true;
-			}
-		}
-
-		virtual void FixedUpdate() override
-		{
-			std::cout << "FIXED\n";
-		}
-
-		virtual void OnDestroy() override
-		{
-		}
-
 	};
 }

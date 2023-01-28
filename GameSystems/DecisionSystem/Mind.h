@@ -2,6 +2,7 @@
 
 #include "DecisionSystemGlobals.h"
 #include "MindVarModelsParser.h"
+#include "../EntityManagement/Component.h"
 
 #include <map>
 #include <memory>
@@ -12,9 +13,44 @@
 namespace DecisionSystem
 {
 
-	class EntityBrain
+	class Mind : public EntityManagement::Component
 	{
 	public:
+
+		virtual void Init() override
+		{
+			BulkSetVariables({
+				{ HUNGER, 70.f },
+				{ MORALE, 2.f },
+				{ COOKING, 70.f },
+				{ ENERGY, 8.f }
+				});
+		}
+
+		virtual void Update() override
+		{
+			static bool hasDone = false;
+			if (!hasDone)
+			{
+				PrintAllVariables();
+
+				DoActionIfPossible("MakePasta");
+
+				PrintAllVariables();
+
+				hasDone = true;
+			}
+		}
+
+		virtual void FixedUpdate() override
+		{
+		}
+
+		virtual void OnDestroy() override
+		{
+		}
+
+	private:
 		
 		void SetValueForVariable(const MindVarId id, float value); // TODO: check min max
 		

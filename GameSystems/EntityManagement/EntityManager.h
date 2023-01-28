@@ -26,10 +26,10 @@ namespace EntityManagement
 	{
 	public:
 		
-		EntityId EnqueueNewEntity(Entity* r);
-		Entity* GetEntityBasedOnID(const EntityId& id);
+		ID EnqueueNewEntity(Entity* r);
+		Entity* GetEntityBasedOnID(const ID& id);
 		
-		void DestroyEntity(EntityId id, bool extraCheckNotNeeded = true);
+		void DestroyEntity(ID id, bool extraCheckNotNeeded = true);
 		void DestroyEntity(Entity* entity);
 
 		void StartTheLoop();
@@ -40,7 +40,7 @@ namespace EntityManagement
 
 		////////// tmp
 		
-		std::map<const EntityId, Entity*>* GetAllEntities() { return &entities; }
+		std::map<const ID, Entity*>* GetAllEntities() { return &entities; }
 		
 		Tick GetCurrentTick();
 		
@@ -51,15 +51,15 @@ namespace EntityManagement
 		void InitializeEntity(Entity* r);
 		void MainEntityLoop();
 
-		EntityId GetEntityIdBasedOnEntity(Entity* e);
+		ID GetEntityIdBasedOnEntity(Entity* e);
 
-		std::map<const EntityId, Entity*> entities{}; // TODO: check if unordered_map is better for this case
+		std::map<const ID, Entity*> entities{}; // TODO: check if unordered_map is better for this case
 		std::queue<Entity*> entitiesToInitialize{};
 		std::mutex entitiesMutex{}, entitiesQueueMutex{};
 
 		bool autoStartLoop{ true };
 
-		EntityId nextEntityId{ 0 };
+		ID nextEntityId{ 0 };
 		
 		std::unique_ptr<std::thread> mainLoopThread;
 

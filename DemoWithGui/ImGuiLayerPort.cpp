@@ -21,32 +21,32 @@ void ImGuiLayerPort::CreateEntitiesBulk(int amount)
 		CreateNewEntity();
 }
 
-void ImGuiLayerPort::ToggleDisplayForEntity(EntityId& id, bool isOn)
+void ImGuiLayerPort::ToggleDisplayForEntity(ID& id, bool isOn)
 {
 	entityDisplayState[id] = isOn;
 }
 
-void ImGuiLayerPort::ToggleDisplayForEntity(EntityId id)
+void ImGuiLayerPort::ToggleDisplayForEntity(ID id)
 {
 	entityDisplayState[id] = !entityDisplayState[id];
 }
 
-std::map<const EntityId, Entity*>* ImGuiLayerPort::GetAllEntities()
+std::map<const ID, Entity*>* ImGuiLayerPort::GetAllEntities()
 {
 	return entityManager.GetAllEntities();
 }
 
-std::map<const EntityId, bool>* ImGuiLayerPort::GetEntitiesDisplayState()
+std::map<const ID, bool>* ImGuiLayerPort::GetEntitiesDisplayState()
 {
 	return &entityDisplayState;
 }
 
-Entity* ImGuiLayerPort::GetEntityBasedOnID(EntityId id)
+Entity* ImGuiLayerPort::GetEntityBasedOnID(ID id)
 {
 	return entityManager.GetEntityBasedOnID(id);
 }
 
-void ImGuiLayerPort::DestroyEntity(EntityId id)
+void ImGuiLayerPort::DestroyEntity(ID id)
 {
 	entityManager.DestroyEntity(id);
 }

@@ -24,7 +24,7 @@
     <ClCompile Include="DecisionSystem\MindVarModelsParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DecisionSystem\EntityBrain.cpp">
+    <ClCompile Include="DecisionSystem\Mind.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,7 +56,7 @@
     <ClInclude Include="DecisionSystem\MindVarModel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DecisionSystem\EntityBrain.h">
+    <ClInclude Include="DecisionSystem\Mind.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GeneralTools\Singleton.h">
@@ -78,6 +78,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GeneralTools\Timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityManagement\Component.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

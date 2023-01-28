@@ -2,7 +2,7 @@
 
 using namespace EntityManagement;
 
-EntityId EntityManager::EnqueueNewEntity(Entity* r)
+ID EntityManager::EnqueueNewEntity(Entity* r)
 {
 	r->Id = nextEntityId;
 	
@@ -16,24 +16,28 @@ EntityId EntityManager::EnqueueNewEntity(Entity* r)
 void EntityManager::InitializeEntity(Entity* r)
 {
 	entitiesMutex.lock();
-	entities[r->Id] = std::move(r);
-	entitiesMutex.unlock();
-
+	
 	r->SetCreationTickStamp(HIRES_NOW);
-	r->Init();
+	r->OnConstruct();
+	r->InitComponents();
+
+	entities[r->Id] = std::move(r);
+	
+	entitiesMutex.unlock();
 }
 
-Entity* EntityManager::GetEntityBasedOnID(const EntityId& id)
+Entity* EntityManager::GetEntityBasedOnID(const ID& id)
 {
 	return entities[id];
 }
 
-void EntityManager::DestroyEntity(EntityId id, bool extraCheckNotNeeded)
+void EntityManager::DestroyEntity(ID id, bool extraCheckNotNeeded)
 {
 	entitiesMutex.lock();
 		
 	if (extraCheckNotNeeded || (entities.find(id) != entities.end()))
 	{
+		entities[id]->DestroyComponents();
 		entities[id]->OnDestroy();
 		entities.erase(id);
 	}
@@ -64,13 +68,13 @@ void EntityManager::MainEntityLoop()
 		}
 		entitiesQueueMutex.unlock();
 
-		// Update alive entities
+		// UpdateComponents alive entities
 		entitiesMutex.lock();
 		for (const auto& e : entities)
-			e.second->Update();
+			e.second->UpdateComponents();
 		entitiesMutex.unlock();
 
-		// FixedUpdate alive entities
+		// FixedUpdateComponents alive entities
 		entitiesMutex.lock();
 		if (std::chrono::duration_cast<std::chrono::milliseconds>(HIRES_NOW - lastFixedUpdateTimestamp).count() >= FIXED_UPDATE_PERIOD_MILLIS)
 		{
@@ -78,16 +82,16 @@ void EntityManager::MainEntityLoop()
 			
 			for (const auto& e : entities)
 			{
-				e.second->FixedUpdate();
+				e.second->FixedUpdateComponents();
 			}
 		}
 		entitiesMutex.unlock();
 	}
 }
 
-EntityId EntityManager::GetEntityIdBasedOnEntity(Entity* e)
+ID EntityManager::GetEntityIdBasedOnEntity(Entity* e)
 {
-	std::map<const EntityId, Entity*>::iterator targetIt{};
+	std::map<const ID, Entity*>::iterator targetIt{};
 	bool entityExists{ false };
 	auto it = entities.begin();
 	while (it != entities.end())

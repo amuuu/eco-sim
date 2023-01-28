@@ -8,11 +8,10 @@ using namespace EntityManagement;
 
 namespace LayerPort
 {
-	class SimpleDumbEntity : public Entity
+	class SimpleDumbEntity : public Component
 	{
 		virtual void Init() override
 		{
-			SetFixedUpdateActiveState(false);
 		}
 
 		virtual void Update() override
@@ -40,23 +39,23 @@ namespace LayerPort
 
 		void CreateEntitiesBulk(int amount);
 
-		void ToggleDisplayForEntity(EntityId& id, bool isOn);
+		void ToggleDisplayForEntity(ID& id, bool isOn);
 
-		void ToggleDisplayForEntity(EntityId id);
+		void ToggleDisplayForEntity(ID id);
 
-		std::map<const EntityId, Entity*>* GetAllEntities();
+		std::map<const ID, Entity*>* GetAllEntities();
 
-		std::map<const EntityId, bool>* GetEntitiesDisplayState();
+		std::map<const ID, bool>* GetEntitiesDisplayState();
 
-		Entity* GetEntityBasedOnID(EntityId id);
+		Entity* GetEntityBasedOnID(ID id);
 
-		void DestroyEntity(EntityId id);
+		void DestroyEntity(ID id);
 
 		Tick GetCurrentTick();
 
 	private:
 
 		EntityManager entityManager{ false };
-		std::map<const EntityId, bool> entityDisplayState{};
+		std::map<const ID, bool> entityDisplayState{};
 	};
 }
