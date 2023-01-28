@@ -17,41 +17,15 @@ namespace DecisionSystem
 	{
 	public:
 
-		Mind() : Component(1) {};
+		Mind();
 
-		virtual void Init() override
-		{
-			BulkSetVariables({
-				{ HUNGER, 70.f },
-				{ MORALE, 2.f },
-				{ COOKING, 70.f },
-				{ ENERGY, 8.f }
-				});
-		}
+		virtual void Init() override;
 
-		virtual void Update() override
-		{
-			static bool hasDone = false;
-			
-			if (!hasDone)
-			{
-				PrintAllVariables();
+		virtual void Update() override;
 
-				DoActionIfPossible("MakePasta");
+		virtual void FixedUpdate() override;
 
-				PrintAllVariables();
-
-				hasDone = true;
-			}
-		}
-
-		virtual void FixedUpdate() override
-		{
-		}
-
-		virtual void OnDestroy() override
-		{
-		}
+		virtual void OnDestroy() override;
 
 	private:
 		

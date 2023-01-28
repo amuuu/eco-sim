@@ -4,6 +4,42 @@
 
 using namespace DecisionSystem;
 
+DecisionSystem::Mind::Mind() : Component(1) {}
+
+void DecisionSystem::Mind::Init()
+{
+	BulkSetVariables({
+		{ HUNGER, 70.f },
+		{ MORALE, 2.f },
+		{ COOKING, 70.f },
+		{ ENERGY, 8.f }
+		});
+}
+
+void DecisionSystem::Mind::Update()
+{
+	static bool hasDone = false;
+
+	if (!hasDone)
+	{
+		PrintAllVariables();
+
+		DoActionIfPossible("MakePasta");
+
+		PrintAllVariables();
+
+		hasDone = true;
+	}
+}
+
+void DecisionSystem::Mind::FixedUpdate()
+{
+}
+
+void DecisionSystem::Mind::OnDestroy()
+{
+}
+
 void Mind::SetValueForVariable(const MindVarId id, float value) { mindVarValues[id] = value; }
 
 void Mind::BulkSetVariables(std::initializer_list<std::pair<const MindVarId, float>> vars)
