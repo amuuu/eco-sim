@@ -15,11 +15,11 @@ namespace LayerPort
 			SetFixedUpdateActiveState(false);
 		}
 
-		virtual void Update(Tick tick) override
+		virtual void Update() override
 		{
 		}
 
-		virtual void FixedUpdate(EntityManagement::Tick fixedTick) override
+		virtual void FixedUpdate() override
 		{
 		}
 

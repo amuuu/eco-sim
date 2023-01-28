@@ -19,7 +19,7 @@ void EntityManager::InitializeEntity(Entity* r)
 	entities[r->Id] = std::move(r);
 	entitiesMutex.unlock();
 
-	r->SetCreationTickStamp(currentTick);
+	r->SetCreationTickStamp(std::chrono::high_resolution_clock::now());
 	r->Init();
 }
 
@@ -51,10 +51,10 @@ void EntityManager::DestroyEntity(Entity* entity)
 	
 void EntityManager::MainEntityLoop()
 {
+	loopStartTimeStamp = std::chrono::high_resolution_clock::now();
+
 	while (isLoopAwake)
 	{
-		currentTick++;
-			
 		// Initialize entities in queue
 		entitiesQueueMutex.lock();
 		while (!entitiesToInitialize.empty())
@@ -67,7 +67,7 @@ void EntityManager::MainEntityLoop()
 		// Update alive entities
 		entitiesMutex.lock();
 		for (const auto& e : entities)
-			e.second->Update(currentTick);
+			e.second->Update();
 		entitiesMutex.unlock();
 
 		// FixedUpdate alive entities
@@ -75,12 +75,11 @@ void EntityManager::MainEntityLoop()
 		if (std::chrono::duration_cast<std::chrono::duration<double>>(std::chrono::high_resolution_clock::now() - lastFixedUpdateTimestamp).count() >= FIXED_UPDATE_PERIOD)
 		{
 			lastFixedUpdateTimestamp = std::chrono::high_resolution_clock::now();
-			currentFixedTick++; // this is not that accurate. It must be unique to each entity
-
+			
 			for (const auto& e : entities)
 			{
 				if (e.second->IsFixedUpdateActive())
-					e.second->FixedUpdate(currentFixedTick);
+					e.second->FixedUpdate();
 			}
 		}
 		entitiesMutex.unlock();
@@ -129,4 +128,9 @@ EntityManager::EntityManager(bool mustAutoStartLoopAfterInitialization) : autoSt
 EntityManager::~EntityManager()
 {
 	mainLoopThread->join();
+}
+
+Tick EntityManagement::EntityManager::GetCurrentTick()
+{
+	return std::chrono::duration_cast<std::chrono::duration<double>>(std::chrono::high_resolution_clock::now() - loopStartTimeStamp).count();
 }

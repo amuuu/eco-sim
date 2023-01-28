@@ -39,9 +39,11 @@ namespace EntityManagement
 		~EntityManager();
 
 		////////// tmp
+		
 		std::map<const EntityId, Entity*>* GetAllEntities() { return &entities; }
-		Tick GetCurrentTick() { return currentTick.load(); }
-		Tick GetCurrentFixedTick() { return currentTick.load(); }
+		
+		Tick GetCurrentTick();
+		
 		//////////////
 
 	private:
@@ -61,11 +63,10 @@ namespace EntityManagement
 		
 		std::unique_ptr<std::thread> mainLoopThread;
 
-		std::atomic<Tick> currentTick{ 0 };
-		std::atomic<Tick> currentFixedTick{ 0 };
 		std::atomic_bool isLoopAwake{ true };
 
-		std::chrono::high_resolution_clock::time_point lastFixedUpdateTimestamp{};
+		HiResTimeStamp lastFixedUpdateTimestamp{};
+		HiResTimeStamp loopStartTimeStamp{};
 	};
 
 }

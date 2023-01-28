@@ -1,7 +1,10 @@
 #pragma once
 
+#include <chrono>
+
 namespace EntityManagement
 {
-	typedef long long Tick;
-	typedef unsigned int EntityId;
+	using Tick = long double;
+	using EntityId = unsigned int;
+	using HiResTimeStamp = std::chrono::high_resolution_clock::time_point;
 }

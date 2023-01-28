@@ -22,7 +22,7 @@ namespace DECISION_SYSTEM_SAMPLE
 			});
 		}
 		
-		virtual void Update(EntityManagement::Tick tick) override
+		virtual void Update() override
 		{
 			//if (tick % 1000 == 0) // this is ugly ticks are too fast for the frequency by which we want the vars to be update. we neeed a cleaner way
 			//{
@@ -30,8 +30,8 @@ namespace DECISION_SYSTEM_SAMPLE
 			//	PrintAllVariables();
 			//}
 			static bool canMakePasta = false;
-			if (tick == 500000)
-			{
+			/*if (tick == 500000)
+			{*/
 				std::cout << "WILL CHECK\n";
 
 				if (CanDoAction("MakePasta"))
@@ -48,9 +48,9 @@ namespace DECISION_SYSTEM_SAMPLE
 
 					canMakePasta = false;
 				}
-			}
+			/*}*/
 
-			if (canMakePasta && tick == 1500000)
+			if (canMakePasta /*&& tick == 1500000*/)
 			{
 				std::cout << "Making pasta if it's allowed...\n";
 				
@@ -60,7 +60,7 @@ namespace DECISION_SYSTEM_SAMPLE
 			}
 		}
 
-		virtual void FixedUpdate(EntityManagement::Tick fixedTick) override
+		virtual void FixedUpdate() override
 		{
 
 		}

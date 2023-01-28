@@ -17,13 +17,11 @@ namespace ENTITY_MANAGEMENT_SAMPLE
 			std::cout << "Simple entity init " << Id << "\n";
 		}
 		
-		virtual void Update(Tick tick) override 
+		virtual void Update() override 
 		{
-			if (tick % 200000 == 0)
-				std::cout << "Simple entity update " << Id << "\n";
 		}
 
-		virtual void FixedUpdate(EntityManagement::Tick fixedTick) override
+		virtual void FixedUpdate() override
 		{
 			std::cout << Id << " ~ fixed: " << std::chrono::high_resolution_clock::now().time_since_epoch().count() << "\n";
 		}

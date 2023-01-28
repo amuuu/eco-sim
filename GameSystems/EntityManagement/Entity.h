@@ -7,8 +7,8 @@ namespace EntityManagement
 	{
 	public:
 		virtual void Init() = 0;
-		virtual void Update(Tick tick) = 0;
-		virtual void FixedUpdate(Tick fixedTick) = 0;
+		virtual void Update() = 0;
+		virtual void FixedUpdate() = 0;
 		virtual void OnDestroy() = 0;
 
 		void SetFixedUpdateActiveState(bool isActive) { isFixedUpdateActive = isActive; }
@@ -16,12 +16,12 @@ namespace EntityManagement
 		
 		EntityId Id;
 
-		void SetCreationTickStamp(Tick tick) { creationTickStamp = tick; }
-		Tick GetCreationTickStamp() const { return creationTickStamp; }
+		void SetCreationTickStamp(HiResTimeStamp tick) { creationTickStamp = tick; }
+		HiResTimeStamp GetCreationTickStamp() const { return creationTickStamp; }
 
 	private:
 		
 		bool isFixedUpdateActive{ false };
-		Tick creationTickStamp{ -1 };
+		HiResTimeStamp creationTickStamp{};
 	};
 }
