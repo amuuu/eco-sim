@@ -11,9 +11,6 @@ namespace EntityManagement
 		virtual void FixedUpdate() = 0;
 		virtual void OnDestroy() = 0;
 
-		void SetFixedUpdateActiveState(bool isActive) { isFixedUpdateActive = isActive; }
-		bool IsFixedUpdateActive() const { return isFixedUpdateActive; }
-		
 		EntityId Id;
 
 		void SetCreationTickStamp(HiResTimeStamp tick) { creationTickStamp = tick; }
@@ -22,7 +19,6 @@ namespace EntityManagement
 	
 	private:
 		
-		bool isFixedUpdateActive{ true };
 		HiResTimeStamp creationTickStamp{};
 	};
 }

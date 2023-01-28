@@ -78,8 +78,7 @@ void EntityManager::MainEntityLoop()
 			
 			for (const auto& e : entities)
 			{
-				if (e.second->IsFixedUpdateActive())
-					e.second->FixedUpdate();
+				e.second->FixedUpdate();
 			}
 		}
 		entitiesMutex.unlock();
