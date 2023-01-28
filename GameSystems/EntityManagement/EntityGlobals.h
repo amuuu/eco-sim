@@ -8,5 +8,5 @@ namespace EntityManagement
 	using EntityId = unsigned int;
 	using HiResTimeStamp = std::chrono::high_resolution_clock::time_point;
 
-#define HI_RES_NOW std::chrono::high_resolution_clock::now()
+#define HIRES_NOW std::chrono::high_resolution_clock::now()
 }

@@ -3,13 +3,12 @@
 #include "Resource.h"
 
 #include <memory>
-#include <iostream> // todo: remove
 #include <map>
-
-typedef int ResourceId;
 
 namespace ResourceManagement
 {
+	using ResourceId = int;
+
 	class ResourcePool
 	{
 	public:

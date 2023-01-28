@@ -16,7 +16,7 @@
 #include <future>
 #include <thread>
 
-#define FIXED_UPDATE_PERIOD 0.005
+#define FIXED_UPDATE_PERIOD_MILLIS 100
 
 
 namespace EntityManagement

@@ -5,6 +5,7 @@
 using namespace DecisionSystem;
 
 #include <memory>
+#include <iostream>
 
 namespace DECISION_SYSTEM_SAMPLE
 {
@@ -39,11 +40,12 @@ namespace DECISION_SYSTEM_SAMPLE
 
 		virtual void FixedUpdate() override
 		{
-
+			std::cout << "FIXED\n";
 		}
 
 		virtual void OnDestroy() override
 		{
 		}
+
 	};
 }

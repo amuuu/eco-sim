@@ -18,11 +18,11 @@ namespace EntityManagement
 
 		void SetCreationTickStamp(HiResTimeStamp tick) { creationTickStamp = tick; }
 		HiResTimeStamp GetCreationTickStamp() const { return creationTickStamp; }
-		HiResTimeStamp GetCurrentTimeStamp() { return HI_RES_NOW; }
+		HiResTimeStamp GetCurrentTimeStamp() { return HIRES_NOW; }
 	
 	private:
 		
-		bool isFixedUpdateActive{ false };
+		bool isFixedUpdateActive{ true };
 		HiResTimeStamp creationTickStamp{};
 	};
 }

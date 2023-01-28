@@ -5,7 +5,6 @@
 
 #include <map>
 #include <memory>
-#include <iostream>
 #include <list>
 #include <mutex>
 #include <utility>

@@ -161,6 +161,7 @@
     <ClInclude Include="GeneralTools\ObjectPool.h" />
     <ClInclude Include="GeneralTools\PathHelper.h" />
     <ClInclude Include="GeneralTools\Singleton.h" />
+    <ClInclude Include="GeneralTools\Timer.h" />
     <ClInclude Include="ResourceManagement\Resource.h" />
     <ClInclude Include="ResourceManagement\ResourcePool.h" />
   </ItemGroup>

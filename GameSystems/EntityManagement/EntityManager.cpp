@@ -19,7 +19,7 @@ void EntityManager::InitializeEntity(Entity* r)
 	entities[r->Id] = std::move(r);
 	entitiesMutex.unlock();
 
-	r->SetCreationTickStamp(HI_RES_NOW);
+	r->SetCreationTickStamp(HIRES_NOW);
 	r->Init();
 }
 
@@ -72,9 +72,9 @@ void EntityManager::MainEntityLoop()
 
 		// FixedUpdate alive entities
 		entitiesMutex.lock();
-		if (std::chrono::duration_cast<std::chrono::duration<double>>(HI_RES_NOW - lastFixedUpdateTimestamp).count() >= FIXED_UPDATE_PERIOD)
+		if (std::chrono::duration_cast<std::chrono::milliseconds>(HIRES_NOW - lastFixedUpdateTimestamp).count() >= FIXED_UPDATE_PERIOD_MILLIS)
 		{
-			lastFixedUpdateTimestamp = HI_RES_NOW;
+			lastFixedUpdateTimestamp = HIRES_NOW;
 			
 			for (const auto& e : entities)
 			{
@@ -132,5 +132,5 @@ EntityManager::~EntityManager()
 
 Tick EntityManagement::EntityManager::GetCurrentTick()
 {
-	return std::chrono::duration_cast<std::chrono::duration<double>>(HI_RES_NOW - loopStartTimeStamp).count();
+	return std::chrono::duration_cast<std::chrono::duration<double>>(HIRES_NOW - loopStartTimeStamp).count();
 }
