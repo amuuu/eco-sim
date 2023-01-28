@@ -5,6 +5,8 @@ namespace EntityManagement
 {
 	class Component
 	{
+		friend class Entity;
+
 	public:
 
 		Component(ID id) { this->id = id; }

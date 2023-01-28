@@ -31,13 +31,22 @@ namespace General
 			startTimeStamp = std::chrono::high_resolution_clock::now();
 		}
 
+		void Stop()
+		{
+			hasStarted = false;
+		}
+
 		float Elapsed()
 		{
+			if (!hasStarted) return -1.f;
+
 			return std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now() - startTimeStamp).count() * 0.001f * 0.001f * 0.001f;
 		}
 
 		float ElapsedMillis()
 		{
+			if (!hasStarted) return -1.f;
+
 			return Elapsed() * 1000.0f;
 		}
 
@@ -47,16 +56,4 @@ namespace General
 		
 		bool hasStarted{ false };
 	};
-
-
-	//class CountDownTimer : public Timer
-	//{
-	//public:
-
-	//	CountDownTimer(float deadlineMillis, std::function<void()> onTimerFinished = NULL) : Timer()
-	//	{
-
-	//	}
-
-	//};
 }

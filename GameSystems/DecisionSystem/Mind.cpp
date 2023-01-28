@@ -4,9 +4,11 @@
 
 using namespace DecisionSystem;
 
-DecisionSystem::Mind::Mind() : Component(1) {}
+Mind::Mind() : Component(1)
+{
+}
 
-void DecisionSystem::Mind::Init()
+void Mind::Init()
 {
 	BulkSetVariables({
 		{ HUNGER, 70.f },
@@ -16,7 +18,7 @@ void DecisionSystem::Mind::Init()
 		});
 }
 
-void DecisionSystem::Mind::Update()
+void Mind::Update()
 {
 	static bool hasDone = false;
 
@@ -32,15 +34,18 @@ void DecisionSystem::Mind::Update()
 	}
 }
 
-void DecisionSystem::Mind::FixedUpdate()
+void Mind::FixedUpdate()
 {
 }
 
-void DecisionSystem::Mind::OnDestroy()
+void Mind::OnDestroy()
 {
 }
 
-void Mind::SetValueForVariable(const MindVarId id, float value) { mindVarValues[id] = value; }
+void Mind::SetValueForVariable(const MindVarId id, float value)
+{ 
+	mindVarValues[id] = value; 
+}
 
 void Mind::BulkSetVariables(std::initializer_list<std::pair<const MindVarId, float>> vars)
 {

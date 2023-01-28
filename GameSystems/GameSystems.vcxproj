@@ -144,6 +144,7 @@
     <ClCompile Include="DecisionSystem\Mind.cpp" />
     <ClCompile Include="DecisionSystem\MindVarModelsParser.cpp" />
     <ClCompile Include="EntityManagement\EntityManager.cpp" />
+    <ClCompile Include="GeneralComponents\Timer.cpp" />
     <ClCompile Include="ResourceManagement\ResourcePool.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +157,7 @@
     <ClInclude Include="EntityManagement\Entity.h" />
     <ClInclude Include="EntityManagement\EntityGlobals.h" />
     <ClInclude Include="EntityManagement\EntityManager.h" />
+    <ClInclude Include="GeneralComponents\Timer.h" />
     <ClInclude Include="EventSystem\EventSystem.h" />
     <ClInclude Include="GeneralTools\DoubleSidedMap.h" />
     <ClInclude Include="GeneralTools\Logger.h" />

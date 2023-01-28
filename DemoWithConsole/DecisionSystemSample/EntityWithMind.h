@@ -2,7 +2,7 @@
 
 #include "GameSystems/EntityManagement/Entity.h"
 #include "GameSystems/DecisionSystem/Mind.h"
-using namespace DecisionSystem;
+#include "GameSystems/GeneralComponents/Timer.h"
 
 #include <memory>
 #include <iostream>
@@ -14,7 +14,8 @@ namespace DECISION_SYSTEM_SAMPLE
 	{
 		virtual void OnConstruct() override
 		{
-			this->AddComponent(new Mind{});
+			this->AddComponent(new DecisionSystem::Mind{});
+			this->AddComponent(new GeneralComponents::Timer{});
 		}
 		
 	};

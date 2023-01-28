@@ -1,6 +1,7 @@
 ﻿  Mind.cpp
   MindVarModelsParser.cpp
   EntityManager.cpp
+  Timer.cpp
   ResourcePool.cpp
   Generating Code...
   GameSystems.vcxproj -> D:\Software Projects\GameSystems\GameSystems\GameSystems\OUTPUT\x64\Debug\MAIN\GameSystems.lib

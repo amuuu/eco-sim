@@ -18,23 +18,26 @@ namespace EntityManagement
 		
 		void AddComponent(Component* component) { components.push_back(component); }
 		// todo: remove component
-		// todo: get component
+		// todo: get component by id
+		// todo: get component by template type
 		// todo: get all components
 
 		ID Id;
+
 		void SetCreationTickStamp(HiResTimeStamp tick) { creationTickStamp = tick; }
 		HiResTimeStamp GetCreationTickStamp() const { return creationTickStamp; }
 	
 	private:
 		
-		HiResTimeStamp creationTickStamp{};
-
-		std::list<Component*> components{};
-
 		void InitComponents() { for (const auto& c : components) { c->Init(); } };
 		void UpdateComponents() { for (const auto& c : components) { c->Update(); } };
 		void FixedUpdateComponents() { for (const auto& c : components) { c->FixedUpdate(); } };
 		void DestroyComponents() { for (const auto& c : components) { c->OnDestroy(); } };
 
+	private:
+		
+		HiResTimeStamp creationTickStamp{};
+
+		std::list<Component*> components{};
 	};
 }
