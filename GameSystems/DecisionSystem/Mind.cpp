@@ -1,4 +1,4 @@
-#include "EntityBrain.h"
+#include "Mind.h"
 
 #include "../GeneralTools/Logger.h"
 

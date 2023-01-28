@@ -17,6 +17,8 @@ namespace DecisionSystem
 	{
 	public:
 
+		Mind() : Component(1) {};
+
 		virtual void Init() override
 		{
 			BulkSetVariables({
@@ -30,6 +32,7 @@ namespace DecisionSystem
 		virtual void Update() override
 		{
 			static bool hasDone = false;
+			
 			if (!hasDone)
 			{
 				PrintAllVariables();

@@ -1,4 +1,4 @@
-﻿  EntityBrain.cpp
+﻿  Mind.cpp
   MindVarModelsParser.cpp
   EntityManager.cpp
   ResourcePool.cpp

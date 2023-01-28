@@ -6,14 +6,17 @@ namespace EntityManagement
 	class Component
 	{
 	public:
-		virtual void Init() = 0;
-		virtual void Update() = 0;
-		virtual void FixedUpdate() = 0;
-		virtual void OnDestroy() = 0;
+
+		Component(ID id) { this->id = id; }
+
+		virtual void Init() { };
+		virtual void Update() { };
+		virtual void FixedUpdate() { };
+		virtual void OnDestroy() { };
 
 		bool IsEnabled{ true };
 
-		ID componentID; // todo: use this guy
+		ID id; // todo: use this guy
 
 		HiResTimeStamp GetCurrentTimeStamp() { return HIRES_NOW; }
 	};

@@ -1,6 +1,8 @@
 #pragma once
+
+#include "EntityWithMind.h"
+
 #include "GameSystems/DecisionSystem/MindVarModelsParser.h"
-#include "EntityWithMindVar.h"
 using namespace DecisionSystem;
 #include "GameSystems/EntityManagement/EntityManager.h"
 using namespace EntityManagement;
@@ -20,7 +22,7 @@ namespace DECISION_SYSTEM_SAMPLE
 
 		EntityManager entityManager{ false };
 
-		entityManager.EnqueueNewEntity(new EntityWithMindVar{});
+		entityManager.EnqueueNewEntity(new EntityWithMind{});
 		
 		entityManager.StartTheLoop();
 	}

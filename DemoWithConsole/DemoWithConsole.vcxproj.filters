@@ -38,7 +38,7 @@
     <ClInclude Include="ResourceManagementSample\ResourceManagementSample.cpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DecisionSystemSample\EntityWithMindVar.h">
+    <ClInclude Include="DecisionSystemSample\EntityWithMind.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
