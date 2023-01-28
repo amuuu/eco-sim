@@ -3,15 +3,27 @@
 #include <chrono>
 #include <functional>
 
-namespace Timer
+namespace General
 {
-	class Timer
+	class SimpleTimer
 	{
 	public:
 		
-		Timer()
+		SimpleTimer(bool autoStart)
+		{
+			if (autoStart)
+				Start();
+		}
+
+		void Start()
 		{
 			Reset();
+			hasStarted = true;
+		}
+
+		bool HasStarted() 
+		{ 
+			return hasStarted; 
 		}
 
 		void Reset()
@@ -32,6 +44,8 @@ namespace Timer
 	private:
 		
 		std::chrono::time_point<std::chrono::high_resolution_clock> startTimeStamp;
+		
+		bool hasStarted{ false };
 	};
 
 
