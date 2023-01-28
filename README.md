@@ -1,19 +1,17 @@
-# Game Systems
+# Ecosystem Simulation
+Howdy. This was supposed to be a collection of tools for making games but it has become a quest to develop an ecosystem simulation.
 
-Greetings wanderer. This is a collection of tools and systems that can be used in game dev, all written in C++ [**That is actively being developed and is not ready by any means yet.**]
+The tools are being developed in a modular and reusable manner. The pieces that creates the sim exist within a separate project within the solution. 
 
-Here are the current features:
-- Entity Management (Game loop, entities)
+Here are the current reusable features:
+- Entity Management (Game loop, ECS)
 - Resource Management
 - Event System
 - Decision System
+- Collection of general components
 - General Tools 
     - Templated/Macro-wrapped design patterns
         - Object Pool
         - Singleton
-
-There are a bunch of projects in this Visual Studio solution:
-- `GameSystems`: The main project, a static library
-- `TestSuite`: A GoogleTest test connection
-- `DemoWithConsole`: A console demo
-- `DemoWithImGui`: A demo with ImGui.
+    - Timer
+    - Logger
