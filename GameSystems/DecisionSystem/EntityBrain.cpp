@@ -1,6 +1,6 @@
 #include "EntityBrain.h"
 
-#include <iostream>
+#include "../GeneralTools/Logger.h"
 
 using namespace DecisionSystem;
 
@@ -27,7 +27,7 @@ float EntityBrain::GetValueForVariable(const MindVarId id)
 void EntityBrain::PrintAllVariables()
 {
 	for (auto const& [key, val] : mindVarValues)
-		std::cout << key << ':' << val << std::endl;
+		LOG_INFO(key << ':' << val);
 }
 
 void EntityBrain::UpdateVariables()
@@ -88,14 +88,14 @@ bool EntityBrain::CanDoAction(const std::string& actionName)
 	}
 	valueUpdateMutex.unlock();
 
-	std::cout << "score: " << score << " ~ min: " << targetModel.minScore << std::endl;
+	LOG_INFO("score: " << score << " ~ min: " << targetModel.minScore);
 	
 	return (score >= targetModel.minScore);
 }
 
 void EntityBrain::StartDoingAction(const std::string& actionName, bool doesntNeedChecking)
 {
-	if (doesntNeedChecking || !CanDoAction(actionName))
+	if (!doesntNeedChecking || !CanDoAction(actionName))
 		return;
 
 	valueUpdateMutex.lock();
@@ -123,7 +123,6 @@ void EntityBrain::OnActionDoneSuccessfully(const std::string& actionName)
 	{
 		if (mindVarValues.find(r.name) != mindVarValues.end())
 		{
-
 			if (r.effectType == Absolute)
 				mindVarValues[r.name] = r.amount;
 			else if (r.effectType == Diff)

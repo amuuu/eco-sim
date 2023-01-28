@@ -1,5 +1,7 @@
 #include "ResourcePool.h"
 
+#include "../GeneralTools/Logger.h"
+
 using namespace ResourceManagement;
 
 ResourceId ResourcePool::AddNewResource(Resource* r)
@@ -18,6 +20,6 @@ void ResourcePool::PrintAllResources()
 {
 	for (const auto& r : resources)
 	{
-		std::cout << r.second->Name << ": " << r.second->GetAmount() << " (" << r.first << ")\n";
+		LOG_INFO(r.second->Name << ": " << r.second->GetAmount() << " (" << r.first << ")");
 	}
 }

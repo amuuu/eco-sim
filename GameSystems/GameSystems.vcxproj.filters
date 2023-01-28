@@ -74,6 +74,9 @@
     <ClInclude Include="GeneralTools\PathHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GeneralTools\Logger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DecisionSystem\StateOfMind.json" />
