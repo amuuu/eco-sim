@@ -7,6 +7,12 @@ Component::Component(ID id)
 	this->id = id; 
 }
 
+Component::~Component()
+{
+	// not sure about this one yet
+	// delete owner;
+}
+
 void Component::Init() { }
 
 void Component::Update() { }

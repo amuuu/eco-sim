@@ -10,11 +10,16 @@ namespace EntityManagement
 	public:
 
 		Component(ID id);
+		~Component();
+
+	private:
 
 		virtual void Init();
 		virtual void Update();
 		virtual void FixedUpdate();
 		virtual void OnDestroy();
+
+	public:
 
 		HiResTimeStamp GetCurrentTimeStamp();
 
