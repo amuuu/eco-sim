@@ -22,11 +22,14 @@ namespace EntityManagement
 		
 		void AddComponent(Component* component);
 
-		// todo: remove component by id and type
+		void RemoveComponent(Component* component);
+		void RemoveComponent(ID componentId);
+		template<typename ComponentType>
+		void RemoveComponent();
 		
-		ComponentSearchRes GetComponentById(ID componentId);
-
-		// todo: get component by template type
+		ComponentSearchRes GetComponent(ID componentId);
+		template<typename ComponentType>
+		ComponentSearchRes GetComponent();
 		
 		std::list<Component*>* GetAllComponents();
 

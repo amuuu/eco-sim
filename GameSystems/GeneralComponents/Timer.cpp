@@ -5,7 +5,7 @@ using namespace GeneralComponents;
 
 Timer::Timer() : Component(12)
 {
-};
+}
 
 void Timer::Init()
 {

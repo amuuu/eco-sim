@@ -1,5 +1,7 @@
 #include "Entity.h"
 
+#include <typeinfo>
+
 using namespace EntityManagement;
 
 void Entity::AddComponent(Component* component)
@@ -13,7 +15,26 @@ void Entity::AddComponent(Component* component)
 	components.push_back(component);
 }
 
-ComponentSearchRes Entity::GetComponentById(ID componentId)
+void Entity::RemoveComponent(Component* component)
+{
+	components.remove_if(
+		[&](Component* c) { return (c == component); });
+}
+
+void Entity::RemoveComponent(ID componentId)
+{
+	components.remove_if(
+		[&](Component* c) { return (c->id == componentId); });
+}
+
+template<typename ComponentType>
+void Entity::RemoveComponent()
+{
+	components.remove_if(
+		[&](Component* c) { return (typeid(*c) == typeid(ComponentType)); });
+}
+
+ComponentSearchRes Entity::GetComponent(ID componentId)
 {
 	ComponentSearchRes res = false;
 
@@ -27,6 +48,24 @@ ComponentSearchRes Entity::GetComponentById(ID componentId)
 	}
 
 	return res;
+}
+
+template<typename ComponentType>
+ComponentSearchRes Entity::GetComponent()
+{
+	ComponentSearchRes res = false;
+
+	for (const auto& c : components)
+	{
+		if (typeid(ComponentType) == typeid(*c))
+		{
+			res = std::make_shared<Component>(c);
+			break;
+		}
+	}
+
+	return res;
+
 }
 
 std::list<Component*>* Entity::GetAllComponents()
