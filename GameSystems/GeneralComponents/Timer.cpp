@@ -1,10 +1,12 @@
 #include "Timer.h"
 
+#include "../GeneralTools/Logger.h"
+
 using namespace GeneralComponents;
 
-Timer::Timer() : Component(12)
+Timer::Timer() : Component(2)
 {
-
+	mode = TimerMode::InActive;
 }
 
 void Timer::Init()
@@ -14,7 +16,12 @@ void Timer::Init()
 
 void Timer::Update()
 {
-	if (isActive && timerObject.ElapsedMillis() <= thisSessionCountDownTimespan)
+	if (mode == TimerMode::Normal)
+	{
+		LOG_INFO(timerObject.ElapsedMillis());
+	}
+
+	if (mode == TimerMode::Countdown && timerObject.ElapsedMillis() <= thisSessionCountDownTimespan)
 	{
 		thisSessionOnCountDownDoneCallback();
 		Stop();
@@ -36,19 +43,21 @@ void Timer::Start(float countDownMillis, std::function<void()> onCountDownDoneCa
 	thisSessionCountDownTimespan = countDownMillis;
 	thisSessionOnCountDownDoneCallback = onCountDownDoneCallback;
 
-	isActive = true;
+	mode = TimerMode::Countdown;
 
 	timerObject.Start();
 }
 
 void Timer::Start()
 {
+	mode = TimerMode::Normal;
+
 	timerObject.Start();
 }
 
 void Timer::Stop()
 {
-	isActive = false;
+	mode = TimerMode::InActive;
 
 	timerObject.Stop();
 }

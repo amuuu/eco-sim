@@ -7,6 +7,11 @@
 
 namespace GeneralComponents
 {
+	enum class TimerMode
+	{
+		InActive, Countdown, Normal
+	};
+
 	class Timer : public EntityManagement::Component
 	{
 	public:
@@ -37,8 +42,8 @@ namespace GeneralComponents
 
 		General::SimpleTimer timerObject{ false };
 		
-		bool isActive{ false };
-		
+		TimerMode mode;
+
 		float thisSessionCountDownTimespan{ 0.f };
 		std::function<void()> thisSessionOnCountDownDoneCallback{};
 

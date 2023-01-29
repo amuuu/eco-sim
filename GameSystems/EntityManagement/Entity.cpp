@@ -27,20 +27,15 @@ void Entity::RemoveComponent(const ID& componentId)
 		[&](Component* c) { return (c->id == componentId); });
 }
 
-ComponentSearchRes Entity::GetComponent(const ID& componentId) const
+Component* Entity::GetComponent(const ID& componentId) const
 {
-	ComponentSearchRes res = false;
-
 	for (const auto& c : components)
 	{
 		if (c->id == componentId)
-		{
-			res = c;
-			break;
-		}
+			return c;
 	}
 
-	return res;
+	return nullptr;
 }
 
 std::list<Component*>* Entity::GetAllComponents()

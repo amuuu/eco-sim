@@ -9,7 +9,7 @@
 
 namespace EntityManagement
 {
-	using ComponentSearchRes = std::variant<bool, Component*>;
+	//using ComponentSearchRes = std::variant<bool, Component*>;
 
 	class Entity
 	{
@@ -28,8 +28,8 @@ namespace EntityManagement
 		void RemoveComponent(Component* component);
 
 		template<typename ComponentType>
-		ComponentSearchRes GetComponent() const;
-		ComponentSearchRes GetComponent(const ID& componentId) const;
+		ComponentType* GetComponent() const;
+		Component* GetComponent(const ID& componentId) const;
 		
 		std::list<Component*>* GetAllComponents();
 
@@ -60,20 +60,15 @@ namespace EntityManagement
 	}
 
 	template<typename ComponentType>
-	ComponentSearchRes Entity::GetComponent() const
+	ComponentType* Entity::GetComponent() const
 	{
-		ComponentSearchRes res = false;
-
 		for (const auto& c : components)
 		{
 			if (typeid(ComponentType) == typeid(*c))
-			{
-				res = c;
-				break;
-			}
+				return dynamic_cast<ComponentType*>(c);
 		}
 
-		return res;
+		return nullptr;
 	}
 
 }
