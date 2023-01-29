@@ -9,14 +9,14 @@
 
 namespace EntityManagement
 {
-	using ComponentSearchRes = std::variant<bool, std::shared_ptr<Component>>;
+	using ComponentSearchRes = std::variant<bool, Component*>;
 
 	class Entity
 	{
 		friend class EntityManager;
 
 	public:
-
+		
 		virtual void OnConstruct() = 0;
 		virtual void OnDestroy() { };
 		
@@ -24,16 +24,16 @@ namespace EntityManagement
 
 		template<typename ComponentType>
 		void RemoveComponent();
-		void RemoveComponent(ID componentId);
+		void RemoveComponent(const ID& componentId);
 		void RemoveComponent(Component* component);
 
 		template<typename ComponentType>
 		ComponentSearchRes GetComponent() const;
-		ComponentSearchRes GetComponent(ID componentId) const;
+		ComponentSearchRes GetComponent(const ID& componentId) const;
 		
 		std::list<Component*>* GetAllComponents();
 
-		ID Id;
+		ID Id{};
 
 		void SetCreationTickStamp(HiResTimeStamp tick);
 		HiResTimeStamp GetCreationTickStamp() const;
@@ -68,7 +68,7 @@ namespace EntityManagement
 		{
 			if (typeid(ComponentType) == typeid(*c))
 			{
-				res = std::make_shared<Component>(c);
+				res = c;
 				break;
 			}
 		}

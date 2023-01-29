@@ -4,8 +4,9 @@
 
 using namespace DecisionSystem;
 
-Mind::Mind() : EntityManagement::Component(1)
+Mind::Mind() : Component(1)
 {
+
 }
 
 void Mind::Init()

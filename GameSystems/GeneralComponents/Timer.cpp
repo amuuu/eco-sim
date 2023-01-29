@@ -2,13 +2,14 @@
 
 using namespace GeneralComponents;
 
-
-Timer::Timer() : EntityManagement::Component(12)
+Timer::Timer() : Component(12)
 {
+
 }
 
 void Timer::Init()
 {
+
 }
 
 void Timer::Update()
@@ -22,10 +23,12 @@ void Timer::Update()
 
 void Timer::FixedUpdate()
 {
+
 }
 
 void Timer::OnDestroy()
 {
+
 }
 
 void Timer::Start(float countDownMillis, std::function<void()> onCountDownDoneCallback)
@@ -57,5 +60,6 @@ float Timer::GetElapsedTimeMillis()
 
 void Timer::Restart()
 {
+	thisSessionCountDownTimespan = -1.f;
 	timerObject.Reset();
 }

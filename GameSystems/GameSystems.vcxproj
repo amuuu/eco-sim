@@ -143,6 +143,7 @@
   <ItemGroup>
     <ClCompile Include="DecisionSystem\Mind.cpp" />
     <ClCompile Include="DecisionSystem\MindVarModelsParser.cpp" />
+    <ClCompile Include="EntityManagement\Component.cpp" />
     <ClCompile Include="EntityManagement\Entity.cpp" />
     <ClCompile Include="EntityManagement\EntityManager.cpp" />
     <ClCompile Include="GeneralComponents\Timer.cpp" />

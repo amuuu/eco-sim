@@ -1,28 +1,9 @@
 ﻿  Mind.cpp
   MindVarModelsParser.cpp
+  Component.cpp
   Entity.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(231,56): error C2665: 'EntityManagement::Component::Component': no overloaded function could convert all the argument types
-D:\Software Projects\GameSystems\GameSystems\GameSystems\EntityManagement\Component.h(27,2): message : could be 'EntityManagement::Component::Component(EntityManagement::Component &&)'
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(231,56): message : 'EntityManagement::Component::Component(EntityManagement::Component &&)': cannot convert argument 1 from 'EntityManagement::Component *const ' to 'EntityManagement::Component &&'
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(231,77): message : Reason: cannot convert from 'EntityManagement::Component *const ' to 'EntityManagement::Component'
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(231,77): message : No constructor could take the source type, or constructor overload resolution was ambiguous
-D:\Software Projects\GameSystems\GameSystems\GameSystems\EntityManagement\Component.h(27,2): message : or       'EntityManagement::Component::Component(const EntityManagement::Component &)'
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(231,56): message : 'EntityManagement::Component::Component(const EntityManagement::Component &)': cannot convert argument 1 from 'EntityManagement::Component *const ' to 'const EntityManagement::Component &'
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(231,77): message : Reason: cannot convert from 'EntityManagement::Component *const ' to 'const EntityManagement::Component'
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(231,77): message : No constructor could take the source type, or constructor overload resolution was ambiguous
-D:\Software Projects\GameSystems\GameSystems\GameSystems\EntityManagement\Component.h(12,3): message : or       'EntityManagement::Component::Component(EntityManagement::ID)'
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(231,56): message : 'EntityManagement::Component::Component(EntityManagement::ID)': cannot convert argument 1 from 'EntityManagement::Component *const ' to 'EntityManagement::ID'
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(231,77): message : There is no context in which this conversion is possible
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xutility(231,56): message : while trying to match the argument list '(EntityManagement::Component *const )'
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\memory(2023,1): message : see reference to function template instantiation 'void std::_Construct_in_place<_Ty,EntityManagement::Component*const &>(_Ty &,EntityManagement::Component *const &) noexcept(false)' being compiled
-          with
-          [
-              _Ty=EntityManagement::Component
-          ]
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\memory(2703,36): message : see reference to function template instantiation 'std::_Ref_count_obj2<EntityManagement::Component>::_Ref_count_obj2<EntityManagement::Component*const &>(EntityManagement::Component *const &)' being compiled
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\memory(2704,20): message : see reference to function template instantiation 'std::_Ref_count_obj2<EntityManagement::Component>::_Ref_count_obj2<EntityManagement::Component*const &>(EntityManagement::Component *const &)' being compiled
-D:\Software Projects\GameSystems\GameSystems\GameSystems\EntityManagement\Entity.cpp(38,39): message : see reference to function template instantiation 'std::shared_ptr<EntityManagement::Component> std::make_shared<EntityManagement::Component,EntityManagement::Component*const &>(EntityManagement::Component *const &)' being compiled
   EntityManager.cpp
   Timer.cpp
   ResourcePool.cpp
   Generating Code...
+  GameSystems.vcxproj -> D:\Software Projects\GameSystems\GameSystems\GameSystems\OUTPUT\x64\Debug\MAIN\GameSystems.lib

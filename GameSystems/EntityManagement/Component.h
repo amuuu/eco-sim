@@ -11,14 +11,14 @@ namespace EntityManagement
 
 		Component(ID id);
 
-		virtual void Init();;
-		virtual void Update();;
-		virtual void FixedUpdate();;
-		virtual void OnDestroy();;
+		virtual void Init();
+		virtual void Update();
+		virtual void FixedUpdate();
+		virtual void OnDestroy();
 
 		HiResTimeStamp GetCurrentTimeStamp();
 
 		bool IsEnabled{ true };
-		ID id{ 0 }; // todo: use this guy
+		ID id{ 0 };
 	};
 }

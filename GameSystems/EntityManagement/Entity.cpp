@@ -21,13 +21,13 @@ void Entity::RemoveComponent(Component* component)
 		[&](Component* c) { return (c == component); });
 }
 
-void Entity::RemoveComponent(ID componentId)
+void Entity::RemoveComponent(const ID& componentId)
 {
 	components.remove_if(
 		[&](Component* c) { return (c->id == componentId); });
 }
 
-ComponentSearchRes Entity::GetComponent(ID componentId) const
+ComponentSearchRes Entity::GetComponent(const ID& componentId) const
 {
 	ComponentSearchRes res = false;
 
@@ -35,7 +35,7 @@ ComponentSearchRes Entity::GetComponent(ID componentId) const
 	{
 		if (c->id == componentId)
 		{
-			res = std::make_shared<Component>(c);
+			res = c;
 			break;
 		}
 	}
