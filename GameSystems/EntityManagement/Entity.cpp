@@ -27,14 +27,7 @@ void Entity::RemoveComponent(ID componentId)
 		[&](Component* c) { return (c->id == componentId); });
 }
 
-template<typename ComponentType>
-void Entity::RemoveComponent()
-{
-	components.remove_if(
-		[&](Component* c) { return (typeid(*c) == typeid(ComponentType)); });
-}
-
-ComponentSearchRes Entity::GetComponent(ID componentId)
+ComponentSearchRes Entity::GetComponent(ID componentId) const
 {
 	ComponentSearchRes res = false;
 
@@ -48,24 +41,6 @@ ComponentSearchRes Entity::GetComponent(ID componentId)
 	}
 
 	return res;
-}
-
-template<typename ComponentType>
-ComponentSearchRes Entity::GetComponent()
-{
-	ComponentSearchRes res = false;
-
-	for (const auto& c : components)
-	{
-		if (typeid(ComponentType) == typeid(*c))
-		{
-			res = std::make_shared<Component>(c);
-			break;
-		}
-	}
-
-	return res;
-
 }
 
 std::list<Component*>* Entity::GetAllComponents()

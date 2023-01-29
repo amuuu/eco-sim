@@ -22,14 +22,14 @@ namespace EntityManagement
 		
 		void AddComponent(Component* component);
 
-		void RemoveComponent(Component* component);
-		void RemoveComponent(ID componentId);
 		template<typename ComponentType>
 		void RemoveComponent();
-		
-		ComponentSearchRes GetComponent(ID componentId);
+		void RemoveComponent(ID componentId);
+		void RemoveComponent(Component* component);
+
 		template<typename ComponentType>
-		ComponentSearchRes GetComponent();
+		ComponentSearchRes GetComponent() const;
+		ComponentSearchRes GetComponent(ID componentId) const;
 		
 		std::list<Component*>* GetAllComponents();
 
@@ -40,10 +40,10 @@ namespace EntityManagement
 	
 	private:
 		
-		void InitComponents();;
-		void UpdateComponents();;
-		void FixedUpdateComponents();;
-		void DestroyComponents();;
+		void InitComponents();
+		void UpdateComponents();
+		void FixedUpdateComponents();
+		void DestroyComponents();
 
 	private:
 		
@@ -51,4 +51,29 @@ namespace EntityManagement
 
 		std::list<Component*> components{};
 	};
+
+	template<typename ComponentType>
+	void Entity::RemoveComponent()
+	{
+		components.remove_if(
+			[&](Component* c) { return (typeid(*c) == typeid(ComponentType)); });
+	}
+
+	template<typename ComponentType>
+	ComponentSearchRes Entity::GetComponent() const
+	{
+		ComponentSearchRes res = false;
+
+		for (const auto& c : components)
+		{
+			if (typeid(ComponentType) == typeid(*c))
+			{
+				res = std::make_shared<Component>(c);
+				break;
+			}
+		}
+
+		return res;
+	}
+
 }

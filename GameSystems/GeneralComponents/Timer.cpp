@@ -3,7 +3,7 @@
 using namespace GeneralComponents;
 
 
-Timer::Timer() : Component(12)
+Timer::Timer() : EntityManagement::Component(12)
 {
 }
 

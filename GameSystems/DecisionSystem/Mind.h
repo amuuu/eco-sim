@@ -19,6 +19,8 @@ namespace DecisionSystem
 
 		Mind();
 
+	private:
+
 		virtual void Init() override;
 
 		virtual void Update() override;
@@ -26,8 +28,6 @@ namespace DecisionSystem
 		virtual void FixedUpdate() override;
 
 		virtual void OnDestroy() override;
-
-	private:
 		
 		void SetValueForVariable(const MindVarId id, float value); // TODO: check min max
 		

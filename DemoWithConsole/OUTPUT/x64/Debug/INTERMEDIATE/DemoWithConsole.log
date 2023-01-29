@@ -10,4 +10,5 @@ D:\Software Projects\GameSystems\GameSystems\DemoWithConsole\DemoWithConsole.cpp
 D:\Software Projects\GameSystems\GameSystems\DemoWithConsole\DemoWithConsole.cpp(40,35): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   EventSystemSample.cpp
   Generating Code...
-  DemoWithConsole.vcxproj -> D:\Software Projects\GameSystems\GameSystems\DemoWithConsole\OUTPUT\x64\Debug\MAIN\DemoWithConsole.exe
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(1096,5): error MSB6006: "link.exe" exited with code 1104.
+LINK : fatal error LNK1104: cannot open file 'D:\Software Projects\GameSystems\GameSystems\GameSystems\OUTPUT\x64\Debug\MAIN\GameSystems.lib'
