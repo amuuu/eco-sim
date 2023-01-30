@@ -1,6 +1,6 @@
 #pragma once
-#include <memory>
 
+#include <memory>
 
 #define GENERATE_SINGLETON_GETTER(TargetClassType) \
 	static std::shared_ptr<TargetClassType> GetInstance() { \
@@ -8,6 +8,8 @@
 		return s; \
 	}
 
+#define GET_SINGLETON(TargetClassType) \
+	TargetClassType::GetInstance()
 /*
 namespace GeneralTools
 {
