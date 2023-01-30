@@ -19,14 +19,13 @@ namespace LayerPort
 
 	class EntityManagerPort : public BasePort
 	{
-	public:
+	private:
 
 		virtual void Setup() override; // BasePort
 
 		virtual void Shutdown() override; // BasePort
 
 		virtual void OnPrompt(const Prompt& prompt) override; // BasePort
-
 
 		void CreateNewEntity();
 

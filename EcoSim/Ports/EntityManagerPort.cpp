@@ -17,6 +17,12 @@ void EntityManagerPort::OnPrompt(const Prompt& prompt)
 	{
 		CreateNewEntity();
 	}
+	else if (prompt.name == "INSTANTIATE_ENTITY_BULK")
+	{
+		auto& payload = prompt.payload;
+		int amount = dynamic_cast<IntArrPayload*>(payload)->values[0];
+		CreateEntitiesBulk(amount);
+	}
 }
 
 void EntityManagerPort::CreateNewEntity()

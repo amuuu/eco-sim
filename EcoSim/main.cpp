@@ -81,13 +81,14 @@ int main(int, char**)
             if (ImGui::Button("Instantiate Entity", buttSize))
                 port.RelayPromptToPorts(LayerPort::Prompt{ "INSTANTIATE_ENTITY" });
 
-            /*ImGui::SetNextItemWidth(100);
+            ImGui::SetNextItemWidth(100);
             ImGui::InputInt("Bulk Amount", &bulkInstantiateAmount, 10, 50);
             if (ImGui::Button("Bulk Instantiate Entities", buttSize))
-                port.CreateEntitiesBulk(bulkInstantiateAmount);
+                port.RelayPromptToPorts(LayerPort::Prompt{ "INSTANTIATE_ENTITY_BULK", new LayerPort::IntArrPayload{new int[1] {bulkInstantiateAmount}} });
 
 
-            ImGui::SetNextItemOpen(true, ImGuiCond_Once);
+
+            /*ImGui::SetNextItemOpen(true, ImGuiCond_Once);
             if (ImGui::TreeNode("Entity List"))
             {
                 for (const auto& entityData : *(port.GetAllEntities()))
