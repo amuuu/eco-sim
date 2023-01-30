@@ -1,4 +1,11 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8028: The intermediate directory (OUTPUT\x64\Debug\INTERMEDIATE\) contains files shared from another project (DemoWithGui.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  imgui_impl_glfw.cpp
+  imgui_impl_opengl2.cpp
   EntityManagerPort.cpp
   ImGuiLayerPort.cpp
 D:\Software Projects\GameSystems\GameSystems\EcoSim\Ports\ImGuiLayerPort.h(28,14): warning C4505: 'LayerPort::InstallPorts': unreferenced function with internal linkage has been removed
