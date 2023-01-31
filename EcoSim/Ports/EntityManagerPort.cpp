@@ -70,27 +70,7 @@ void LayerPort::EntityManagerPort::UpdateDraw()
 
 void EntityManagerPort::OnPrompt(const Prompt& prompt)
 {
-	/*Payload* payload = prompt.payload;
-
-	if (prompt.name == "TEST_PROMPT")
-	{
-		const auto a = ArgListHelper::ExtractFromArgs<int>(payload);
-		const auto b = ArgListHelper::ExtractFromArgs<std::string>(payload->next);
-		const auto c = ArgListHelper::ExtractFromArgs<float>(payload->next->next);
-
-		LOG_INFO(a << " ~ " << b << " ~ " << c);
-	}
 	
-	if (prompt.name == "INSTANTIATE_ENTITY")
-	{
-		CreateNewEntity();
-	}
-	
-	else if (prompt.name == "INSTANTIATE_ENTITY_BULK")
-	{
-		int amount = ArgListHelper::ExtractFromArgs<int>(payload);
-		CreateEntitiesBulk(amount);
-	}*/
 }
 
 void EntityManagerPort::CreateNewEntity()

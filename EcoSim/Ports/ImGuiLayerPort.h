@@ -1,10 +1,9 @@
 #pragma once
 
-#include "../../GameSystems/GeneralTools/Blackboard.h"
-using namespace GeneralBlackBoard;
-
 #include "BasePort.h"
+
 #include "EntityManagerPort.h"
+#include "BoilerplatePort.h"
 
 #include <vector>
 #include <queue>
@@ -34,11 +33,14 @@ namespace LayerPort
 
 		std::vector<BasePort*> ports{};
 		InterPortComHandler* interPortComHandler;
+
+		std::function<void(const Prompt&)> callback;
 	};
 
 
 	static void InstallPorts(ImGuiLayerPort& imguiLayerPort)
 	{
 		imguiLayerPort.AddPort(new EntityManagerPort{ imguiLayerPort.GetInterPortComHandler() });
+		imguiLayerPort.AddPort(new BoilerplatePort{ imguiLayerPort.GetInterPortComHandler() });
 	}
 }

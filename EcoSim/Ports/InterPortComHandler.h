@@ -14,8 +14,9 @@ namespace LayerPort
 		using CallbackType = std::function<void(const Prompt&)>;
 
 
-		InterPortComHandler(CallbackType callback)
+		InterPortComHandler(CallbackType& callback)
 		{
+			SubmitPromptCallback = callback;
 		}
 
 		BlackBoard& GetBlackBoard() { return blackboard; }

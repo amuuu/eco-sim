@@ -4,8 +4,7 @@ using namespace LayerPort;
 
 ImGuiLayerPort::ImGuiLayerPort()
 {
-	std::function<void(const Prompt&)> callback =
-		std::bind(
+	callback = std::bind(
 			&ImGuiLayerPort::RelayPromptToPorts, this, std::placeholders::_1);
 
 	interPortComHandler = new InterPortComHandler{ callback };
