@@ -21,7 +21,7 @@ namespace LayerPort
 	{
 	public:
 
-		EntityManagerPort(BlackBoard* blackboard) : BasePort(blackboard) {}
+		EntityManagerPort(InterPortComHandler* interPortComHandler) : BasePort(interPortComHandler) {}
 	
 	private:
 

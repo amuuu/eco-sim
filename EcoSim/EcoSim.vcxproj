@@ -179,6 +179,7 @@
     <ClInclude Include="Ports\BasePort.h" />
     <ClInclude Include="Ports\EntityManagerPort.h" />
     <ClInclude Include="Ports\ImGuiLayerPort.h" />
+    <ClInclude Include="Ports\InterPortComHandler.h" />
     <ClInclude Include="Ports\Prompt.h" />
   </ItemGroup>
   <ItemGroup>

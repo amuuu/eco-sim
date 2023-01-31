@@ -1,6 +1,8 @@
 #pragma once
 
+#include "InterPortComHandler.h"
 #include "Prompt.h"
+
 #include "../../GameSystems/GeneralTools/ArgListHelper.h"
 #include "../../GameSystems/GeneralTools/Blackboard.h"
 using namespace GeneralBlackBoard;
@@ -26,17 +28,10 @@ namespace LayerPort
 		
 		virtual void OnPrompt(const Prompt& prompt) = 0;
 
-		//std::function<void(const Prompt&)> submitPromptCallback;
-
-		BlackBoard* blackboard;
+		InterPortComHandler* interPortComHandler;
 
 	public:
-
-
-		BasePort(BlackBoard* blackboard) : blackboard(blackboard) {}
-
-		//BasePort(std::function<void(const Prompt&)> submitPromptCallback) 
-		//	: submitPromptCallback(submitPromptCallback)
-		//{ }
+		
+		BasePort(InterPortComHandler* interPortComHandler) : interPortComHandler(interPortComHandler) {}
 	};
 }

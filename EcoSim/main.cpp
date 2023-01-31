@@ -25,9 +25,7 @@ static void glfw_error_callback(int error, const char* description)
 
 int main(int, char**)
 {
-    GeneralBlackBoard::BlackBoard blackboard{};
-    
-    LayerPort::ImGuiLayerPort port{ &blackboard };
+    LayerPort::ImGuiLayerPort port{ };
     LayerPort::InstallPorts(port);
     port.Setup();
 

@@ -16,7 +16,7 @@ namespace LayerPort
 	{
 	public:
 		
-		ImGuiLayerPort(BlackBoard* blackboard) : blackboard(blackboard) {}
+		ImGuiLayerPort();
 
 		void Setup();
 
@@ -28,31 +28,17 @@ namespace LayerPort
 
 		void RelayPromptToPorts(const Prompt& prompt);
 
-		BlackBoard* GetBlackBoard() { return blackboard; }
+		InterPortComHandler* GetInterPortComHandler();
 
 	private:
 
 		std::vector<BasePort*> ports{};
-		BlackBoard* blackboard{};
+		InterPortComHandler* interPortComHandler;
 	};
 
 
 	static void InstallPorts(ImGuiLayerPort& imguiLayerPort)
 	{
-		/*static bool setupDone = false;
-		if (setupDone) return;
-
-		std::function<void(const Prompt&)> callback = 
-			std::bind(
-				&ImGuiLayerPort::AppendPortPromptForImGui, 
-				&imguiLayerPort, 
-				std::placeholders::_1);*/
-
-		
-		imguiLayerPort.AddPort(new EntityManagerPort{ imguiLayerPort.GetBlackBoard() });
-
-
-
-		/*setupDone = true;*/
+		imguiLayerPort.AddPort(new EntityManagerPort{ imguiLayerPort.GetInterPortComHandler() });
 	}
 }
