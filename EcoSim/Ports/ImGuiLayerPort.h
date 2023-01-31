@@ -22,6 +22,8 @@ namespace LayerPort
 
 		void Shutdown();
 
+		void UpdateDraw();
+
 		void AddPort(BasePort* port);
 
 		void RelayPromptToPorts(const Prompt& prompt);

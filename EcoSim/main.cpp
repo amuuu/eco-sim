@@ -12,6 +12,7 @@
 #endif
 
 #include "Ports/ImGuiLayerPort.h"
+
 #include "../GameSystems/GeneralTools/ArgListHelper.h"
 #include "../GameSystems/GeneralTools/Blackboard.h"
 
@@ -29,13 +30,12 @@ int main(int, char**)
     LayerPort::ImGuiLayerPort port{ &blackboard };
     LayerPort::InstallPorts(port);
     port.Setup();
-    
 
 
     glfwSetErrorCallback(glfw_error_callback);
     if (!glfwInit())
         return 1;
-    GLFWwindow* window = glfwCreateWindow(1280, 720, "Dear ImGui GLFW+OpenGL2 example", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(1280, 720, "Ecosystem Simulation", NULL, NULL);
     if (window == NULL)
         return 1;
     glfwMakeContextCurrent(window);
@@ -47,14 +47,9 @@ int main(int, char**)
     ImGui::StyleColorsDark();
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL2_Init();
-    ////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////
 
     bool show_demo_window = false;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-    int entityListItemIndex = 0;
-    int bulkInstantiateAmount = 0;
 
     while (!glfwWindowShouldClose(window))
     {
@@ -62,9 +57,8 @@ int main(int, char**)
         ImGui_ImplOpenGL2_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
+        
+
 
         if (show_demo_window)
             ImGui::ShowDemoWindow(&show_demo_window);
@@ -82,76 +76,10 @@ int main(int, char**)
 
             ImGui::NewLine();
 
-            const ImVec2 buttSize = ImVec2(250, 20);
-            
-            if (ImGui::Button("Args Tester Button", buttSize))
-            {
-                LayerPort::Payload* payload = new LayerPort::Payload{};
-                ArgListHelper::PackArgs<int, std::string, float>(payload, 1, "hello", 12.f);
-                port.RelayPromptToPorts(LayerPort::Prompt{ "TEST_PROMPT", payload });
-            }
-            
-            if (ImGui::Button("Instantiate Entity", buttSize)) 
-            {
-                port.RelayPromptToPorts(LayerPort::Prompt{ "INSTANTIATE_ENTITY" });
-            }
+            port.UpdateDraw();
 
-            ImGui::SetNextItemWidth(100);
-            ImGui::InputInt("Bulk Amount", &bulkInstantiateAmount, 10, 50);
-            if (ImGui::Button("Bulk Instantiate Entities", buttSize)) 
-            {
-                LayerPort::Payload* payload = new LayerPort::Payload{};
-                ArgListHelper::PackArgs<int>(payload, bulkInstantiateAmount);
-                port.RelayPromptToPorts(LayerPort::Prompt{ "INSTANTIATE_ENTITY_BULK", payload });
-            }
-
-
-            /*ImGui::SetNextItemOpen(true, ImGuiCond_Once);
-            if (ImGui::TreeNode("Entity List"))
-            {
-                for (const auto& entityData : *(port.GetAllEntities()))
-                {
-                    if (ImGui::Button(std::string{ "ID: " + std::to_string(entityData.first) }.c_str()))
-                    {
-                        port.ToggleDisplayForEntity(entityData.first);
-                    }
-                }
-                
-                ImGui::TreePop();
-            }*/
-            
             ImGui::End();
         }
-
-        {
-            /*
-            for (auto& entityDisplayData : *(port.GetEntitiesDisplayState()))
-            {
-                if (entityDisplayData.second == true)
-                {
-                    const auto* entityContent = port.GetEntityBasedOnID(entityDisplayData.first);
-                    auto name = std::string{ "Entity " + std::to_string(entityContent->Id) };
-
-                    ImGuiWindowFlags flags = ImGuiWindowFlags_NoFocusOnAppearing | ImGuiWindowFlags_NoCollapse;
-                    ImGui::SetNextWindowSize(ImVec2(180, 80));
-                    ImGui::SetNextWindowPos(ImVec2(350 + 100, 50 + 80 * entityListItemIndex++));
-                    ImGui::Begin(name.c_str(), &entityDisplayData.second, flags);
-
-                    ImGui::Text("Creation tick: %d", entityContent->GetCreationTickStamp());
-
-                    if (ImGui::Button("Kill"))
-                    {
-                        port.DestroyEntity(entityContent->Id);
-                        entityDisplayData.second = false;
-                    }
-
-                    ImGui::End();
-                }
-            }
-            entityListItemIndex = 0;
-            */
-        }
-
 
         
         ////////////////////////////////////////////////////////////////////////////////

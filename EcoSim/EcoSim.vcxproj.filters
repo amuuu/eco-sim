@@ -61,6 +61,7 @@
     <ClInclude Include="Ports\EntityManagerPort.h" />
     <ClInclude Include="Ports\BasePort.h" />
     <ClInclude Include="Ports\Prompt.h" />
+    <ClInclude Include="ImGuiGlobals.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\ExternalTools\imgui-1.89.1\misc\debuggers\imgui.natvis">

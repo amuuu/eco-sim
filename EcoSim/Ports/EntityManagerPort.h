@@ -29,6 +29,8 @@ namespace LayerPort
 
 		virtual void Shutdown() override; // BasePort
 
+		virtual void UpdateDraw() override; // BasePort
+
 		virtual void OnPrompt(const Prompt& prompt) override; // BasePort
 
 		void CreateNewEntity();
@@ -51,6 +53,9 @@ namespace LayerPort
 
 		EntityManager entityManager{ false };
 		std::map<const ID, bool> entityDisplayState{};
+
+	private:
+		int bulkInstantiateAmount{ 0 }, entityListItemIndex{ 0 };
 
 	};
 }

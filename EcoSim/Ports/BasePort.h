@@ -5,6 +5,9 @@
 #include "../../GameSystems/GeneralTools/Blackboard.h"
 using namespace GeneralBlackBoard;
 
+#include "../imgui.h"
+#include "../ImGuiGlobals.h"
+
 //#include <functional>
 
 namespace LayerPort
@@ -18,6 +21,8 @@ namespace LayerPort
 
 		virtual void Setup() = 0;
 		virtual void Shutdown() = 0;
+		
+		virtual void UpdateDraw() = 0;
 		
 		virtual void OnPrompt(const Prompt& prompt) = 0;
 

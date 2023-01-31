@@ -14,6 +14,12 @@ void ImGuiLayerPort::Shutdown()
 		p->Shutdown();
 }
 
+void LayerPort::ImGuiLayerPort::UpdateDraw()
+{
+	for (const auto& p : ports)
+		p->UpdateDraw();
+}
+
 void ImGuiLayerPort::AddPort(BasePort* port)
 {
 	ports.push_back(port);
