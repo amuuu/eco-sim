@@ -29,4 +29,9 @@ namespace LayerPort
 		}
 	};
 
+	struct ErrorPrompt : public Prompt
+	{
+		ErrorPrompt() : Prompt("ERROR")
+		{ }
+	};
 }

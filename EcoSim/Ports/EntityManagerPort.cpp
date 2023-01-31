@@ -14,9 +14,10 @@ void EntityManagerPort::Shutdown()
 
 void EntityManagerPort::OnPrompt(const Prompt& prompt)
 {
+	Payload* payload = prompt.payload;
+
 	if (prompt.name == "TEST_PROMPT")
 	{
-		Payload* payload = prompt.payload;
 		const auto a = ArgListHelper::ExtractFromArgs<int>(payload);
 		const auto b = ArgListHelper::ExtractFromArgs<std::string>(payload->next);
 		const auto c = ArgListHelper::ExtractFromArgs<float>(payload->next->next);
@@ -31,7 +32,6 @@ void EntityManagerPort::OnPrompt(const Prompt& prompt)
 	
 	else if (prompt.name == "INSTANTIATE_ENTITY_BULK")
 	{
-		Payload* payload = prompt.payload;
 		int amount = ArgListHelper::ExtractFromArgs<int>(payload);
 		CreateEntitiesBulk(amount);
 	}

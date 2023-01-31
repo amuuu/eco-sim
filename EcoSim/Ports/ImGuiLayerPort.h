@@ -4,6 +4,8 @@
 #include "EntityManagerPort.h"
 
 #include <vector>
+#include <queue>
+#include <functional>
 
 namespace LayerPort
 {
@@ -27,6 +29,20 @@ namespace LayerPort
 
 	static void InstallPorts(ImGuiLayerPort& imguiLayerPort)
 	{
-		imguiLayerPort.AddPort(new EntityManagerPort{});
+		/*static bool setupDone = false;
+		if (setupDone) return;
+
+		std::function<void(const Prompt&)> callback = 
+			std::bind(
+				&ImGuiLayerPort::AppendPortPromptForImGui, 
+				&imguiLayerPort, 
+				std::placeholders::_1);*/
+
+		
+		imguiLayerPort.AddPort(new EntityManagerPort{ /*callback*/ });
+
+
+
+		/*setupDone = true;*/
 	}
 }
