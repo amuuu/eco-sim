@@ -12,7 +12,9 @@
 #endif
 
 #include "Ports/ImGuiLayerPort.h"
+#include "../GameSystems/GeneralTools/ArgListHelper.h"
 
+#include <string>
 
 static void glfw_error_callback(int error, const char* description)
 {
@@ -78,14 +80,27 @@ int main(int, char**)
             ImGui::NewLine();
 
             const ImVec2 buttSize = ImVec2(250, 20);
-            if (ImGui::Button("Instantiate Entity", buttSize))
+            
+            if (ImGui::Button("Args Tester Button", buttSize))
+            {
+                LayerPort::Payload* payload = new LayerPort::Payload{};
+                ArgListHelper::PackArgs<int, std::string, float>(payload, 1, "hello", 12.f);
+                port.RelayPromptToPorts(LayerPort::Prompt{ "TEST_PROMPT", payload });
+            }
+            
+            if (ImGui::Button("Instantiate Entity", buttSize)) 
+            {
                 port.RelayPromptToPorts(LayerPort::Prompt{ "INSTANTIATE_ENTITY" });
+            }
 
             ImGui::SetNextItemWidth(100);
             ImGui::InputInt("Bulk Amount", &bulkInstantiateAmount, 10, 50);
-            if (ImGui::Button("Bulk Instantiate Entities", buttSize))
-                port.RelayPromptToPorts(LayerPort::Prompt{ "INSTANTIATE_ENTITY_BULK", new LayerPort::IntArrPayload{new int[1] {bulkInstantiateAmount}} });
-
+            if (ImGui::Button("Bulk Instantiate Entities", buttSize)) 
+            {
+                LayerPort::Payload* payload = new LayerPort::Payload{};
+                ArgListHelper::PackArgs<int>(payload, bulkInstantiateAmount);
+                port.RelayPromptToPorts(LayerPort::Prompt{ "INSTANTIATE_ENTITY_BULK", payload });
+            }
 
 
             /*ImGui::SetNextItemOpen(true, ImGuiCond_Once);

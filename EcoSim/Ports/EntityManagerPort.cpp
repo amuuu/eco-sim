@@ -1,4 +1,5 @@
 #include "EntityManagerPort.h"
+#include "../../GameSystems/GeneralTools/Logger.h"
 
 using namespace LayerPort;
 
@@ -13,14 +14,25 @@ void EntityManagerPort::Shutdown()
 
 void EntityManagerPort::OnPrompt(const Prompt& prompt)
 {
+	if (prompt.name == "TEST_PROMPT")
+	{
+		Payload* payload = prompt.payload;
+		const auto a = ArgListHelper::ExtractFromArgs<int>(payload);
+		const auto b = ArgListHelper::ExtractFromArgs<std::string>(payload->next);
+		const auto c = ArgListHelper::ExtractFromArgs<float>(payload->next->next);
+
+		LOG_INFO(a << " ~ " << b << " ~ " << c);
+	}
+	
 	if (prompt.name == "INSTANTIATE_ENTITY")
 	{
 		CreateNewEntity();
 	}
+	
 	else if (prompt.name == "INSTANTIATE_ENTITY_BULK")
 	{
-		auto& payload = prompt.payload;
-		int amount = dynamic_cast<IntArrPayload*>(payload)->values[0];
+		Payload* payload = prompt.payload;
+		int amount = ArgListHelper::ExtractFromArgs<int>(payload);
 		CreateEntitiesBulk(amount);
 	}
 }

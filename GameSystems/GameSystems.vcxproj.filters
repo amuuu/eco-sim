@@ -95,6 +95,9 @@
     <ClInclude Include="GeneralComponents\Timer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GeneralTools\ArgListHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DecisionSystem\StateOfMind.json" />
