@@ -1,5 +1,8 @@
 #pragma once
 
+#include "../../GameSystems/GeneralTools/Blackboard.h"
+using namespace GeneralBlackBoard;
+
 #include "BasePort.h"
 #include "EntityManagerPort.h"
 
@@ -13,6 +16,8 @@ namespace LayerPort
 	{
 	public:
 		
+		ImGuiLayerPort(BlackBoard* blackboard) : blackboard(blackboard) {}
+
 		void Setup();
 
 		void Shutdown();
@@ -21,9 +26,12 @@ namespace LayerPort
 
 		void RelayPromptToPorts(const Prompt& prompt);
 
+		BlackBoard* GetBlackBoard() { return blackboard; }
+
 	private:
 
 		std::vector<BasePort*> ports{};
+		BlackBoard* blackboard{};
 	};
 
 
@@ -39,7 +47,7 @@ namespace LayerPort
 				std::placeholders::_1);*/
 
 		
-		imguiLayerPort.AddPort(new EntityManagerPort{ /*callback*/ });
+		imguiLayerPort.AddPort(new EntityManagerPort{ imguiLayerPort.GetBlackBoard() });
 
 
 

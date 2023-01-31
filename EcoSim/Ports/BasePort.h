@@ -2,12 +2,14 @@
 
 #include "Prompt.h"
 #include "../../GameSystems/GeneralTools/ArgListHelper.h"
+#include "../../GameSystems/GeneralTools/Blackboard.h"
+using namespace GeneralBlackBoard;
 
 //#include <functional>
 
 namespace LayerPort
 {
-	
+
 	class BasePort
 	{
 		friend class ImGuiLayerPort;
@@ -21,7 +23,12 @@ namespace LayerPort
 
 		//std::function<void(const Prompt&)> submitPromptCallback;
 
+		BlackBoard* blackboard;
+
 	public:
+
+
+		BasePort(BlackBoard* blackboard) : blackboard(blackboard) {}
 
 		//BasePort(std::function<void(const Prompt&)> submitPromptCallback) 
 		//	: submitPromptCallback(submitPromptCallback)

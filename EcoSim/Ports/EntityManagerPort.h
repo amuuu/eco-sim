@@ -19,6 +19,10 @@ namespace LayerPort
 
 	class EntityManagerPort : public BasePort
 	{
+	public:
+
+		EntityManagerPort(BlackBoard* blackboard) : BasePort(blackboard) {}
+	
 	private:
 
 		virtual void Setup() override; // BasePort

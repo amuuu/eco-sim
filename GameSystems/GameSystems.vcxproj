@@ -162,6 +162,7 @@
     <ClInclude Include="GeneralComponents\Timer.h" />
     <ClInclude Include="EventSystem\EventSystem.h" />
     <ClInclude Include="GeneralTools\ArgListHelper.h" />
+    <ClInclude Include="GeneralTools\Blackboard.h" />
     <ClInclude Include="GeneralTools\DoubleSidedMap.h" />
     <ClInclude Include="GeneralTools\Logger.h" />
     <ClInclude Include="GeneralTools\ObjectPool.h" />

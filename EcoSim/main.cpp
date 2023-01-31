@@ -13,6 +13,7 @@
 
 #include "Ports/ImGuiLayerPort.h"
 #include "../GameSystems/GeneralTools/ArgListHelper.h"
+#include "../GameSystems/GeneralTools/Blackboard.h"
 
 #include <string>
 
@@ -23,7 +24,9 @@ static void glfw_error_callback(int error, const char* description)
 
 int main(int, char**)
 {
-    LayerPort::ImGuiLayerPort port{};
+    GeneralBlackBoard::BlackBoard blackboard{};
+    
+    LayerPort::ImGuiLayerPort port{ &blackboard };
     LayerPort::InstallPorts(port);
     port.Setup();
     

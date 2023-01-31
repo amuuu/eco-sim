@@ -1,8 +1,8 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8028: The intermediate directory (OUTPUT\x64\Debug\INTERMEDIATE\) contains files shared from another project (DemoWithGui.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   EntityManagerPort.cpp
   ImGuiLayerPort.cpp
-D:\Software Projects\GameSystems\GameSystems\EcoSim\Ports\ImGuiLayerPort.h(30,14): warning C4505: 'LayerPort::InstallPorts': unreferenced function with internal linkage has been removed
+D:\Software Projects\GameSystems\GameSystems\EcoSim\Ports\ImGuiLayerPort.h(39,14): warning C4505: 'LayerPort::InstallPorts': unreferenced function with internal linkage has been removed
   main.cpp
-D:\Software Projects\GameSystems\GameSystems\EcoSim\main.cpp(53,9): warning C4189: 'entityListItemIndex': local variable is initialized but not referenced
+D:\Software Projects\GameSystems\GameSystems\EcoSim\main.cpp(56,9): warning C4189: 'entityListItemIndex': local variable is initialized but not referenced
   Generating Code...
   EcoSim.vcxproj -> D:\Software Projects\GameSystems\GameSystems\EcoSim\OUTPUT\x64\Debug\MAIN\EcoSim.exe
