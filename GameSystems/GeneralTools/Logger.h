@@ -25,5 +25,5 @@
 // ^^^ https://github.com/gon1332/fort320/blob/master/include/Utils/colors.h ^^^
 
 #define LOG_INFO(txt) std::cout << txt << std::endl
-#define LOG_WARN(txt) std::cout << BOLD(FYEL("WARN") << " " << txt << std::endl
-#define LOG_ERR(txt) std::cout << BOLD(FRED("ERROR") << " " << txt << std::endl
+#define LOG_WARN(txt) std::cout << BOLD(FYEL("WARN")) << " " << txt << std::endl
+#define LOG_ERR(txt) std::cout << BOLD(FRED("ERROR")) << " " << txt << std::endl

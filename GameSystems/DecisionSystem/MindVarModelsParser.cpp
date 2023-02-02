@@ -1,8 +1,9 @@
 #include "MindVarModelsParser.h"
+#include <GameSystems/GeneralTools/Logger.h>
 
 using namespace DecisionSystem;
 
-void MindVarModelsParser::Init(const std::string& mindVarsConfigsPath, const std::string& actionConfigsPath)
+void MindVarModelsParser::Init(const std::string& mindVarsConfigsPath, ParsingMode varsParsingMode, const std::string& actionConfigsPath, ParsingMode actionsParsingMode)
 {
 	this->mindVarsConfigsPath = mindVarsConfigsPath;
 	this->actionConfigsPath = actionConfigsPath;
@@ -12,11 +13,23 @@ void MindVarModelsParser::Init(const std::string& mindVarsConfigsPath, const std
 
 void MindVarModelsParser::ParseConfigs()
 {
-	ParseMindVarElements();
-	ParseActions();
+	if (mindVarsParsingMode == ParsingMode::JSON)
+		ParseMindVarElementsJSON();
+	else if (mindVarsParsingMode == ParsingMode::CSV)
+		ParseMindVarElementsCSV();
+	else
+		LOG_ERR("Invalid parsing type for mind vars");
+
+	if (actionsParsingMode == ParsingMode::JSON)
+		ParseActionsJSON();
+	else if (mindVarsParsingMode == ParsingMode::CSV)
+		ParseActionsCSV();
+	else
+		LOG_ERR("Invalid parsing type for actions");
+
 }
 
-void MindVarModelsParser::ParseMindVarElements()
+void MindVarModelsParser::ParseMindVarElementsJSON()
 {
 	using json = nlohmann::json;
 
@@ -68,7 +81,21 @@ void MindVarModelsParser::ParseMindVarElements()
 	f.close();
 }
 
-void MindVarModelsParser::ParseActions()
+void DecisionSystem::MindVarModelsParser::ParseMindVarElementsCSV()
+{
+	CSVParser::ParserSettings settings{};
+	settings.ignoredFirstRowsCount = 2;
+	settings.parseHarshly = true;
+
+	CSVParser::Parser<std::string, float, std::string, float, float, float, std::string, float, float> 
+		parser{ mindVarsConfigsPath, settings };
+
+	parser.Parse();
+
+	// ....
+}
+
+void MindVarModelsParser::ParseActionsJSON()
 {
 	using json = nlohmann::json;
 
@@ -160,4 +187,97 @@ void MindVarModelsParser::ParseActions()
 	}
 
 	f.close();
+}
+
+void DecisionSystem::MindVarModelsParser::ParseActionsCSV()
+{
+	CSVParser::ParserSettings settings{};
+	settings.ignoredFirstRowsCount = 2;
+	settings.parseHarshly = true;
+
+	CSVParser::Parser<std::string, float, std::string, float, float, float, std::string, float, float>
+		parser{ mindVarsConfigsPath, settings };
+
+	parser.Parse();
+
+	std::string action_name{}; float action_minscore{}; 
+	std::string var_name{}; float var_coeff{}; float var_min{}; float var_max{}; 
+	std::string reward_name{}; float reward_absoluteamount{}; float reward_diffamount{};
+	
+	const std::string empty = CSVParser::EMPTY_STRING;
+
+	ActionModel currentActionModel{};
+	std::vector<ActionFormulaVariable> currentActionFormulaVars{};
+	std::vector<ActionReward> currentActionRewards{};
+
+	for (int row = 0; row < parser.GetRowCount(); row++)
+	{
+		parser.GetRowData<std::string, float, std::string, float, float, float, std::string, float, float>
+			(row, 
+				action_name, action_minscore, 
+				var_name, var_coeff, var_min, var_max,
+				reward_name, reward_absoluteamount, reward_diffamount);
+
+		if (action_name != empty)
+		{
+			if (actionModels.size() > 0)
+			{
+				if (currentActionFormulaVars.size() > 0)
+				{
+					currentActionModel.conditionVariables = std::move(currentActionFormulaVars);
+					currentActionFormulaVars.clear();
+				}
+				if (currentActionRewards.size() > 0)
+				{
+					currentActionModel.rewards = std::move(currentActionRewards);
+					currentActionRewards.clear();
+				}
+
+				actionModels.emplace(currentActionModel.name, ActionModel{ currentActionModel });
+			}
+
+			currentActionModel = ActionModel{};
+			currentActionModel.name = action_name;
+			currentActionModel.minScore = action_minscore;
+		}
+
+		if (var_name != empty)
+		{
+			enum BoundType boundType = None;
+			float val{};
+			
+			if ((var_min != 0.f && var_max == 0.f) || (var_min == 0.f && var_max == 0.f))
+			{
+				boundType = Min;
+				val = var_min;
+			}
+			else if (var_min == 0.f && var_max != 0.f)
+			{
+				boundType = Max;
+				val = var_max;
+			}
+
+			currentActionFormulaVars.push_back(ActionFormulaVariable{ var_name, val, boundType, var_coeff });
+		}
+
+		if (reward_name != empty)
+		{
+			enum RewardEffect rewardType = NaN;
+			float val{};
+
+			if ((reward_absoluteamount != 0.f && reward_diffamount == 0.f) || (reward_absoluteamount == 0.f && reward_diffamount == 0.f))
+			{
+				rewardType = Absolute;
+				val = reward_absoluteamount;
+			}
+			else if (reward_absoluteamount == 0.f && reward_diffamount != 0.f)
+			{
+				rewardType = Diff;
+				val = reward_diffamount;
+			}
+			
+			currentActionRewards.push_back(ActionReward{ reward_name, rewardType, val});
+		}
+
+	}
 }
