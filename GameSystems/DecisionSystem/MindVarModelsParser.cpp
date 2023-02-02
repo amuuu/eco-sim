@@ -75,7 +75,7 @@ void MindVarModelsParser::ParseMindVarElementsJSON()
 			affectors.push_back(MindVarAffector{ afName,afAmount,afActiveConditional, afActiveIfsValue });
 		}
 
-		models.emplace(name, MindVarModel{ name,category,min,max,isAutoUpdatedInTicks,autoUpdateAmount,affectors });
+		mindVarModels.emplace(name, MindVarModel{ name,category,min,max,isAutoUpdatedInTicks,autoUpdateAmount,affectors });
 	}
 
 	f.close();
@@ -87,12 +87,78 @@ void DecisionSystem::MindVarModelsParser::ParseMindVarElementsCSV()
 	settings.ignoredFirstRowsCount = 2;
 	settings.parseHarshly = true;
 
-	CSVParser::Parser<std::string, float, std::string, float, float, float, std::string, float, float> 
+	CSVParser::Parser<std::string, std::string, float, float, float, std::string, float, float, float> 
 		parser{ mindVarsConfigsPath, settings };
 
 	parser.Parse();
 
-	// ....
+	std::string var_name{}; 
+	std::string var_category{}; 
+	float var_min{}; float var_max{}; 
+	float var_autoUpdatePerTickAmount{};
+	std::string affector_name{}; float affector_autoUpdatePerTickAmount{}; float affector_ifTotalLessThan{}; float affector_ifTotalMoreThan{};
+
+	const std::string empty = CSVParser::EMPTY_STRING;
+
+	std::vector<MindVarAffector> currentMindVarAffectors{};
+	
+	std::string currentName{}, currentCategory{};
+	float currentMin{}, currentMax{}, currentAutoUpdateByTick{};
+
+	for (int row = 0; row < parser.GetRowCount(); row++)
+	{
+		parser.GetRowData<
+			std::string, 
+			std::string, 
+			float, float, 
+			float, 
+			std::string, float, float, float>
+			(row,
+				var_name, 
+				var_category,
+				var_min, var_max, 
+				var_autoUpdatePerTickAmount,
+				affector_name, affector_autoUpdatePerTickAmount, affector_ifTotalLessThan, affector_ifTotalMoreThan);
+
+		if (var_name != empty)
+		{
+			if (mindVarModels.size() > 0)
+			{
+				mindVarModels.emplace(currentName, MindVarModel{ currentName, currentCategory, currentMin, currentMax, (currentAutoUpdateByTick != 0), currentAutoUpdateByTick, currentMindVarAffectors});
+				currentMindVarAffectors.clear();
+			}
+
+			currentName = var_name;
+			currentCategory = var_category;
+			currentMin = var_min;
+			currentMax = var_max;
+			currentAutoUpdateByTick = var_autoUpdatePerTickAmount;
+		}
+
+		if (affector_name != empty)
+		{
+			enum ConditionalAffectiveness conditional = Never;
+			float conditionalAmount = 0.0f;
+
+			if (affector_ifTotalLessThan != 0.f && affector_ifTotalMoreThan == 0.f)
+			{
+				conditional = IfAmountIsLess;
+				conditionalAmount = affector_ifTotalLessThan;
+			}
+			else if (affector_ifTotalLessThan == 0.f && affector_ifTotalMoreThan != 0.f)
+			{
+				conditional = IfAmountIsMore;
+				conditionalAmount = affector_ifTotalMoreThan;
+			}
+			else if (affector_ifTotalLessThan == 0.f && affector_ifTotalMoreThan == 0.f)
+			{
+				conditional = Never;
+			}
+
+			currentMindVarAffectors.push_back(MindVarAffector{ affector_name, affector_autoUpdatePerTickAmount, conditional, conditionalAmount });
+		}
+
+	}
 }
 
 void MindVarModelsParser::ParseActionsJSON()
@@ -196,7 +262,7 @@ void DecisionSystem::MindVarModelsParser::ParseActionsCSV()
 	settings.parseHarshly = true;
 
 	CSVParser::Parser<std::string, float, std::string, float, float, float, std::string, float, float>
-		parser{ mindVarsConfigsPath, settings };
+		parser{ actionConfigsPath, settings };
 
 	parser.Parse();
 
@@ -212,7 +278,10 @@ void DecisionSystem::MindVarModelsParser::ParseActionsCSV()
 
 	for (int row = 0; row < parser.GetRowCount(); row++)
 	{
-		parser.GetRowData<std::string, float, std::string, float, float, float, std::string, float, float>
+		parser.GetRowData<
+			std::string, float, 
+			std::string, float, float, float, 
+			std::string, float, float>
 			(row, 
 				action_name, action_minscore, 
 				var_name, var_coeff, var_min, var_max,
@@ -225,15 +294,16 @@ void DecisionSystem::MindVarModelsParser::ParseActionsCSV()
 				if (currentActionFormulaVars.size() > 0)
 				{
 					currentActionModel.conditionVariables = std::move(currentActionFormulaVars);
-					currentActionFormulaVars.clear();
 				}
 				if (currentActionRewards.size() > 0)
 				{
 					currentActionModel.rewards = std::move(currentActionRewards);
-					currentActionRewards.clear();
 				}
 
 				actionModels.emplace(currentActionModel.name, ActionModel{ currentActionModel });
+
+				currentActionFormulaVars.clear();
+				currentActionRewards.clear();
 			}
 
 			currentActionModel = ActionModel{};

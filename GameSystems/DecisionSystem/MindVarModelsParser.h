@@ -31,7 +31,7 @@ namespace DecisionSystem
 
 	public:
 
-		std::map<MindVarId, MindVarModel> models{};
+		std::map<MindVarId, MindVarModel> mindVarModels{};
 		std::map<std::string, ActionModel> actionModels{};
 
 		GENERATE_SINGLETON_GETTER(DecisionSystem::MindVarModelsParser);

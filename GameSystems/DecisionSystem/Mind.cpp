@@ -77,10 +77,10 @@ void Mind::UpdateVariables()
 	for (auto const& [targetVar, targetVarVal] : mindVarValues)
 	{
 		// direct changes
-		ChangeValueForVariable(targetVar, MindVarModelsParser::GetInstance()->models[targetVar].autoUpdateAmount);
+		ChangeValueForVariable(targetVar, MindVarModelsParser::GetInstance()->mindVarModels[targetVar].autoUpdateAmount);
 
 		// affectors
-		for (auto const& affector : MindVarModelsParser::GetInstance()->models[targetVar].affectors)
+		for (auto const& affector : MindVarModelsParser::GetInstance()->mindVarModels[targetVar].affectors)
 		{
 			if (mindVarValues.find(affector.name) != mindVarValues.end())
 			{
