@@ -1,0 +1,3 @@
+[submodule "ExternalTools/amuuu--simple-csv-parser"]
+	path = ExternalTools/amuuu--simple-csv-parser
+	url = https://github.com/amuuu/simple-csv-parser
