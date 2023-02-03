@@ -20,8 +20,7 @@ namespace LayerPort
 
 		void RenderMindVar(const MindVarId& id);
 
-		std::map<MindVarId, bool> mindVarModelsDisplayState{}; // todo: toggle off
-
+		std::map<MindVarId, bool> mindVarModelsDisplayState{};
 
 	public:
 

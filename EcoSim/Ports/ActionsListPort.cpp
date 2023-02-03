@@ -74,62 +74,69 @@ void ActionsListPort::LoadConfigs()
 
 void LayerPort::ActionsListPort::RenderMindVar(const MindVarId& id)
 {
-	const auto& model = MindVarModelsParser::GetInstance()->GetMindVarModels()[id];
+	ImGui::Begin(id.c_str(), &mindVarModelsDisplayState[id], ImGuiWindowFlags_None);
 
-	std::string varDataName = std::string{ "VAR: " + model.name };
-	ImGui::Begin(varDataName.c_str(), &mindVarModelsDisplayState[id], ImGuiWindowFlags_None);
-
-	ImGui::Text("Category: "); ImGui::SameLine();
-	ImGui::Text(model.category.c_str());
-	
-	ImGui::Text("Min: "); ImGui::SameLine();
-	ImGui::Text(std::to_string(model.min).c_str()); ImGui::SameLine();
-	ImGui::Text("~ Max: "); ImGui::SameLine();
-	ImGui::Text(std::to_string(model.max).c_str());
-
-	ImGui::Text("Auto update ticks amount: "); ImGui::SameLine();
-	if (!model.isAutoUpdatedInTicks)
-		ImGui::Text("-");
-	else
-		ImGui::Text(std::to_string(model.autoUpdateAmount).c_str());
-
-	ImGui::Text("Affectors: ");
-	
-	if (model.affectors.size() == 0)
+	if (MindVarModelsParser::GetInstance()->MindVarModelExists(id))
 	{
-		ImGui::SameLine(); 
-		ImGui::Text("-");
-	}
+		const auto& model = MindVarModelsParser::GetInstance()->GetMindVarModels()[id];
+		
+		ImGui::Text("Category: "); ImGui::SameLine();
+		ImGui::Text(model.category.c_str());
 
-	for (const auto& affector : model.affectors)
-	{
-		if (ImGui::TreeNode(affector.name.c_str())) // name
+		ImGui::Text("Min: "); ImGui::SameLine();
+		ImGui::Text(std::to_string(model.min).c_str()); ImGui::SameLine();
+		ImGui::Text("~ Max: "); ImGui::SameLine();
+		ImGui::Text(std::to_string(model.max).c_str());
+
+		ImGui::Text("Auto update ticks amount: "); ImGui::SameLine();
+		if (!model.isAutoUpdatedInTicks)
+			ImGui::Text("-");
+		else
+			ImGui::Text(std::to_string(model.autoUpdateAmount).c_str());
+
+		ImGui::Text("Affectors: ");
+
+		if (model.affectors.size() == 0)
 		{
-			ImGui::Text("Amount per tick amount: "); ImGui::SameLine();
-			ImGui::Text(std::to_string(affector.amountPerTick).c_str());
-
-			ImGui::Text("Conditional affectiveness: "); ImGui::SameLine();
-			if (affector.activeIfCondition == Never)
-				ImGui::Text("Never");
-			else if (affector.activeIfCondition == IfAmountIsLess)
-				ImGui::Text("IfAmountIsLess");
-			else if (affector.activeIfCondition == IfAmountIsMore)
-				ImGui::Text("IfAmountIsMore");
-			
-			ImGui::Text("Conditional affectiveness amount: "); ImGui::SameLine();
-			if (affector.activeIfCondition != Never)
-				ImGui::Text(std::to_string(affector.amountPerTick).c_str());
-			else
-				ImGui::Text("-");
-
-			if (ImGui::Button("See Var Model"))
-			{
-				mindVarModelsDisplayState[affector.name] = true;
-			}
-
-			ImGui::TreePop();
+			ImGui::SameLine();
+			ImGui::Text("-");
 		}
+
+		for (const auto& affector : model.affectors)
+		{
+			if (ImGui::TreeNode(affector.name.c_str())) // name
+			{
+				ImGui::Text("Amount per tick amount: "); ImGui::SameLine();
+				ImGui::Text(std::to_string(affector.amountPerTick).c_str());
+
+				ImGui::Text("Conditional affectiveness: "); ImGui::SameLine();
+				if (affector.activeIfCondition == Never)
+					ImGui::Text("Never");
+				else if (affector.activeIfCondition == IfAmountIsLess)
+					ImGui::Text("IfAmountIsLess");
+				else if (affector.activeIfCondition == IfAmountIsMore)
+					ImGui::Text("IfAmountIsMore");
+
+				ImGui::Text("Conditional affectiveness amount: "); ImGui::SameLine();
+				if (affector.activeIfCondition != Never)
+					ImGui::Text(std::to_string(affector.amountPerTick).c_str());
+				else
+					ImGui::Text("-");
+
+				if (ImGui::Button("See Var Model"))
+				{
+					mindVarModelsDisplayState[affector.name] = true;
+				}
+
+				ImGui::TreePop();
+			}
+		}
+	}
+	else
+	{
+		ImGui::Text("ERROR: This mind var model doesn't exist\nbut it's probably used in an action.");
 	}
 
 	ImGui::End();
+
 }

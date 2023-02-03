@@ -35,6 +35,7 @@ namespace DecisionSystem
 
 	public:
 
+		bool MindVarModelExists(const MindVarId& id) { return mindVarModels.find(id) != mindVarModels.end(); }
 		std::map<MindVarId, MindVarModel>& GetMindVarModels() { return mindVarModels; };
 		std::map<std::string, ActionModel>& GetActionModels() { return actionModels; };
 
