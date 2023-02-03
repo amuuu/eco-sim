@@ -4,9 +4,9 @@
 #include "MindVarModel.h"
 #include "ActionModel.h"
 
-#include "GameSystems/GeneralTools/Singleton.h"
-#include "ExternalTools/nlohmann-json.hpp"
-#include "ExternalTools/amuuu--simple-csv-parser/Source/csvparser.h"
+#include "../GeneralTools/Singleton.h"
+#include "../../ExternalTools/amuuu--simple-csv-parser/Source/csvparser.h"
+#include "../../ExternalTools/nlohmann-json.hpp"
 
 #include <string>
 #include <map>
@@ -29,10 +29,15 @@ namespace DecisionSystem
 		std::string mindVarsConfigsPath{};
 		ParsingMode mindVarsParsingMode{ None };
 
-	public:
 
 		std::map<MindVarId, MindVarModel> mindVarModels{};
 		std::map<std::string, ActionModel> actionModels{};
+
+	public:
+
+		std::map<MindVarId, MindVarModel>& GetMindVarModels() { return mindVarModels; };
+		std::map<std::string, ActionModel>& GetActionModels() { return actionModels; };
+
 
 		GENERATE_SINGLETON_GETTER(DecisionSystem::MindVarModelsParser);
 

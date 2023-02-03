@@ -28,9 +28,6 @@ void MindVarModelsParser::ParseConfigs()
 		ParseActionsCSV();
 	else
 		LOG_ERR("Invalid parsing type for actions");
-
-	LOG_INFO("wassup");
-
 }
 
 void MindVarModelsParser::ParseMindVarElementsJSON()
@@ -305,13 +302,9 @@ void MindVarModelsParser::ParseActionsCSV()
 			if (actionModels.size() > 0)
 			{
 				if (currentActionFormulaVars.size() > 0)
-				{
 					currentActionModel.conditionVariables = std::move(currentActionFormulaVars);
-				}
 				if (currentActionRewards.size() > 0)
-				{
 					currentActionModel.rewards = std::move(currentActionRewards);
-				}
 
 				actionModels.emplace(currentActionModel.name, ActionModel{ currentActionModel });
 
@@ -367,6 +360,11 @@ void MindVarModelsParser::ParseActionsCSV()
 
 	if (atLeastOneActionModelExists)
 	{
+		if (currentActionFormulaVars.size() > 0)
+			currentActionModel.conditionVariables = std::move(currentActionFormulaVars);
+		if (currentActionRewards.size() > 0)
+			currentActionModel.rewards = std::move(currentActionRewards);
+
 		actionModels.emplace(currentActionModel.name, ActionModel{ currentActionModel });
 	}
 }

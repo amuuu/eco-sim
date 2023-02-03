@@ -2,8 +2,9 @@
 
 #include "BasePort.h"
 
-#include "EntityManagerPort.h"
 #include "BoilerplatePort.h"
+#include "EntityManagerPort.h"
+#include "ActionsListPort.h"
 
 #include <vector>
 #include <queue>
@@ -40,7 +41,9 @@ namespace LayerPort
 
 	static void InstallPorts(ImGuiLayerPort& imguiLayerPort)
 	{
-		imguiLayerPort.AddPort(new EntityManagerPort{ imguiLayerPort.GetInterPortComHandler() });
 		imguiLayerPort.AddPort(new BoilerplatePort{ imguiLayerPort.GetInterPortComHandler() });
+
+		imguiLayerPort.AddPort(new EntityManagerPort{ imguiLayerPort.GetInterPortComHandler() });
+		imguiLayerPort.AddPort(new ActionsListPort{ imguiLayerPort.GetInterPortComHandler() });
 	}
 }

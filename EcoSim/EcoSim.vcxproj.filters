@@ -43,6 +43,9 @@
     <ClCompile Include="Ports\BoilerplatePort.cpp">
       <Filter>sources</Filter>
     </ClCompile>
+    <ClCompile Include="Ports\ActionsListPort.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ExternalTools\imgui-1.89.1\imconfig.h">
@@ -67,6 +70,7 @@
     <ClInclude Include="ImGuiGlobals.h" />
     <ClInclude Include="Ports\InterPortComHandler.h" />
     <ClInclude Include="Ports\BoilerplatePort.h" />
+    <ClInclude Include="Ports\ActionsListPort.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\ExternalTools\imgui-1.89.1\misc\debuggers\imgui.natvis">

@@ -77,10 +77,10 @@ void Mind::UpdateVariables()
 	for (auto const& [targetVar, targetVarVal] : mindVarValues)
 	{
 		// direct changes
-		ChangeValueForVariable(targetVar, MindVarModelsParser::GetInstance()->mindVarModels[targetVar].autoUpdateAmount);
+		ChangeValueForVariable(targetVar, MindVarModelsParser::GetInstance()->GetMindVarModels()[targetVar].autoUpdateAmount);
 
 		// affectors
-		for (auto const& affector : MindVarModelsParser::GetInstance()->mindVarModels[targetVar].affectors)
+		for (auto const& affector : MindVarModelsParser::GetInstance()->GetMindVarModels()[targetVar].affectors)
 		{
 			if (mindVarValues.find(affector.name) != mindVarValues.end())
 			{
@@ -105,7 +105,7 @@ void Mind::DoActionIfPossible(const std::string& actionName)
 
 bool Mind::CanDoAction(const std::string& actionName)
 {
-	auto& actions = MindVarModelsParser::GetInstance()->actionModels;
+	auto& actions = MindVarModelsParser::GetInstance()->GetActionModels();
 
 	if (actions.find(actionName) == actions.end())
 		return false;
@@ -150,7 +150,7 @@ void Mind::StartDoingAction(const std::string& actionName, bool doesntNeedChecki
 
 void Mind::OnActionDoneSuccessfully(const std::string& actionName)
 {
-	auto& actions = MindVarModelsParser::GetInstance()->actionModels;
+	auto& actions = MindVarModelsParser::GetInstance()->GetActionModels();
 
 	if (actions.find(actionName) == actions.end())
 		return;
