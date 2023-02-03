@@ -18,7 +18,7 @@ void Timer::Update()
 {
 	if (mode == TimerMode::Normal)
 	{
-		LOG_INFO(timerObject.ElapsedMillis());
+		//LOG_INFO(timerObject.ElapsedMillis());
 	}
 
 	if (mode == TimerMode::Countdown && timerObject.ElapsedMillis() <= thisSessionCountDownTimespan)

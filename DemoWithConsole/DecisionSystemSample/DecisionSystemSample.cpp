@@ -14,10 +14,12 @@ namespace DECISION_SYSTEM_SAMPLE
 
 	static void EXECUTE()
 	{
-		const auto mindVarsPath = GET_ABSOLUTE_PATH_STRING("\\DecisionSystemSample\\Configs\\MindVars.json");
-		const auto actionsPath = GET_ABSOLUTE_PATH_STRING("\\DecisionSystemSample\\Configs\\Actions.json");
+		const auto mindVarsPathJSON = GET_ABSOLUTE_PATH_STRING("\\DecisionSystemSample\\Configs\\MindVars.json");
+		const auto mindVarsPathCSV = GET_ABSOLUTE_PATH_STRING("\\DecisionSystemSample\\Configs\\MindVars.csv");
+		const auto actionsPathJSON = GET_ABSOLUTE_PATH_STRING("\\DecisionSystemSample\\Configs\\Actions.json");
+		const auto actionsPathCSV = GET_ABSOLUTE_PATH_STRING("\\DecisionSystemSample\\Configs\\Actions.csv");
 
-		MindVarModelsParser::GetInstance()->Init(mindVarsPath, actionsPath);
+		MindVarModelsParser::GetInstance()->Init(mindVarsPathCSV, ParsingMode::CSV, actionsPathCSV, ParsingMode::CSV);
 
 
 		EntityManager entityManager{ false };

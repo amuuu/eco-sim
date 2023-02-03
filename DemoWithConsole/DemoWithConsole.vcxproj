@@ -160,7 +160,9 @@
     <ClInclude Include="ResourceManagementSample\ResourceManagementSample.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="DecisionSystemSample\Configs\Actions.csv" />
     <None Include="DecisionSystemSample\Configs\Actions.json" />
+    <None Include="DecisionSystemSample\Configs\MindVars.csv" />
     <None Include="DecisionSystemSample\Configs\MindVars.json" />
     <None Include="DecisionSystemSample\Configs\NPCMindVarPersistentData.json" />
   </ItemGroup>

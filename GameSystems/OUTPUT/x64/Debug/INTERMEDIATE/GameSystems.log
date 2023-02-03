@@ -1,5 +1,8 @@
 ﻿  Mind.cpp
   MindVarModelsParser.cpp
+  Component.cpp
+  Entity.cpp
+  EntityManager.cpp
   Timer.cpp
   ResourcePool.cpp
   Generating Code...

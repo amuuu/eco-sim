@@ -26,7 +26,7 @@ namespace DECISION_SYSTEM_SAMPLE
 			
 			if (timer != nullptr)
 			{
-				timer->Start();
+				//timer->Start();
 			}
 		}
 		

@@ -10,10 +10,10 @@ namespace DecisionSystem
 
 	struct MindVarAffector
 	{
-		const MindVarId name;
-		const float amountPerTick;
-		const ConditionalAffectiveness activeIfCondition;
-		const float activeIfsValue;
+		MindVarId name;
+		float amountPerTick;
+		ConditionalAffectiveness activeIfCondition;
+		float activeIfsValue;
 
 		MindVarAffector(
 			const MindVarId& name,
@@ -25,6 +25,8 @@ namespace DecisionSystem
 			activeIfCondition(activeIfCondition),
 			activeIfsValue(activeIfsValue)
 		{}
+
+		MindVarAffector() = default;
 	};
 
 	struct MindVarModel

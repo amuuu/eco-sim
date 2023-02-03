@@ -46,5 +46,7 @@
     <None Include="DecisionSystemSample\Configs\Actions.json" />
     <None Include="DecisionSystemSample\Configs\MindVars.json" />
     <None Include="DecisionSystemSample\Configs\NPCMindVarPersistentData.json" />
+    <None Include="DecisionSystemSample\Configs\Actions.csv" />
+    <None Include="DecisionSystemSample\Configs\MindVars.csv" />
   </ItemGroup>
 </Project>

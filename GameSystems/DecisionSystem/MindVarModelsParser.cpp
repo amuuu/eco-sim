@@ -6,7 +6,9 @@ using namespace DecisionSystem;
 void MindVarModelsParser::Init(const std::string& mindVarsConfigsPath, ParsingMode varsParsingMode, const std::string& actionConfigsPath, ParsingMode actionsParsingMode)
 {
 	this->mindVarsConfigsPath = mindVarsConfigsPath;
+	this->mindVarsParsingMode = varsParsingMode;
 	this->actionConfigsPath = actionConfigsPath;
+	this->actionsParsingMode = actionsParsingMode;
 
 	ParseConfigs();
 }
@@ -22,10 +24,12 @@ void MindVarModelsParser::ParseConfigs()
 
 	if (actionsParsingMode == ParsingMode::JSON)
 		ParseActionsJSON();
-	else if (mindVarsParsingMode == ParsingMode::CSV)
+	else if (actionsParsingMode == ParsingMode::CSV)
 		ParseActionsCSV();
 	else
 		LOG_ERR("Invalid parsing type for actions");
+
+	LOG_INFO("wassup");
 
 }
 
@@ -81,7 +85,7 @@ void MindVarModelsParser::ParseMindVarElementsJSON()
 	f.close();
 }
 
-void DecisionSystem::MindVarModelsParser::ParseMindVarElementsCSV()
+void MindVarModelsParser::ParseMindVarElementsCSV()
 {
 	CSVParser::ParserSettings settings{};
 	settings.ignoredFirstRowsCount = 2;
@@ -104,6 +108,7 @@ void DecisionSystem::MindVarModelsParser::ParseMindVarElementsCSV()
 	
 	std::string currentName{}, currentCategory{};
 	float currentMin{}, currentMax{}, currentAutoUpdateByTick{};
+	bool atLeastOneVarExists{ false };
 
 	for (int row = 0; row < parser.GetRowCount(); row++)
 	{
@@ -122,7 +127,7 @@ void DecisionSystem::MindVarModelsParser::ParseMindVarElementsCSV()
 
 		if (var_name != empty)
 		{
-			if (mindVarModels.size() > 0)
+			if (atLeastOneVarExists)
 			{
 				mindVarModels.emplace(currentName, MindVarModel{ currentName, currentCategory, currentMin, currentMax, (currentAutoUpdateByTick != 0), currentAutoUpdateByTick, currentMindVarAffectors});
 				currentMindVarAffectors.clear();
@@ -133,6 +138,7 @@ void DecisionSystem::MindVarModelsParser::ParseMindVarElementsCSV()
 			currentMin = var_min;
 			currentMax = var_max;
 			currentAutoUpdateByTick = var_autoUpdatePerTickAmount;
+			atLeastOneVarExists = true;
 		}
 
 		if (affector_name != empty)
@@ -159,6 +165,12 @@ void DecisionSystem::MindVarModelsParser::ParseMindVarElementsCSV()
 		}
 
 	}
+
+	if (atLeastOneVarExists)
+	{
+		mindVarModels.emplace(currentName, MindVarModel{ currentName, currentCategory, currentMin, currentMax, (currentAutoUpdateByTick != 0), currentAutoUpdateByTick, currentMindVarAffectors });
+	}
+
 }
 
 void MindVarModelsParser::ParseActionsJSON()
@@ -255,7 +267,7 @@ void MindVarModelsParser::ParseActionsJSON()
 	f.close();
 }
 
-void DecisionSystem::MindVarModelsParser::ParseActionsCSV()
+void MindVarModelsParser::ParseActionsCSV()
 {
 	CSVParser::ParserSettings settings{};
 	settings.ignoredFirstRowsCount = 2;
@@ -275,6 +287,7 @@ void DecisionSystem::MindVarModelsParser::ParseActionsCSV()
 	ActionModel currentActionModel{};
 	std::vector<ActionFormulaVariable> currentActionFormulaVars{};
 	std::vector<ActionReward> currentActionRewards{};
+	bool atLeastOneActionModelExists{ false };
 
 	for (int row = 0; row < parser.GetRowCount(); row++)
 	{
@@ -309,6 +322,7 @@ void DecisionSystem::MindVarModelsParser::ParseActionsCSV()
 			currentActionModel = ActionModel{};
 			currentActionModel.name = action_name;
 			currentActionModel.minScore = action_minscore;
+			atLeastOneActionModelExists = true;
 		}
 
 		if (var_name != empty)
@@ -349,5 +363,10 @@ void DecisionSystem::MindVarModelsParser::ParseActionsCSV()
 			currentActionRewards.push_back(ActionReward{ reward_name, rewardType, val});
 		}
 
+	}
+
+	if (atLeastOneActionModelExists)
+	{
+		actionModels.emplace(currentActionModel.name, ActionModel{ currentActionModel });
 	}
 }

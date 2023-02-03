@@ -1,0 +1,6 @@
+name,category,bounds,,auto update by tick amount,affected by,,,
+,,min,max,,name,amount per tick,if total is less than,if total is more than
+hunger,needs,0,100,-0.005,morale,-0.005,50,
+energy,general,0,100,,,,,
+cooking,skill,0,100,,,,,
+morale,feelings,0,100,-0.001,energy,-0.0005,30,
