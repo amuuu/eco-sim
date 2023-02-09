@@ -2,7 +2,8 @@
 #define ENTITY_MANAGEMENT_SAMPLE_ACTIVE 0
 #define RESOURCE_MANAGEMENT_SAMPLE_ACTIVE 0
 #define DECISION_SYSTEM_SAMPLE_ACTIVE 0
-#define SCHEDULER_SAMPLE_ACTIVE 1
+#define SCHEDULER_SAMPLE_ACTIVE 0
+#define STATE_MACHINE_SAMPLE_ACTIVE 1
 
 /////////////////////////////////////////////////////////
 
@@ -26,6 +27,10 @@
 #include "DecisionSystemSample/SchedulerSample.cpp"
 #endif
 
+#if STATE_MACHINE_SAMPLE_ACTIVE 1
+#include "DecisionSystemSample/StateMachineSample.cpp"
+#endif
+
 int main()
 {
 
@@ -47,5 +52,9 @@ int main()
 
 #if SCHEDULER_SAMPLE_ACTIVE 1
 		SCHEDULER_SAMPLE::EXECUTE();
+#endif
+
+#if STATE_MACHINE_SAMPLE_ACTIVE 1
+		STATE_MACHINE_SAMPLE::EXECUTE();
 #endif
 }

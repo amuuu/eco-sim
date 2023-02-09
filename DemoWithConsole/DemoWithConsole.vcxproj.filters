@@ -27,6 +27,9 @@
     <ClCompile Include="DecisionSystemSample\SchedulerSample.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DecisionSystemSample\StateMachineSample.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EventSystemSample\SimpleEventListenerClass.h">

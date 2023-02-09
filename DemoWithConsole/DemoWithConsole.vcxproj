@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClCompile Include="DecisionSystemSample\DecisionSystemSample.cpp" />
     <ClCompile Include="DecisionSystemSample\SchedulerSample.cpp" />
+    <ClCompile Include="DecisionSystemSample\StateMachineSample.cpp" />
     <ClCompile Include="DemoWithConsole.cpp" />
     <ClCompile Include="EventSystemSample\EventSystemSample.cpp" />
   </ItemGroup>
