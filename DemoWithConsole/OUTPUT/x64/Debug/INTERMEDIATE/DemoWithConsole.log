@@ -1,1 +1,31 @@
-﻿  DemoWithConsole.vcxproj -> D:\Software Projects\GameSystems\GameSystems\DemoWithConsole\OUTPUT\x64\Debug\MAIN\DemoWithConsole.exe
+﻿  DecisionSystemSample.cpp
+  SchedulerSample.cpp
+D:\SoftwareProjects\GameSystems\GameSystems\GameSystems\GeneralTools\TimerUtility.h(28,19): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\SoftwareProjects\GameSystems\GameSystems\GameSystems\GeneralTools\TimerUtility.h(30,19): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\SoftwareProjects\GameSystems\GameSystems\GameSystems\GeneralTools\TimerUtility.h(32,19): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\SoftwareProjects\GameSystems\GameSystems\GameSystems\GeneralTools\TimerUtility.h(34,19): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\SoftwareProjects\GameSystems\GameSystems\GameSystems\GeneralTools\TimerUtility.h(36,19): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\SoftwareProjects\GameSystems\GameSystems\GameSystems\GeneralTools\TimerUtility.h(38,19): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\SoftwareProjects\GameSystems\GameSystems\GameSystems\GeneralTools\Timer.h(26,70): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  DemoWithConsole.cpp
+D:\SoftwareProjects\GameSystems\GameSystems\DemoWithConsole\DemoWithConsole.cpp(9,32): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\SoftwareProjects\GameSystems\GameSystems\DemoWithConsole\DemoWithConsole.cpp(13,37): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\SoftwareProjects\GameSystems\GameSystems\DemoWithConsole\DemoWithConsole.cpp(17,39): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\SoftwareProjects\GameSystems\GameSystems\DemoWithConsole\DemoWithConsole.cpp(21,35): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\SoftwareProjects\GameSystems\GameSystems\DemoWithConsole\DemoWithConsole.cpp(25,29): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\SoftwareProjects\GameSystems\GameSystems\GameSystems\GeneralTools\TimerUtility.h(28,19): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\SoftwareProjects\GameSystems\GameSystems\GameSystems\GeneralTools\TimerUtility.h(30,19): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\SoftwareProjects\GameSystems\GameSystems\GameSystems\GeneralTools\TimerUtility.h(32,19): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\SoftwareProjects\GameSystems\GameSystems\GameSystems\GeneralTools\TimerUtility.h(34,19): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\SoftwareProjects\GameSystems\GameSystems\GameSystems\GeneralTools\TimerUtility.h(36,19): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\SoftwareProjects\GameSystems\GameSystems\GameSystems\GeneralTools\TimerUtility.h(38,19): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\SoftwareProjects\GameSystems\GameSystems\GameSystems\GeneralTools\Timer.h(26,70): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\SoftwareProjects\GameSystems\GameSystems\DemoWithConsole\DemoWithConsole.cpp(32,32): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\SoftwareProjects\GameSystems\GameSystems\DemoWithConsole\DemoWithConsole.cpp(36,37): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\SoftwareProjects\GameSystems\GameSystems\DemoWithConsole\DemoWithConsole.cpp(40,39): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\SoftwareProjects\GameSystems\GameSystems\DemoWithConsole\DemoWithConsole.cpp(44,35): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\SoftwareProjects\GameSystems\GameSystems\DemoWithConsole\DemoWithConsole.cpp(48,29): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  EventSystemSample.cpp
+  Generating Code...
+D:\SoftwareProjects\GameSystems\GameSystems\GameSystems\GeneralTools\TimerUtility.h(40): warning C4715: 'TimerUtility::ConvertToTimeScale': not all control paths return a value
+  DemoWithConsole.vcxproj -> D:\SoftwareProjects\GameSystems\GameSystems\DemoWithConsole\OUTPUT\x64\Debug\MAIN\DemoWithConsole.exe

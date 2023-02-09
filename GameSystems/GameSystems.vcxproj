@@ -146,11 +146,12 @@
     <ClCompile Include="EntityManagement\Component.cpp" />
     <ClCompile Include="EntityManagement\Entity.cpp" />
     <ClCompile Include="EntityManagement\EntityManager.cpp" />
-    <ClCompile Include="GeneralComponents\Timer.cpp" />
     <ClCompile Include="ResourceManagement\ResourcePool.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DecisionSystem\ActionModel.h" />
+    <ClInclude Include="DecisionSystem\BehaviorStructures\Scheduler.h" />
+    <ClInclude Include="DecisionSystem\BehaviorStructures\StateMachine.h" />
     <ClInclude Include="DecisionSystem\BehaviorSystems\StateMachine.h" />
     <ClInclude Include="DecisionSystem\MindVarModelsParser.h" />
     <ClInclude Include="DecisionSystem\DecisionSystemGlobals.h" />
@@ -160,7 +161,6 @@
     <ClInclude Include="EntityManagement\Entity.h" />
     <ClInclude Include="EntityManagement\EntityGlobals.h" />
     <ClInclude Include="EntityManagement\EntityManager.h" />
-    <ClInclude Include="GeneralComponents\Timer.h" />
     <ClInclude Include="EventSystem\EventSystem.h" />
     <ClInclude Include="GeneralTools\ArgListHelper.h" />
     <ClInclude Include="GeneralTools\Blackboard.h" />
@@ -170,11 +170,13 @@
     <ClInclude Include="GeneralTools\PathHelper.h" />
     <ClInclude Include="GeneralTools\Singleton.h" />
     <ClInclude Include="GeneralTools\Timer.h" />
+    <ClInclude Include="GeneralTools\TimerUtility.h" />
     <ClInclude Include="ResourceManagement\Resource.h" />
     <ClInclude Include="ResourceManagement\ResourcePool.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
+    <None Include="DecisionSystem\BehaviorStructures\TODO.md" />
     <None Include="DecisionSystem\BehaviorSystems\TODO.md" />
     <None Include="DecisionSystem\StateOfMind.json" />
   </ItemGroup>

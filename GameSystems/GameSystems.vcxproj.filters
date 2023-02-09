@@ -27,9 +27,6 @@
     <ClCompile Include="DecisionSystem\Mind.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneralComponents\Timer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="EntityManagement\Entity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -92,9 +89,6 @@
     <ClInclude Include="EntityManagement\Component.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GeneralComponents\Timer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GeneralTools\ArgListHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -104,10 +98,20 @@
     <ClInclude Include="DecisionSystem\BehaviorSystems\StateMachine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DecisionSystem\BehaviorStructures\StateMachine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneralTools\TimerUtility.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DecisionSystem\BehaviorStructures\Scheduler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DecisionSystem\StateOfMind.json" />
     <None Include="cpp.hint" />
     <None Include="DecisionSystem\BehaviorSystems\TODO.md" />
+    <None Include="DecisionSystem\BehaviorStructures\TODO.md" />
   </ItemGroup>
 </Project>

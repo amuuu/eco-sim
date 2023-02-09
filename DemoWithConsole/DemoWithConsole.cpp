@@ -1,8 +1,8 @@
 #define EVENT_SYSTEM_SAMPLE_ACTIVE 0
 #define ENTITY_MANAGEMENT_SAMPLE_ACTIVE 0
 #define RESOURCE_MANAGEMENT_SAMPLE_ACTIVE 0
-#define DECISION_SYSTEM_SAMPLE_ACTIVE 1
-
+#define DECISION_SYSTEM_SAMPLE_ACTIVE 0
+#define SCHEDULER_SAMPLE_ACTIVE 1
 
 /////////////////////////////////////////////////////////
 
@@ -22,6 +22,10 @@
 #include "DecisionSystemSample/DecisionSystemSample.cpp"
 #endif
 
+#if SCHEDULER_SAMPLE_ACTIVE 1
+#include "DecisionSystemSample/SchedulerSample.cpp"
+#endif
+
 int main()
 {
 
@@ -39,5 +43,9 @@ int main()
 
 #if DECISION_SYSTEM_SAMPLE_ACTIVE 1
 		DECISION_SYSTEM_SAMPLE::EXECUTE();
+#endif
+
+#if SCHEDULER_SAMPLE_ACTIVE 1
+		SCHEDULER_SAMPLE::EXECUTE();
 #endif
 }

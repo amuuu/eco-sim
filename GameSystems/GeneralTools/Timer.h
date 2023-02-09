@@ -7,7 +7,7 @@
 
 using namespace TimerUtility;
 
-namespace General
+namespace Timer
 {
 	class Timer
 	{
