@@ -101,9 +101,13 @@
     <ClInclude Include="GeneralTools\Blackboard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DecisionSystem\BehaviorSystems\StateMachine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="DecisionSystem\StateOfMind.json" />
     <None Include="cpp.hint" />
+    <None Include="DecisionSystem\BehaviorSystems\TODO.md" />
   </ItemGroup>
 </Project>

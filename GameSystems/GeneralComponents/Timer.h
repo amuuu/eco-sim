@@ -40,7 +40,7 @@ namespace GeneralComponents
 
 	private:
 
-		General::SimpleTimer timerObject{ false };
+		General::BaseTimer timerObject{ false };
 		
 		TimerMode mode;
 

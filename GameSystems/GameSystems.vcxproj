@@ -151,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DecisionSystem\ActionModel.h" />
+    <ClInclude Include="DecisionSystem\BehaviorSystems\StateMachine.h" />
     <ClInclude Include="DecisionSystem\MindVarModelsParser.h" />
     <ClInclude Include="DecisionSystem\DecisionSystemGlobals.h" />
     <ClInclude Include="DecisionSystem\MindVarModel.h" />
@@ -174,6 +175,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
+    <None Include="DecisionSystem\BehaviorSystems\TODO.md" />
     <None Include="DecisionSystem\StateOfMind.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
