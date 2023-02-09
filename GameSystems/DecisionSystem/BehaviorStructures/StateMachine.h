@@ -1,5 +1,4 @@
 #include <iostream>
-
 #include <map>
 #include <string>
 #include <vector>
@@ -12,7 +11,6 @@ namespace StateMachineStructure
 {
 	static const float ERROR_FLOAT = -1.43499f;
 	static const std::string ERROR_STR = "_ERROR_";
-
 
 	class GlobalParams
 	{
@@ -98,7 +96,6 @@ namespace StateMachineStructure
 	private:
 
 		std::vector<State*> toStates{};
-
 	};
 
 	class StateMachine
@@ -132,6 +129,9 @@ namespace StateMachineStructure
 			bool validEntryState{ false };
 			for (const auto& pair : pairs)
 			{
+				RecordReference(pair.first);
+				RecordReference(pair.second);
+
 				pair.first->ConnectTo(pair.second);
 
 				if (!validEntryState && pair.first == entryState)
@@ -142,13 +142,23 @@ namespace StateMachineStructure
 			if (validEntryState)
 				LoadEntryState(entryState);
 			else
-				std::cout << "Entry state isn't included in the initializer list." << std::endl;
+				std::cout << "Entry state isn't included in the initializer list" << std::endl;
+		}
+
+		~StateMachine()
+		{
+			for (auto ref : allStatesReferences)
+				delete ref;
+			delete entryState;
+			allStatesReferences.clear();
 		}
 
 	private:
 
 		void LoadEntryState(State* entryState)
 		{
+			this->entryState = new State* { entryState };
+
 			currentState = new State*;
 			*currentState = entryState;
 
@@ -157,18 +167,13 @@ namespace StateMachineStructure
 
 		GlobalParams params{};
 		State** currentState{ nullptr };
+		State** entryState{ nullptr };
+
+		std::vector<State*> allStatesReferences{};
+		void RecordReference(State* ref)
+		{
+			for (const auto& r : allStatesReferences) if (r == ref) return;
+			allStatesReferences.push_back(ref);
+		}
 	};
-
-	/*
-	// EXAMPLE:
-	{
-		State2* s2 = new State2{}; // child of State
-		State1* s1 = new State1{}; // child of State
-		State1* s3 = new State1{}; // child of State
-		StateMachine sm{};
-
-		sm.LoadStates(s1, { {s1, s2} });
-		sm.ChangeState(s2);
-	}
-	*/
 }
