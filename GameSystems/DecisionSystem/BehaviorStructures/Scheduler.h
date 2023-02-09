@@ -42,7 +42,7 @@ namespace Scheduler
 			if (alreadyStarted)
 				return false;
 
-			auto diff = GetTimestampsDifferenceMillis(targetMoment, NOW);
+			auto diff = GetTimestampsDifferenceSecs(targetMoment, NOW);
 			if (diff >= 0 && diff <= 0.07f)
 			{
 				if (!alreadyStarted)

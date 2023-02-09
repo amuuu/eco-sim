@@ -13,7 +13,7 @@ namespace Timer
 	{
 	public:
 
-		inline float GetElapsed(TimeScaleType scale) { return ConvertToTimeScale(scale, GetElapsedMillis()); }
+		inline float GetElapsed(TimeScaleType scale) { return ConvertToTimeScale(scale, GetElapsedSecs()); }
 
 		Timer(double timescaleToRealLifeSecond, TimestampType startPoint) : timescaleToRealLifeSecond(timescaleToRealLifeSecond), startPoint(startPoint) { }
 		Timer(double timescaleToRealLifeSecond) : timescaleToRealLifeSecond(timescaleToRealLifeSecond), startPoint(NOW) { }
@@ -23,7 +23,7 @@ namespace Timer
 
 	private:
 
-		float GetElapsedMillis() { return (1. / timescaleToRealLifeSecond) * GetTimestampsDifferenceMillis(NOW, startPoint); }
+		float GetElapsedSecs() { return (1. / timescaleToRealLifeSecond) * GetTimestampsDifferenceSecs(NOW, startPoint); }
 
 		double timescaleToRealLifeSecond{ 1. };
 		TimestampType startPoint;

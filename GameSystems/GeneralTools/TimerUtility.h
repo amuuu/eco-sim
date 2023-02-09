@@ -13,7 +13,7 @@ namespace TimerUtility
 		Sec, Min, Hour, Day, Week, Month, Year, None
 	};
 
-	static inline float GetTimestampsDifferenceMillis(TimestampType end, TimestampType start)
+	static inline float GetTimestampsDifferenceSecs(TimestampType end, TimestampType start)
 	{
 		return std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() * 0.001f * 0.001f * 0.001f;
 	}
