@@ -5,11 +5,11 @@
 
 namespace General
 {
-	class SimpleTimer
+	class BaseTimer
 	{
 	public:
 		
-		SimpleTimer(bool autoStart)
+		BaseTimer(bool autoStart)
 		{
 			if (autoStart)
 				Start();

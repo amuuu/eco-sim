@@ -1,4 +1,2 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8028: The intermediate directory (OUTPUT\x64\Debug\INTERMEDIATE\) contains files shared from another project (DemoWithGui.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  ActionsListPort.cpp
-D:\Software Projects\GameSystems\GameSystems\EcoSim\Ports\ActionsListPort.cpp(62,46): warning C4100: 'prompt': unreferenced formal parameter
-  EcoSim.vcxproj -> D:\Software Projects\GameSystems\GameSystems\EcoSim\OUTPUT\x64\Debug\MAIN\EcoSim.exe
+  EcoSim.vcxproj -> D:\SoftwareProjects\GameSystems\GameSystems\EcoSim\OUTPUT\x64\Debug\MAIN\EcoSim.exe
