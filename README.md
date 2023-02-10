@@ -6,14 +6,13 @@ The tools are being developed in a modular and reusable manner. The pieces that 
 Here are the current reusable features:
 - Entity Management
     - Game loop
-    - ECS
+    - ECS (without S, more like the Unity way)
 - Resource Management
 - Event System
 - Decision System
-    - Actions, rewards, mind variables
+    - Traits, Needs, Actions, and Rewards 
     - State machine
     - Behavior scheduler
-- Collection of general components
 - General Tools 
     - Templated/Macro-wrapped design patterns
         - Object Pool
@@ -22,7 +21,7 @@ Here are the current reusable features:
     - Timer
     - Chrono utilities
     - Logger
-    - Arguments packer/unpacker that extends the raw ability of c++ 
+    - Function arguments packer/unpacker that extends the raw ability of c++ 
 
 The ecosystem simulation has a UI that uses ImGui. The systems mentioned previously, are connected to the ui using a ImGui layer port. ImGui layer port has multiple secondary ports connected to it such as entity manager port and actions list port. The ports are responsible for literally "porting" the system to the interface and rendering their own data. The ImGui layer port calls the render function of each secondary port in each tick.
 
