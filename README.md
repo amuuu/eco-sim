@@ -27,4 +27,4 @@ The ecosystem simulation has a UI that uses ImGui. The systems mentioned previou
 
 In order for the ports to communicate with each other, there are two ways implemented by far: blackboard and prompt system. The prompt system bascially consists of a bus shared between ports through which they can send prompts with payloads to each other. Blackboard is basically a shared data pool that ports subscribe to and get notified whenever blackboard gets updated.
 
-I will change the backend of ImGui to SDL2 soon because I want to render the entities in the world space. Currently the backend of ImGui is only with OpenGL2.
+I will change the backend of ImGui to SDL2 soon because I want to render the entities in the world space. Currently the backend of ImGui is only with OpenGL2 and I don't know anything about OpenGL.
