@@ -55,26 +55,8 @@ int main(int, char**)
         
 
 
-        if (show_demo_window)
-            ImGui::ShowDemoWindow(&show_demo_window);
+        port.UpdateDraw();
 
-        {
-
-            ImGui::SetNextWindowSize(ImVec2(350, 400));
-            ImGui::SetNextWindowPos(ImVec2(50, 50));
-            ImGuiWindowFlags mainFlags = ImGuiWindowFlags_NoCollapse;
-            ImGui::Begin("Ecosystem", 0, mainFlags);
-
-            ImGui::Checkbox("Demo Window", &show_demo_window);
-
-            ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-
-            ImGui::NewLine();
-
-            port.UpdateDraw();
-
-            ImGui::End();
-        }
 
         
         ImGui::Render();

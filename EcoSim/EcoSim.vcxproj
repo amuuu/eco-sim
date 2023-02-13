@@ -167,6 +167,7 @@
     <ClCompile Include="..\ExternalTools\imgui-1.89.1\backends\imgui_impl_opengl2.cpp" />
     <ClCompile Include="Ports\ActionsListPort.cpp" />
     <ClCompile Include="Ports\BoilerplatePort.cpp" />
+    <ClCompile Include="Ports\DefaultPort.cpp" />
     <ClCompile Include="Ports\EntityManagerPort.cpp" />
     <ClCompile Include="Ports\ImGuiLayerPort.cpp" />
     <ClCompile Include="main.cpp" />
@@ -181,6 +182,7 @@
     <ClInclude Include="Ports\ActionsListPort.h" />
     <ClInclude Include="Ports\BasePort.h" />
     <ClInclude Include="Ports\BoilerplatePort.h" />
+    <ClInclude Include="Ports\DefaultPort.h" />
     <ClInclude Include="Ports\EntityManagerPort.h" />
     <ClInclude Include="Ports\ImGuiLayerPort.h" />
     <ClInclude Include="Ports\InterPortComHandler.h" />

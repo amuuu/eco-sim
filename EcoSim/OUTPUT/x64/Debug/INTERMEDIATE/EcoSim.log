@@ -1,19 +1,4 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8028: The intermediate directory (OUTPUT\x64\Debug\INTERMEDIATE\) contains files shared from another project (DemoWithGui.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  imgui_impl_glfw.cpp
-  imgui_impl_opengl2.cpp
-  imgui.cpp
-  imgui_demo.cpp
-  imgui_draw.cpp
-  imgui_tables.cpp
-  imgui_widgets.cpp
-  ActionsListPort.cpp
-D:\SoftwareProjects\GameSystems\GameSystems\EcoSim\Ports\ActionsListPort.cpp(62,46): warning C4100: 'prompt': unreferenced formal parameter
-  BoilerplatePort.cpp
-  EntityManagerPort.cpp
-D:\SoftwareProjects\GameSystems\GameSystems\EcoSim\Ports\EntityManagerPort.cpp(53,49): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\SoftwareProjects\GameSystems\GameSystems\EcoSim\Ports\EntityManagerPort.cpp(71,48): warning C4100: 'prompt': unreferenced formal parameter
-  ImGuiLayerPort.cpp
-D:\SoftwareProjects\GameSystems\GameSystems\EcoSim\Ports\ImGuiLayerPort.h(42,14): warning C4505: 'LayerPort::InstallPorts': unreferenced function with internal linkage has been removed
   main.cpp
-  Generating Code...
+D:\SoftwareProjects\GameSystems\GameSystems\EcoSim\main.cpp(46,10): warning C4189: 'show_demo_window': local variable is initialized but not referenced
   EcoSim.vcxproj -> D:\SoftwareProjects\GameSystems\GameSystems\EcoSim\OUTPUT\x64\Debug\MAIN\EcoSim.exe
