@@ -13,27 +13,6 @@
     <ClCompile Include="main.cpp">
       <Filter>sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\ExternalTools\imgui-1.89.1\imgui.cpp">
-      <Filter>imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\ExternalTools\imgui-1.89.1\imgui_demo.cpp">
-      <Filter>imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\ExternalTools\imgui-1.89.1\imgui_draw.cpp">
-      <Filter>imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\ExternalTools\imgui-1.89.1\imgui_tables.cpp">
-      <Filter>imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\ExternalTools\imgui-1.89.1\imgui_widgets.cpp">
-      <Filter>imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\ExternalTools\imgui-1.89.1\backends\imgui_impl_glfw.cpp">
-      <Filter>sources</Filter>
-    </ClCompile>
-    <ClCompile Include="..\ExternalTools\imgui-1.89.1\backends\imgui_impl_opengl2.cpp">
-      <Filter>sources</Filter>
-    </ClCompile>
     <ClCompile Include="Ports\ImGuiLayerPort.cpp">
       <Filter>sources</Filter>
     </ClCompile>
@@ -49,23 +28,29 @@
     <ClCompile Include="Ports\DefaultPort.cpp">
       <Filter>sources</Filter>
     </ClCompile>
+    <ClCompile Include="..\ExternalTools\ImGui\imgui.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ExternalTools\ImGui\imgui_demo.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ExternalTools\ImGui\imgui_draw.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ExternalTools\ImGui\imgui_tables.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ExternalTools\ImGui\imgui_widgets.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ExternalTools\ImGui\backends\imgui_impl_opengl2.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ExternalTools\ImGui\backends\imgui_impl_sdl2.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\ExternalTools\imgui-1.89.1\imconfig.h">
-      <Filter>imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ExternalTools\imgui-1.89.1\imgui.h">
-      <Filter>imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ExternalTools\imgui-1.89.1\imgui_internal.h">
-      <Filter>imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ExternalTools\imgui-1.89.1\backends\imgui_impl_glfw.h">
-      <Filter>sources</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ExternalTools\imgui-1.89.1\backends\imgui_impl_opengl2.h">
-      <Filter>sources</Filter>
-    </ClInclude>
     <ClInclude Include="Ports\ImGuiLayerPort.h" />
     <ClInclude Include="Ports\EntityManagerPort.h" />
     <ClInclude Include="Ports\BasePort.h" />
@@ -75,10 +60,13 @@
     <ClInclude Include="Ports\BoilerplatePort.h" />
     <ClInclude Include="Ports\ActionsListPort.h" />
     <ClInclude Include="Ports\DefaultPort.h" />
+    <ClInclude Include="..\ExternalTools\ImGui\imconfig.h" />
+    <ClInclude Include="..\ExternalTools\ImGui\imgui.h" />
+    <ClInclude Include="..\ExternalTools\ImGui\imgui_internal.h" />
+    <ClInclude Include="..\ExternalTools\ImGui\backends\imgui_impl_sdl2.h" />
+    <ClInclude Include="..\ExternalTools\ImGui\backends\imgui_impl_opengl2.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\ExternalTools\imgui-1.89.1\misc\debuggers\imgui.natvis">
-      <Filter>imgui</Filter>
-    </None>
+    <None Include="..\ExternalTools\ImGui\misc\debuggers\imgui.natvis" />
   </ItemGroup>
 </Project>
