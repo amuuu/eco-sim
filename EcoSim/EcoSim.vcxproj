@@ -91,12 +91,12 @@
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\ExternalTools\ImGui;..\ExternalTools\ImGui\backends;..\ExternalTools\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ExternalTools\imgui-1.89.1;..\ExternalTools\imgui-1.89.1\backends;..\ExternalTools\imgui-1.89.1\libs\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\ExternalTools\SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\ExternalTools\imgui-1.89.1\libs\glfw\lib-vc2010-32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <IgnoreSpecificDefaultLibraries>msvcrt.lib</IgnoreSpecificDefaultLibraries>
     </Link>
@@ -105,13 +105,13 @@
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\ExternalTools\ImGui;..\ExternalTools\ImGui\backends;..\ExternalTools\SDL2\include;%(AdditionalIncludeDirectories);</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ExternalTools\imgui-1.89.1;..\ExternalTools\imgui-1.89.1\backends;..\ExternalTools\imgui-1.89.1\libs\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\ExternalTools\SDL2\lib\x64;%(AdditionalLibraryDirectories);</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies);</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\ExternalTools\imgui-1.89.1\libs\glfw\lib-vc2010-64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <IgnoreSpecificDefaultLibraries>msvcrt.lib</IgnoreSpecificDefaultLibraries>
     </Link>
@@ -122,15 +122,15 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\ExternalTools\ImGui;..\ExternalTools\ImGui\backends;..\ExternalTools\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ExternalTools\imgui-1.89.1;..\ExternalTools\imgui-1.89.1\backends;..\ExternalTools\imgui-1.89.1\libs\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <BufferSecurityCheck>false</BufferSecurityCheck>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>..\ExternalTools\SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\ExternalTools\imgui-1.89.1\libs\glfw\lib-vc2010-32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
@@ -142,7 +142,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\ExternalTools\ImGui;..\ExternalTools\ImGui\backends;..\ExternalTools\SDL2\include;%(AdditionalIncludeDirectories);</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ExternalTools\imgui-1.89.1;..\ExternalTools\imgui-1.89.1\backends;..\ExternalTools\imgui-1.89.1\libs\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -150,23 +150,21 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>..\ExternalTools\SDL2\lib\x64;%(AdditionalLibraryDirectories);</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies);</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\ExternalTools\imgui-1.89.1\libs\glfw\lib-vc2010-64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\ExternalTools\ImGui\imgui.cpp" />
-    <ClCompile Include="..\ExternalTools\ImGui\imgui_demo.cpp" />
-    <ClCompile Include="..\ExternalTools\ImGui\imgui_draw.cpp" />
-    <ClCompile Include="..\ExternalTools\ImGui\imgui_tables.cpp" />
-    <ClCompile Include="..\ExternalTools\ImGui\imgui_widgets.cpp" />
-    <ClCompile Include="..\ExternalTools\ImGui\backends\imgui_impl_sdl2.cpp" />
-    <ClCompile Include="..\ExternalTools\ImGui\backends\imgui_impl_opengl2.cpp" />
-  </ItemGroup>
-  <ItemGroup>
+    <ClCompile Include="..\ExternalTools\imgui-1.89.1\imgui.cpp" />
+    <ClCompile Include="..\ExternalTools\imgui-1.89.1\imgui_demo.cpp" />
+    <ClCompile Include="..\ExternalTools\imgui-1.89.1\imgui_draw.cpp" />
+    <ClCompile Include="..\ExternalTools\imgui-1.89.1\imgui_tables.cpp" />
+    <ClCompile Include="..\ExternalTools\imgui-1.89.1\imgui_widgets.cpp" />
+    <ClCompile Include="..\ExternalTools\imgui-1.89.1\backends\imgui_impl_glfw.cpp" />
+    <ClCompile Include="..\ExternalTools\imgui-1.89.1\backends\imgui_impl_opengl2.cpp" />
     <ClCompile Include="Ports\ActionsListPort.cpp" />
     <ClCompile Include="Ports\BoilerplatePort.cpp" />
     <ClCompile Include="Ports\DefaultPort.cpp" />
@@ -174,26 +172,24 @@
     <ClCompile Include="Ports\ImGuiLayerPort.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
-	<ItemGroup>
-		<ClInclude Include="..\ExternalTools\ImGui\imconfig.h" />
-		<ClInclude Include="..\ExternalTools\ImGui\imgui.h" />
-		<ClInclude Include="..\ExternalTools\ImGui\imgui_internal.h" />
-		<ClInclude Include="..\ExternalTools\ImGui\backends\imgui_impl_sdl2.h" />
-		<ClInclude Include="..\ExternalTools\ImGui\backends\imgui_impl_opengl2.h" />
-	</ItemGroup>
-	<ItemGroup>
-	    <ClInclude Include="ImGuiGlobals.h" />
-        <ClInclude Include="Ports\ActionsListPort.h" />
-        <ClInclude Include="Ports\BasePort.h" />
-        <ClInclude Include="Ports\BoilerplatePort.h" />
-        <ClInclude Include="Ports\DefaultPort.h" />
-        <ClInclude Include="Ports\EntityManagerPort.h" />
-        <ClInclude Include="Ports\ImGuiLayerPort.h" />
-        <ClInclude Include="Ports\InterPortComHandler.h" />
-        <ClInclude Include="Ports\Prompt.h" />
+  <ItemGroup>
+    <ClInclude Include="..\ExternalTools\imgui-1.89.1\imconfig.h" />
+    <ClInclude Include="..\ExternalTools\imgui-1.89.1\imgui.h" />
+    <ClInclude Include="..\ExternalTools\imgui-1.89.1\imgui_internal.h" />
+    <ClInclude Include="..\ExternalTools\imgui-1.89.1\backends\imgui_impl_glfw.h" />
+    <ClInclude Include="..\ExternalTools\imgui-1.89.1\backends\imgui_impl_opengl2.h" />
+    <ClInclude Include="ImGuiGlobals.h" />
+    <ClInclude Include="Ports\ActionsListPort.h" />
+    <ClInclude Include="Ports\BasePort.h" />
+    <ClInclude Include="Ports\BoilerplatePort.h" />
+    <ClInclude Include="Ports\DefaultPort.h" />
+    <ClInclude Include="Ports\EntityManagerPort.h" />
+    <ClInclude Include="Ports\ImGuiLayerPort.h" />
+    <ClInclude Include="Ports\InterPortComHandler.h" />
+    <ClInclude Include="Ports\Prompt.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\ExternalTools\ImGui\misc\debuggers\imgui.natvis" />
+    <None Include="..\ExternalTools\imgui-1.89.1\misc\debuggers\imgui.natvis" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameSystems\GameSystems.vcxproj">

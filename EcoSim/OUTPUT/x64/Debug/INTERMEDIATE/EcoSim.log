@@ -1,3 +1,4 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8028: The intermediate directory (OUTPUT\x64\Debug\INTERMEDIATE\) contains files shared from another project (DemoWithGui.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   main.cpp
+D:\SoftwareProjects\GameSystems\GameSystems\EcoSim\main.cpp(46,10): warning C4189: 'show_demo_window': local variable is initialized but not referenced
   EcoSim.vcxproj -> D:\SoftwareProjects\GameSystems\GameSystems\EcoSim\OUTPUT\x64\Debug\MAIN\EcoSim.exe
