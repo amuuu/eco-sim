@@ -8,9 +8,10 @@
 using namespace GeneralBlackBoard;
 
 #include <imgui.h>
+#include <SFML/Graphics/RenderWindow.hpp>
+
 #include "../ImGuiGlobals.h"
 
-//#include <functional>
 
 namespace LayerPort
 {
@@ -21,7 +22,7 @@ namespace LayerPort
 
 	protected:
 
-		virtual void Setup() = 0;
+		virtual void Setup(sf::RenderWindow* window) = 0;
 		virtual void Shutdown() = 0;
 		
 		virtual void UpdateDraw() = 0;
@@ -29,6 +30,8 @@ namespace LayerPort
 		virtual void OnPrompt(const Prompt& prompt) = 0;
 
 		InterPortComHandler* interPortComHandler;
+
+		sf::RenderWindow* window{};
 
 	public:
 		

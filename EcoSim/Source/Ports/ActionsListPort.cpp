@@ -6,8 +6,10 @@
 
 using namespace LayerPort;
 
-void ActionsListPort::Setup()
+void ActionsListPort::Setup(sf::RenderWindow* window)
 {
+	this->window = window;
+
 	LoadConfigs();
 }
 

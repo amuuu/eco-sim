@@ -2,7 +2,7 @@
 
 using namespace LayerPort;
 
-ImGuiLayerPort::ImGuiLayerPort()
+ImGuiLayerPort::ImGuiLayerPort(sf::RenderWindow* window) : window(window)
 {
 	callback = std::bind(
 			&ImGuiLayerPort::RelayPromptToPorts, this, std::placeholders::_1);
@@ -13,7 +13,7 @@ ImGuiLayerPort::ImGuiLayerPort()
 void ImGuiLayerPort::Setup()
 {
 	for (const auto& p : ports)
-		p->Setup();
+		p->Setup(window);
 }
 
 void ImGuiLayerPort::Shutdown()

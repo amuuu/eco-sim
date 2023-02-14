@@ -8,6 +8,8 @@
 #include "EntityManagerPort.h"
 #include "ActionsListPort.h"
 
+#include <SFML/Graphics/RenderWindow.hpp>
+
 #include <vector>
 #include <queue>
 #include <functional>
@@ -18,7 +20,7 @@ namespace LayerPort
 	{
 	public:
 		
-		ImGuiLayerPort();
+		ImGuiLayerPort(sf::RenderWindow* window);
 
 		void Setup();
 
@@ -33,6 +35,8 @@ namespace LayerPort
 		InterPortComHandler* GetInterPortComHandler();
 
 	private:
+		
+		sf::RenderWindow* window{};
 
 		std::vector<BasePort*> ports{};
 		InterPortComHandler* interPortComHandler;

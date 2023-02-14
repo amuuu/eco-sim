@@ -3,8 +3,10 @@
 
 using namespace LayerPort;
 
-void EntityManagerPort::Setup()
+void EntityManagerPort::Setup(sf::RenderWindow* window)
 {
+	this->window = window;
+
 	entityManager.StartTheLoop();
 }
 

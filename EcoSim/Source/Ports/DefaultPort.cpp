@@ -1,7 +1,8 @@
 #include "DefaultPort.h"
 
-void LayerPort::DefaultPort::Setup()
+void LayerPort::DefaultPort::Setup(sf::RenderWindow* window)
 {
+    this->window = window;
 }
 
 void LayerPort::DefaultPort::Shutdown()
