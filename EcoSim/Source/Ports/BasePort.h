@@ -19,7 +19,7 @@ namespace LayerPort
 
 	class BasePort
 	{
-		friend class ImGuiLayerPort;
+		friend class UILayerPort;
 
 	protected:
 

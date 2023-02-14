@@ -1,2 +1,9 @@
 ﻿  main.cpp
+  ActionsListPort.cpp
+  BoilerplatePort.cpp
+  DefaultPort.cpp
+  EntityManagerPort.cpp
+D:\SoftwareProjects\GameSystems\GameSystems\EcoSim\Source\Ports\EntityManagerPort.cpp(55,49): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  UILayerPort.cpp
+  Generating Code...
   EcoSim.vcxproj -> D:\SoftwareProjects\GameSystems\GameSystems\EcoSim\OUTPUT\x64\Debug\MAIN\EcoSim.exe

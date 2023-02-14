@@ -150,11 +150,11 @@
       <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);opengl32.lib;external\SFML\lib\*.lib;</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-	<ItemGroup>
-		<ProjectReference Include="..\GameSystems\GameSystems.vcxproj">
-			<Project>{61775fec-5e21-4858-bf07-77f0d4be981e}</Project>
-		</ProjectReference>
-	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameSystems\GameSystems.vcxproj">
+      <Project>{61775fec-5e21-4858-bf07-77f0d4be981e}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <ClCompile Include="external\imgui\imgui.cpp" />
     <ClCompile Include="external\imgui\imgui_draw.cpp" />
@@ -167,7 +167,7 @@
     <ClCompile Include="Source\Ports\BoilerplatePort.cpp" />
     <ClCompile Include="Source\Ports\DefaultPort.cpp" />
     <ClCompile Include="Source\Ports\EntityManagerPort.cpp" />
-    <ClCompile Include="Source\Ports\ImGuiLayerPort.cpp" />
+    <ClCompile Include="Source\Ports\UILayerPort.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\imgui-sfml\imconfig-SFML.h" />
@@ -194,7 +194,7 @@
     <ClInclude Include="Source\Ports\BoilerplatePort.h" />
     <ClInclude Include="Source\Ports\DefaultPort.h" />
     <ClInclude Include="Source\Ports\EntityManagerPort.h" />
-    <ClInclude Include="Source\Ports\ImGuiLayerPort.h" />
+    <ClInclude Include="Source\Ports\UILayerPort.h" />
     <ClInclude Include="Source\Ports\InterPortComHandler.h" />
     <ClInclude Include="Source\Ports\Prompt.h" />
   </ItemGroup>

@@ -7,7 +7,7 @@
 
 #include <memory>
 
-#include "Ports/ImGuiLayerPort.h"
+#include "Ports/UILayerPort.h"
 
 
 int main() 
@@ -17,7 +17,7 @@ int main()
     window->setFramerateLimit(60);
     ImGui::SFML::Init(*window);
 
-    LayerPort::ImGuiLayerPort port{ window };
+    LayerPort::UILayerPort port{ window };
     LayerPort::InstallPorts(port);
     port.Setup();
 
