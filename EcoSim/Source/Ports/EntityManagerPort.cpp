@@ -38,6 +38,16 @@ void LayerPort::EntityManagerPort::UpdateDraw()
 			{
 				ToggleDisplayForEntity(entityData.first);
 			}
+
+			if (entityPresentation.find(entityData.first) == entityPresentation.end())
+			{
+				sf::CircleShape rep{ 10.f };
+				rep.setFillColor(sf::Color::Cyan);
+				rep.setPosition(sf::Vector2f{ 300.f + (entityPresentation.size()) * 25.f, 30.f});
+				entityPresentation[entityData.first] = rep;
+			}
+
+			window->draw(entityPresentation[entityData.first]);
 		}
 
 		ImGui::TreePop();

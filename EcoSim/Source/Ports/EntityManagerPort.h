@@ -8,6 +8,10 @@ using namespace EntityManagement;
 #include <string> 
 #include <map>
 
+#include <SFML/Graphics/CircleShape.hpp>
+
+
+
 namespace LayerPort
 {
 
@@ -46,9 +50,9 @@ namespace LayerPort
 
 		EntityManager entityManager{ false };
 		std::map<const ID, bool> entityDisplayState{};
+		std::map<const ID, sf::CircleShape> entityPresentation{};
 
 	private:
 		int bulkInstantiateAmount{ 0 }, entityListItemIndex{ 0 };
-
 	};
 }
