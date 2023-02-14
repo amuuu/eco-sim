@@ -4,6 +4,7 @@
 #include <SFML/Graphics/Renderwindow.hpp>
 #include <SFML/System/Clock.hpp>
 #include <SFML/Window/Event.hpp>
+#include <SFML/Graphics/View.hpp>
 
 #include <memory>
 
@@ -21,6 +22,12 @@ int main()
     LayerPort::InstallPorts(port);
     port.Setup();
 
+    sf::View view{ sf::FloatRect{0.f,0.f,1200, 800} };
+    window->setView(view);
+
+    bool cursorIsInBorders{ false };
+    sf::Vector2f viewPortMoveVect{};
+
     sf::Clock deltaClock;
     while (window->isOpen()) 
     {
@@ -33,6 +40,40 @@ int main()
             {
                 window->close();
             }
+
+            if (event.type == sf::Event::MouseMoved)
+            {
+                float currX = event.mouseMove.x;
+                float currY = event.mouseMove.y;
+                bool inXBorder{ true };
+                bool inYBorder { true };
+
+                if (currX > 0.f && currX < 10.f)
+                    viewPortMoveVect = sf::Vector2f{ -5.f, 0.f };
+                else if (currX < 1200.f && currX > 1190.f)
+                    viewPortMoveVect = sf::Vector2f{ 5.f, 0.f };
+                else
+                    inXBorder = false;
+
+                if (currY > 0.f && currY < 10.f)
+                    viewPortMoveVect = sf::Vector2f{ 0.f, -5.f };
+                else if (currY < 800.f && currY > 790.f)
+                    viewPortMoveVect = sf::Vector2f{ 0.f, 5.f };
+                else
+                    inYBorder = false;
+
+                if (!inXBorder && !inYBorder)
+                    cursorIsInBorders = false;
+                else
+                    cursorIsInBorders = true;
+            }
+        }
+
+        if (cursorIsInBorders)
+        {
+            sf::View newView{ window->getView() };
+            newView.move(viewPortMoveVect);
+            window->setView(newView);
         }
 
         ImGui::SFML::Update(*window, deltaClock.restart());
