@@ -10,10 +10,12 @@
 
 #include "Ports/UILayerPort.h"
 
+#define WINDOW_WIDTH 1200.f
+#define WINDOW_HEIGHT 800.f
 
 int main() 
 {
-    std::shared_ptr<sf::RenderWindow> window = std::make_shared<sf::RenderWindow>( sf::VideoMode(1200, 800), "Ecosystem Simulation" );
+    std::shared_ptr<sf::RenderWindow> window = std::make_shared<sf::RenderWindow>( sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Ecosystem Simulation" );
 
     window->setFramerateLimit(60);
     ImGui::SFML::Init(*window);
@@ -22,7 +24,7 @@ int main()
     LayerPort::InstallPorts(port);
     port.Setup();
 
-    sf::View view{ sf::FloatRect{0.f,0.f,1200, 800} };
+    sf::View view{ sf::FloatRect{0.f, 0.f, WINDOW_WIDTH, WINDOW_HEIGHT} };
     window->setView(view);
 
     bool cursorIsInBorders{ false };
@@ -50,22 +52,19 @@ int main()
 
                 if (currX > 0.f && currX < 10.f)
                     viewPortMoveVect = sf::Vector2f{ -5.f, 0.f };
-                else if (currX < 1200.f && currX > 1190.f)
+                else if (currX < WINDOW_WIDTH && currX > WINDOW_WIDTH - 10)
                     viewPortMoveVect = sf::Vector2f{ 5.f, 0.f };
                 else
                     inXBorder = false;
 
                 if (currY > 0.f && currY < 10.f)
                     viewPortMoveVect = sf::Vector2f{ 0.f, -5.f };
-                else if (currY < 800.f && currY > 790.f)
+                else if (currY < WINDOW_HEIGHT && currY > WINDOW_HEIGHT - 10)
                     viewPortMoveVect = sf::Vector2f{ 0.f, 5.f };
                 else
                     inYBorder = false;
 
-                if (!inXBorder && !inYBorder)
-                    cursorIsInBorders = false;
-                else
-                    cursorIsInBorders = true;
+                cursorIsInBorders = !(!inXBorder && !inYBorder);
             }
         }
 
@@ -79,11 +78,7 @@ int main()
         ImGui::SFML::Update(*window, deltaClock.restart());
         
         window->clear();
-
-        /*ImGui::Begin("Hello, world!");
-        ImGui::Button("Look at this pretty button");
-        ImGui::End();*/
-
+        
         port.UpdateDraw();
 
         ImGui::SFML::Render(*window);

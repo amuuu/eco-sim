@@ -1,4 +1,6 @@
 ﻿  main.cpp
-D:\SoftwareProjects\GameSystems\GameSystems\EcoSim\Source\main.cpp(46,29): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-D:\SoftwareProjects\GameSystems\GameSystems\EcoSim\Source\main.cpp(47,29): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\SoftwareProjects\GameSystems\GameSystems\EcoSim\Source\main.cpp(18,112): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+D:\SoftwareProjects\GameSystems\GameSystems\EcoSim\Source\main.cpp(18,98): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+D:\SoftwareProjects\GameSystems\GameSystems\EcoSim\Source\main.cpp(48,29): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\SoftwareProjects\GameSystems\GameSystems\EcoSim\Source\main.cpp(49,29): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   EcoSim.vcxproj -> D:\SoftwareProjects\GameSystems\GameSystems\EcoSim\OUTPUT\x64\Debug\MAIN\EcoSim.exe
