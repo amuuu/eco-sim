@@ -1,3 +1,9 @@
 [submodule "ExternalTools/amuuu--simple-csv-parser"]
 	path = ExternalTools/amuuu--simple-csv-parser
 	url = https://github.com/amuuu/simple-csv-parser
+[submodule "EcoSim/external/imgui"]
+	path = EcoSim/external/imgui
+	url = https://github.com/amuuu/imgui
+[submodule "EcoSim/external/imgui-sfml"]
+	path = EcoSim/external/imgui-sfml
+	url = https://github.com/amuuu/imgui-sfml

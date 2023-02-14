@@ -1,9 +1,0 @@
-﻿  ImGuiLayerPort.cpp
-D:\Software Projects\GameSystems\GameSystems\DemoWithGui\ImGuiLayerPort.h(18,28): warning C4100: 'tick': unreferenced formal parameter
-D:\Software Projects\GameSystems\GameSystems\DemoWithGui\ImGuiLayerPort.h(22,51): warning C4100: 'fixedTick': unreferenced formal parameter
-  main.cpp
-D:\Software Projects\GameSystems\GameSystems\DemoWithGui\ImGuiLayerPort.h(18,28): warning C4100: 'tick': unreferenced formal parameter
-D:\Software Projects\GameSystems\GameSystems\DemoWithGui\ImGuiLayerPort.h(22,51): warning C4100: 'fixedTick': unreferenced formal parameter
-D:\Software Projects\GameSystems\GameSystems\DemoWithGui\main.cpp(117,66): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Generating Code...
-  DemoWithGui.vcxproj -> D:\Software Projects\GameSystems\GameSystems\DemoWithGui\OUTPUT\x64\Debug\MAIN\DemoWithGui.exe
