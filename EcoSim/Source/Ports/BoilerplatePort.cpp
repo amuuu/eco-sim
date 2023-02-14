@@ -2,7 +2,7 @@
 
 #include <GeneralTools/Logger.h>
 
-void LayerPort::BoilerplatePort::Setup(sf::RenderWindow* window)
+void LayerPort::BoilerplatePort::Setup(std::shared_ptr<sf::RenderWindow> window)
 {
 	this->window = window;
 

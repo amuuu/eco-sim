@@ -8,7 +8,7 @@ namespace LayerPort
 	{
 	private:
 
-		virtual void Setup(sf::RenderWindow* window) override; // BasePort
+		virtual void Setup(std::shared_ptr<sf::RenderWindow> window) override; // BasePort
 		virtual void Shutdown() override; // BasePort
 		virtual void UpdateDraw() override; // BasePort
 		virtual void OnPrompt(const Prompt& prompt) override; // BasePort

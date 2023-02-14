@@ -1,6 +1,6 @@
 #include "DefaultPort.h"
 
-void LayerPort::DefaultPort::Setup(sf::RenderWindow* window)
+void LayerPort::DefaultPort::Setup(std::shared_ptr<sf::RenderWindow> window)
 {
     this->window = window;
 }

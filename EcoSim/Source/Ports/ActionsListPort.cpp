@@ -6,7 +6,7 @@
 
 using namespace LayerPort;
 
-void ActionsListPort::Setup(sf::RenderWindow* window)
+void ActionsListPort::Setup(std::shared_ptr<sf::RenderWindow> window)
 {
 	this->window = window;
 

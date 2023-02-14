@@ -2,12 +2,14 @@
 
 using namespace LayerPort;
 
-ImGuiLayerPort::ImGuiLayerPort(sf::RenderWindow* window) : window(window)
+ImGuiLayerPort::ImGuiLayerPort(std::shared_ptr<sf::RenderWindow> window)
 {
 	callback = std::bind(
 			&ImGuiLayerPort::RelayPromptToPorts, this, std::placeholders::_1);
 
 	interPortComHandler = new InterPortComHandler{ callback };
+
+	this->window = window;
 }
 
 void ImGuiLayerPort::Setup()

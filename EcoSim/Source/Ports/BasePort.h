@@ -12,6 +12,7 @@ using namespace GeneralBlackBoard;
 
 #include "../ImGuiGlobals.h"
 
+#include <memory>
 
 namespace LayerPort
 {
@@ -22,7 +23,7 @@ namespace LayerPort
 
 	protected:
 
-		virtual void Setup(sf::RenderWindow* window) = 0;
+		virtual void Setup(std::shared_ptr<sf::RenderWindow> window) = 0;
 		virtual void Shutdown() = 0;
 		
 		virtual void UpdateDraw() = 0;
@@ -31,7 +32,7 @@ namespace LayerPort
 
 		InterPortComHandler* interPortComHandler;
 
-		sf::RenderWindow* window{};
+		std::shared_ptr<sf::RenderWindow> window{};
 
 	public:
 		

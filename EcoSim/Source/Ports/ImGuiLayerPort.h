@@ -13,6 +13,7 @@
 #include <vector>
 #include <queue>
 #include <functional>
+#include <memory>
 
 namespace LayerPort
 {
@@ -20,7 +21,7 @@ namespace LayerPort
 	{
 	public:
 		
-		ImGuiLayerPort(sf::RenderWindow* window);
+		ImGuiLayerPort(std::shared_ptr<sf::RenderWindow> window);
 
 		void Setup();
 
@@ -36,7 +37,7 @@ namespace LayerPort
 
 	private:
 		
-		sf::RenderWindow* window{};
+		std::shared_ptr<sf::RenderWindow> window{};
 
 		std::vector<BasePort*> ports{};
 		InterPortComHandler* interPortComHandler;

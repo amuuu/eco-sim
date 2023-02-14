@@ -3,7 +3,7 @@
 
 using namespace LayerPort;
 
-void EntityManagerPort::Setup(sf::RenderWindow* window)
+void EntityManagerPort::Setup(std::shared_ptr<sf::RenderWindow> window)
 {
 	this->window = window;
 
